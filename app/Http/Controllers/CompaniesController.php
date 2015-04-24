@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-class CompanyController extends Controller {
+class CompaniesController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,9 +28,18 @@ class CompanyController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function getIndex()
+    //public function getIndex()
+    //{
+        //return view('companies.dashboard');
+    //}
+	/**
+	 * Show the application dashboard to the user.
+	 *
+	 * @return Response
+	 */
+	public function getShow($id)
 	{
-		return view('company.dashboard');
+		return view('companies.dashboard');
 	}
 
 }

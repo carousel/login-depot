@@ -51,7 +51,15 @@ class AuthController extends Controller {
 
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
-			return redirect()->intended($this->redirectPath());
+            if($this->auth->user()->role == "company"){
+			    return redirect()->to("/companies/{$this->auth->user()->id}");
+            }
+            if($this->auth->user()->role == "worker"){
+			    return redirect()->intended("/workers");
+            }
+            if($this->auth->user()->role == "admin"){
+			    return redirect()->intended("/admin");
+            }
 		}
 
 		return redirect($this->loginPath())
@@ -59,6 +67,51 @@ class AuthController extends Controller {
 					->withErrors([
 						'email' => $this->getFailedLoginMessage(),
 					]);
+	}
+	/**
+	 * Handle a registration request for the application.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function postRegister(Request $request)
+	{
+		$validator = $this->registrar->validator($request->all());
+
+		if ($validator->fails())
+		{
+			$this->throwValidationException(
+				$request, $validator
+			);
+        }else{
+            $user = $this->registrar->create($request->all());
+            return \Redirect::to("/companies/{$user->id}");        
+        }
+    }
+	/**
+	 * Log the user out of the application.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getLogout()
+	{
+		$this->auth->logout();
+
+		return redirect('/auth/login');
+	}
+	/**
+	 * Get the post register / login redirect path.
+	 *
+	 * @return string
+	 */
+	public function redirectPath()
+	{
+		if (property_exists($this, 'redirectPath'))
+		{
+			return $this->redirectPath;
+		}
+
+		return property_exists($this, 'redirectTo') ? $this->redirectTo : '/auth/login';
 	}
 
 

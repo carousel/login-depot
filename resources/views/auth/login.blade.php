@@ -1,40 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Mosaddek">
-    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <link rel="shortcut icon" href="img/favicon.png">
+@extends("layouts.master-auth");
 
-    <title>FlatLab - Flat & Responsive Bootstrap Admin Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/bootstrap-reset.css" rel="stylesheet">
-    <!--external css-->
-    <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <!-- Custom styles for this template -->
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/style-responsive.css" rel="stylesheet" />
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-  <body class="login-body">
-
+@section("content")
     <div class="container">
     @include("_partials.errors")
 
     {!!Form::open(["url"=>"auth/login","method"=>"POST","class"=>"form-signin"])!!}
         <h2 class="form-signin-heading">sign in now</h2>
         <div class="login-wrap">
+    {!!Form::label("email")!!}
     {!!Form::text("email","",["class"=>"form-control","placeholder"=>"enter email"])!!}            
+
+    {!!Form::label("password")!!}
     {!!Form::password("password",["class"=>"form-control","placeholder"=>"enter password"])!!}            
                 <input type="checkbox" value="remember-me"> Remember me
                 <span class="pull-right">
@@ -45,7 +21,7 @@
             <button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
             <div class="registration">
                 Don't have an account yet?
-                <a class="" href="registration.html">
+                <a class="" href="/auth/register">
                     Create an account
                 </a>
             </div>
@@ -62,7 +38,7 @@
                       </div>
                       <div class="modal-body">
                           <p>Enter your e-mail address below to reset your password.</p>
-                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+                          <input type="text" name="email-forgot" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 
                       </div>
                       <div class="modal-footer">
@@ -76,13 +52,7 @@
     {!!Form::close()!!}
 
     </div>
+@stop
 
 
 
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="/js/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-
-
-  </body>
-</html>

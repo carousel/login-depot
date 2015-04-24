@@ -15,7 +15,7 @@ class CreateWorkersTable extends Migration {
         Schema::create("workers",function($table){
             $table->increments('id');
             $table->integer('account_number');
-            $table->string('broker_id');
+            $table->integer('company_id');
             $table->timestamps();        
         });
 	}

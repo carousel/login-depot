@@ -1,6 +1,6 @@
 <?php namespace App\Services;
 
-use App\User;
+use App\LoginDepot\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 
@@ -32,6 +32,7 @@ class Registrar implements RegistrarContract {
 		return User::create([
 			'name' => $data['name'],
 			'email' => $data['email'],
+			'role' => 'company',
 			'password' => bcrypt($data['password']),
 		]);
 	}

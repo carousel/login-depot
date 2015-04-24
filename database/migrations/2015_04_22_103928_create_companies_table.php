@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBrokersTable extends Migration {
+class CreateCompaniesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,13 @@ class CreateBrokersTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create("brokers",function($table){
+        Schema::create("companies",function($table){
             $table->increments('id');
             $table->string('company_name');
             $table->integer('dot_number');
             $table->integer('mc_number');
-            $table->string('customer_id');
-            $table->string('worker_id');
+            $table->integer('customer_id');
+            $table->integer('worker_id');
             $table->string('logo');
             $table->string('website');
             $table->timestamps();        
@@ -32,7 +32,7 @@ class CreateBrokersTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop("brokers");
+        Schema::drop("companies");
 	}
 
 }
