@@ -533,7 +533,7 @@
                                     <tr><td height="15"></td></tr>
                                     <tr>
                                         <td  style="color: #a4a4a4; line-height: 25px; font-size: 12px; font-weight: normal; font-family: Helvetica, Arial, sans-serif;">
-Welcome to LoginDepot. Your account has been created. To gain full access please complete your profile <a href="/auth/login">here</a>
+Welcome to LoginDepot. Your account has been created. To gain full access please complete your profile <a href="http://larabal.com/auth/login">here</a>
 &nbsp;
 Thank you.
 
