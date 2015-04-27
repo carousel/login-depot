@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use App\Handlers\Events\CompanyRegisteredHandler;
 
 class AuthController extends Controller {
 
@@ -85,7 +86,14 @@ class AuthController extends Controller {
 			);
         }else{
             $user = $this->registrar->create($request->all());
-            return \Redirect::to("/companies/{$user->id}");        
+
+
+        $subscriber = new CompanyRegisteredHandler();
+        $data = ["email" => $user->email];
+        $event = \Event::fire($subscriber->onCompanyRegistration($data));
+
+            return \Redirect::to("/auth/login")
+                ->with("welcome","Welcome to LoginDepot. Your account has been created. Please check your email");
         }
     }
 	/**

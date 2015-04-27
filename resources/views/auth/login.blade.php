@@ -3,6 +3,7 @@
 @section("content")
     <div class="container">
     @include("_partials.errors")
+    @include("_partials.messages")
 
     {!!Form::open(["url"=>"auth/login","method"=>"POST","class"=>"form-signin"])!!}
         <h2 class="form-signin-heading">sign in now</h2>

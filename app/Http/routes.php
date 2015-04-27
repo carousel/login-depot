@@ -7,6 +7,13 @@
 |worker
 |admin
 */
+Route::get("/email",function()
+{
+    return view("emails.welcome");
+        //$subscriber = new App\Handlers\Events\CompanyRegisteredHandler();
+        //$event = ["name" => "subscribed"];
+        //$event = Event::fire($subscriber->onCompanyRegistration($event));
+});
 
 Route::get("/mail",function()
 {
@@ -17,7 +24,7 @@ Route::get("/mail",function()
         
 });
 
-Route::get('/companies', 'Auth\AuthController@getLogin');
+Route::get('/', 'HomeController@getIndex');
 Route::get('/companies/{id}', 'CompaniesController@getShow');
 Route::get('/admin', 'AdminController@getIndex');
 Route::get('/workers', 'WorkersController@getIndex');
