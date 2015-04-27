@@ -29,7 +29,7 @@ Route::get("/mail",function()
 Route::get('/', 'HomeController@getIndex');
 Route::get('/companies/{id}', 'CompaniesController@getShow');
 Route::get('/admin', 'AdminController@getIndex');
-Route::get('/workers', 'WorkersController@getIndex');
+//Route::get('/workers', 'WorkersController@getIndex');
 
 //Route::get('home', 'HomeController@index');
 
