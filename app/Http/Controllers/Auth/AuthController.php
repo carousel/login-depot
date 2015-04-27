@@ -86,15 +86,12 @@ class AuthController extends Controller {
 			);
         }else{
             $user = $this->registrar->create($request->all());
-
-
-        $subscriber = new CompanyRegisteredHandler();
-        $data = ["email" => $user->email];
-        $event = \Event::fire($subscriber->onCompanyRegistration($data));
-
-            return \Redirect::to("/auth/login")
-                ->with("welcome","Welcome to LoginDepot. Your account has been created. Please check your email");
+            $subscriber = new CompanyRegisteredHandler();
+            $data = ["email" => $user->email];
+            $event = \Event::fire($subscriber->onCompanyRegistration($data));
         }
+        return \Redirect::to(\URL::to("/auth/login"))
+            ->with("welcome","Welcome to LoginDepot. Your account has been created. Please check your email");
     }
 	/**
 	 * Log the user out of the application.
