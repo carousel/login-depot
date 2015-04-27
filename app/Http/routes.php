@@ -7,9 +7,11 @@
 |worker
 |admin
 */
-Route::get("/email",function()
+Route::get("/truncate",function()
 {
-    return view("emails.welcome");
+    \DB::table("users")->truncate();
+    return Redirect::to("auth/login");
+    //return view("emails.welcome");
         //$subscriber = new App\Handlers\Events\CompanyRegisteredHandler();
         //$event = ["name" => "subscribed"];
         //$event = Event::fire($subscriber->onCompanyRegistration($event));

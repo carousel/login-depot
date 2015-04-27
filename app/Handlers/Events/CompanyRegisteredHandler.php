@@ -36,6 +36,7 @@ class CompanyRegisteredHandler {
             $message->to($data["email"])
                 ->subject("Welcome to LoginDepot");
         });
+        return true;
     }
     /**
     * 
