@@ -39,7 +39,7 @@ class CompaniesController extends Controller {
 	 */
 	public function getShow($id)
 	{
-		return view('companies.dashboard');
+        return view('companies.dashboard')->with("id",$id);
 	}
 
 }
