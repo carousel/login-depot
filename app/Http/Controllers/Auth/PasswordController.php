@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
@@ -32,7 +33,46 @@ class PasswordController extends Controller {
 		$this->auth = $auth;
 		$this->passwords = $passwords;
 
-		$this->middleware('guest');
+		//$this->middleware('guest');
 	}
+	/**
+	 * Reset the given user's password.
+	 *
+	 * @param  Request  $request
+	 * @return Response
+	 */
+	public function postReset(Request $request)
+	{
+		$this->validate($request, [
+			'token' => 'required',
+			'email' => 'required|email',
+			'password' => 'required|confirmed',
+		]);
+
+		$credentials = $request->only(
+			'email', 'password', 'password_confirmation', 'token'
+		);
+
+		$response = $this->passwords->reset($credentials, function($user, $password)
+		{
+			$user->password = bcrypt($password);
+
+			$user->save();
+
+			$this->auth->login($user);
+		});
+
+		switch ($response)
+		{
+			case PasswordBroker::PASSWORD_RESET:
+				return redirect("/auth/login");
+
+			default:
+				return redirect()->back()
+							->withInput($request->only('email'))
+							->withErrors(['email' => trans($response)]);
+		}
+	}
+
 
 }

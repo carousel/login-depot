@@ -1,5 +1,4 @@
-@extends('app')
-
+@extends("layouts.master-auth")
 @section('content')
 <div class="container-fluid">
 	<div class="row">

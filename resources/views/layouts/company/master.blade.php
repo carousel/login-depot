@@ -37,10 +37,16 @@
 
   <body>
 
-        @yield("content")
+        @include("layouts.company.header")
+        @include("layouts.company.left-sidebar")
+        @include("layouts.company.right-sidebar")
+        @yield("calendar")
+        @yield("dashboard")
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="/assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="/js/jquery.scrollTo.min.js"></script>
@@ -61,6 +67,8 @@
     <script src="/js/sparkline-chart.js"></script>
     <script src="/js/easy-pie-chart.js"></script>
     <script src="/js/count.js"></script>
+    <!--script for this page only-->
+    <script src="/js/external-dragging-calendar.js"></script>
 
   <script>
 

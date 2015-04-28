@@ -19,35 +19,35 @@
                         <ul class="dropdown-menu extended tasks-bar">
                             <div class="notify-arrow notify-arrow-green"></div>
                             <li>
-                                <p class="green">You have 6 pending tasks</p>
+                                <p class="green">Accepted terms and conditions</p>
                             </li>
                             <li>
                                 <a href="#">
                                     <div class="task-info">
-                                        <div class="desc">Dashboard v1.3</div>
-                                        <div class="percent">40%</div>
+                                        <div class="desc">Customer 1 accepted</div>
+                                        <!--<div class="percent">40%</div>-->
                                     </div>
-                                    <div class="progress progress-striped">
+                                    <!--<div class="progress progress-striped">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
                                             <span class="sr-only">40% Complete (success)</span>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <div class="task-info">
-                                        <div class="desc">Database Update</div>
-                                        <div class="percent">60%</div>
+                                        <div class="desc">Customer 2 accepted</div>
+                                        <!--<div class="percent">40%</div>-->
                                     </div>
-                                    <div class="progress progress-striped">
+                                    <!--<div class="progress progress-striped">
                                         <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
                                             <span class="sr-only">60% Complete (warning)</span>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </a>
                             </li>
-                            <li>
+                            <!--<li>
                                 <a href="#">
                                     <div class="task-info">
                                         <div class="desc">Iphone Development</div>
@@ -89,7 +89,7 @@
                             </li>
                             <li class="external">
                                 <a href="#">See All Tasks</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </li>
                     <!-- settings end -->
@@ -168,47 +168,35 @@
                         <ul class="dropdown-menu extended notification">
                             <div class="notify-arrow notify-arrow-yellow"></div>
                             <li>
-                                <p class="yellow">You have 7 new notifications</p>
+                                <p class="yellow">Payments pending</p>
                             </li>
                             <li>
                                 <a href="#">
                                     <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                    Server #3 overloaded.
-                                    <span class="small italic">34 mins</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="label label-warning"><i class="fa fa-bell"></i></span>
-                                    Server #10 not respoding.
-                                    <span class="small italic">1 Hours</span>
+                                    <span class="small italic">Pending time</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                    Database overloaded 24%.
-                                    <span class="small italic">4 hrs</span>
+                                    <span class="small italic">Pending time</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="label label-success"><i class="fa fa-plus"></i></span>
-                                    New user registered.
-                                    <span class="small italic">Just now</span>
+                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                    <span class="small italic">Pending time</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <span class="label label-info"><i class="fa fa-bullhorn"></i></span>
-                                    Application error.
-                                    <span class="small italic">10 mins</span>
-                                </a>
-                            </li>
-                            <li>
+                            <!--<li>
                                 <a href="#">See all notifications</a>
-                            </li>
+                            </li>-->
                         </ul>
+                    </li>
+                    <li id="header_notification_bar">
+                        <a href="/companies/{!!$id!!}/calendar">
+                            <i class="fa fa-calendar"></i>
+                        </a>
                     </li>
                     <!-- notification dropdown end -->
                 </ul>

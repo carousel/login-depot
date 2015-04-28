@@ -41,5 +41,9 @@ class CompaniesController extends Controller {
 	{
         return view('companies.dashboard')->with("id",$id);
 	}
+	public function getCalendar($id)
+	{
+        return view('companies.calendar')->with("id",$id);
+	}
 
 }

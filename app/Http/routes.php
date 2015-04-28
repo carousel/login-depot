@@ -28,7 +28,11 @@ Route::get("/mail",function()
 
 Route::get('/', 'HomeController@getIndex');
 Route::get('/companies/{id}', 'CompaniesController@getShow');
+//UI COMPONENTS
+Route::get('/companies/{id}/calendar', 'CompaniesController@getCalendar');
 Route::get('/admin', 'AdminController@getIndex');
+Route::post('/post-email', 'Auth\PasswordController@postEmail');
+Route::post('/password/reset', 'Auth\PasswordController@postReset');
 //Route::get('/workers', 'WorkersController@getIndex');
 
 //Route::get('home', 'HomeController@index');
