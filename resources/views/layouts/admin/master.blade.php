@@ -6,25 +6,25 @@
     <meta name="description" content="">
     <meta name="author" content="Mosaddek">
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="/img/favicon.png">
 
     <title>FlatLab - Flat & Responsive Bootstrap Admin Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-reset.css" rel="stylesheet">
     <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
+    <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/css/owl.carousel.css" type="text/css">
 
       <!--right slidebar-->
-      <link href="css/slidebars.css" rel="stylesheet">
+      <link href="/css/slidebars.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
 
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/style-responsive.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/style-responsive.css" rel="stylesheet" />
 
 
 
@@ -37,10 +37,15 @@
 
   <body>
 
-    @yield("content")
+        @include("layouts.admin.header")
+        @include("layouts.admin.left-sidebar")
+        @include("layouts.admin.right-sidebar")
+        @yield("dashboard")
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="/assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="/js/jquery.scrollTo.min.js"></script>
@@ -61,6 +66,8 @@
     <script src="/js/sparkline-chart.js"></script>
     <script src="/js/easy-pie-chart.js"></script>
     <script src="/js/count.js"></script>
+    <!--script for this page only-->
+    <script src="/js/external-dragging-calendar.js"></script>
 
   <script>
 

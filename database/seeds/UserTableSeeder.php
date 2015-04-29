@@ -23,6 +23,12 @@ use Illuminate\Database\Seeder;
                     "password" => \Hash::make("bumerang"),
                     "role" => "company"
                 ]);
+                User::create([
+                    "name" => "joe",
+                    "email" => "joe@logindepot.com",
+                    "password" => \Hash::make("joeworker"),
+                    "role" => "worker"
+                ]);
                 
             }
         }

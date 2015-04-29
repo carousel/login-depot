@@ -37,10 +37,9 @@
 
   <body>
 
-        @include("layouts.company.header")
-        @include("layouts.company.left-sidebar")
-        @include("layouts.company.right-sidebar")
-        @yield("calendar")
+        @include("layouts.admin.header")
+        @include("layouts.admin.left-sidebar")
+        @include("layouts.admin.right-sidebar")
         @yield("dashboard")
 
     <!-- js placed at the end of the document so the pages load faster -->
@@ -69,7 +68,6 @@
     <script src="/js/count.js"></script>
     <!--script for this page only-->
     <script src="/js/external-dragging-calendar.js"></script>
-    <script src="/js/logindepot/calendar.js"></script>
 
   <script>
 
