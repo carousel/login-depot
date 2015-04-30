@@ -10,6 +10,12 @@
                           <span>Dashboard</span>
                       </a>
                   </li>
+                  <li>
+                      <a class="active" href="/companies/{!!$id!!}/customers">
+                          <i class="fa fa-user"></i>
+                          <span>Customers</span>
+                      </a>
+                  </li>
                   <!--multi level menu start-->
                   <li class="sub-menu">
                       <a href="javascript:;" >

@@ -37,7 +37,7 @@ class CompaniesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function getShow($id)
+	public function getIndex($id)
 	{
         return view('companies.dashboard')->with("id",$id);
 	}
@@ -45,5 +45,21 @@ class CompaniesController extends Controller {
 	{
         return view('companies.calendar')->with("id",$id);
 	}
+    public function getCustomers($id)
+    {
+        $name = "neven";
+        return view("companies.customers.index")       
+            ->with("id",$id)
+            ->with("name",$name);
+    }
+
+    public function getShow($id)
+    {
+        $name = "neven";
+        return view("companies.customers.show")
+            ->with("id",$id)
+            ->with("name",$name);
+    }
+
 
 }

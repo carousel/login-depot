@@ -30,8 +30,10 @@ Route::get('/', 'HomeController@getIndex');
 
 Route::get('/admin', 'AdminController@getIndex');
 
-Route::get('/companies/{name}', 'CompaniesController@getShow');
+Route::get('/companies/{name}', 'CompaniesController@getIndex');
 Route::get('/companies/{name}/calendar', 'CompaniesController@getCalendar');
+Route::get('/companies/{name}/customers', 'CompaniesController@getCustomers');
+Route::get('/companies/{name}/customers/{id}', 'CompaniesController@getShow');
 
 Route::get('/workers/{name}', 'WorkersController@getShow');
 

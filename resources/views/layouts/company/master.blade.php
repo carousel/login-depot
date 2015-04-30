@@ -42,6 +42,8 @@
         @include("layouts.company.right-sidebar")
         @yield("calendar")
         @yield("dashboard")
+        @yield("customers")
+        @yield("customer")
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="/js/jquery.js"></script>
