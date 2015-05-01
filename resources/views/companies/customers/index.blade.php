@@ -17,9 +17,6 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
-                        <th>Phone</th>
-                        <th>Sec. Phone</th>
-                        <th>Company id</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -28,12 +25,8 @@
                         <td>Miroslav</td>
                         <td>Trninic</td>
                         <td>miroslav.trninic@gmail.com</td>
-                        <td>00387 65 222 480</td>
-                        <td>00387 65 427 014</td>
-                        <td>426</td>
                     <td>
                         <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-primary btn-xs">Edit</a>
-                        <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-danger btn-xs">Delete</a>
                     </td>
                     </tr>
                     <tr>
@@ -41,12 +34,8 @@
                         <td>Miroslav</td>
                         <td>Trninic</td>
                         <td>miroslav.trninic@gmail.com</td>
-                        <td>00387 65 222 480</td>
-                        <td>00387 65 427 014</td>
-                        <td>426</td>
                     <td>
                         <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-primary btn-xs">Edit</a>
-                        <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-danger btn-xs">Delete</a>
                     </td>
                     </tr>
                     </tbody>
@@ -55,12 +44,8 @@
                         <td>Miroslav</td>
                         <td>Trninic</td>
                         <td>miroslav.trninic@gmail.com</td>
-                        <td>00387 65 222 480</td>
-                        <td>00387 65 427 014</td>
-                        <td>426</td>
                     <td>
                         <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-primary btn-xs">Edit</a>
-                        <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-danger btn-xs">Delete</a>
                     </td>
                     </tr>
                     <tr>
@@ -68,12 +53,8 @@
                         <td>Miroslav</td>
                         <td>Trninic</td>
                         <td>miroslav.trninic@gmail.com</td>
-                        <td>00387 65 222 480</td>
-                        <td>00387 65 427 014</td>
-                        <td>426</td>
                     <td>
                         <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-primary btn-xs">Edit</a>
-                        <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-danger btn-xs">Delete</a>
                     </td>
                     </tr>
                     <tr>
@@ -81,12 +62,8 @@
                         <td>Miroslav</td>
                         <td>Trninic</td>
                         <td>miroslav.trninic@gmail.com</td>
-                        <td>00387 65 222 480</td>
-                        <td>00387 65 427 014</td>
-                        <td>426</td>
                     <td>
                         <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-primary btn-xs">Edit</a>
-                        <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-danger btn-xs">Delete</a>
                     </td>
                     </tr>
                     <tr>
@@ -94,17 +71,15 @@
                         <td>Miroslav</td>
                         <td>Trninic</td>
                         <td>miroslav.trninic@gmail.com</td>
-                        <td>00387 65 222 480</td>
-                        <td>00387 65 427 014</td>
-                        <td>426</td>
                     <td>
                         <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-primary btn-xs">Edit</a>
-                        <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-danger btn-xs">Delete</a>
                     </td>
                     </tr>
                 </table>
 
 
+<br>
+                <a href="#" class="btn btn-success" style="margin-left:40%">Create new customer</a>
             </section>
             </section>
         

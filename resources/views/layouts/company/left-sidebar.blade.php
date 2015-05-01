@@ -10,11 +10,15 @@
                           <span>Dashboard</span>
                       </a>
                   </li>
-                  <li>
-                      <a class="active" href="/companies/{!!$id!!}/customers">
-                          <i class="fa fa-user"></i>
+                  <li class="sub-menu">
+                      <a href="#">
+                          <i class="fa fa-user-o"></i>
                           <span>Customers</span>
                       </a>
+                      <ul class="sub">
+                          <li><a href="/companies/{!!$id!!}/customers">Manage</a></li>
+                          <li><a  href="#">Hello</a></li>
+                      </ul>
                   </li>
                   <!--multi level menu start-->
                   <li class="sub-menu">

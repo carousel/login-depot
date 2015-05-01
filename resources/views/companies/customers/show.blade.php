@@ -9,35 +9,31 @@
                     <input type="text" name="search" class="form-control" placeholder="fuzzy search"></input>
                 </form>
               <div class="row state-overview">
-            <section class="panel">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Sec. Phone</th>
-                        <th>Company id</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>Miroslav</td>
-                        <td>Trninic</td>
-                        <td>miroslav.trninic@gmail.com</td>
-                        <td>00387 65 222 480</td>
-                        <td>00387 65 427 014</td>
-                        <td>426</td>
-                    <td>
-                        <a href="#" class="btn btn-danger btn-xs">Edit</a>
-                    </td>
-                    </tr>
-                    </tr>
-                </table>
-
+<br>
+            <section class="panel col-md-5 col-md-offset-3 profile-forms">
+                <p class="lead">Basic profile</p>
+                {!!Form::open(["url"=>"/","method"=>"post","class" => "basic-profile"])!!}
+                    {!!Form::label("first name")!!}
+                    {!!Form::text("first name","",["class" => "form-control"])!!}
+                    {!!Form::label("last name")!!}
+                    {!!Form::text("last name","",["class" => "form-control"])!!}
+                    {!!Form::label("email")!!}
+                    {!!Form::text("email","",["class" => "form-control"])!!}
+<br>
+                    {!!Form::submit("submit",["class" => "btn btn-success pull-right"])!!}
+                {!!Form::close()!!}
+<br>
+                <p class="lead">Billing profile</p>
+                {!!Form::open(["url"=>"/","method"=>"post","class" => "billing-profile"])!!}
+                    {!!Form::label("first name")!!}
+                    {!!Form::text("first name","",["class" => "form-control"])!!}
+                    {!!Form::label("last name")!!}
+                    {!!Form::text("last name","",["class" => "form-control"])!!}
+                    {!!Form::label("email")!!}
+                    {!!Form::text("email","",["class" => "form-control"])!!}
+<br>
+                    {!!Form::submit("submit",["class" => "btn btn-success pull-right"])!!}
+                {!!Form::close()!!}
 
             </section>
             </section>
@@ -46,7 +42,7 @@
 
 
       <!--footer start-->
-      <footer class="site-footer navbar-fixed-bottom" style="z-index:-10">
+      <footer class="site-footer">
           <div class="text-center">
               2015 &copy; LoginDepot.
               <a href="#" class="go-top">
