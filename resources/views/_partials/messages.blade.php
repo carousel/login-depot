@@ -10,3 +10,21 @@
         <span>{!!Session::get("status")!!}</span>
     </div>
 @endif
+@if(Session::has("update_status"))
+    <div class="alert alert-info">
+        <a href="#"class="close" data-dismiss="alert">&times;</a>
+        <span>{!!Session::get("update_status")!!}</span>
+    </div>
+@endif
+@if(Session::has("delete_status"))
+    <div class="alert alert-info">
+        <a href="#"class="close" data-dismiss="alert">&times;</a>
+        <span>{!!Session::get("delete_status")!!}</span>
+    </div>
+@endif
+@if(Session::has("create_status"))
+    <div class="alert alert-info">
+        <a href="#"class="close" data-dismiss="alert">&times;</a>
+        <span>{!!Session::get("create_status")!!}</span>
+    </div>
+@endif

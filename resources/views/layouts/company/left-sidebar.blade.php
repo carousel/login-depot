@@ -5,7 +5,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li>
-                      <a class="active" href="/companies/{!!$id!!}">
+                      <a class="active" href="/companies/{!!$company!!}">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
@@ -16,7 +16,7 @@
                           <span>Customers</span>
                       </a>
                       <ul class="sub">
-                          <li><a href="/companies/{!!$id!!}/customers">Manage</a></li>
+                          <li><a href="/companies/{!!$company!!}/customers">Manage</a></li>
                           <li><a  href="#">Hello</a></li>
                       </ul>
                   </li>

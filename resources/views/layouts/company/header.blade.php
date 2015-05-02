@@ -194,7 +194,7 @@
                         </ul>
                     </li>
                     <li id="header_notification_bar">
-                        <a href="/companies/{!!$id!!}/calendar">
+                        <a href="/companies/{!!$company!!}/calendar">
                             <i class="fa fa-calendar"></i>
                         </a>
                     </li>

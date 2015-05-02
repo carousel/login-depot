@@ -2,9 +2,10 @@
 @section("customer")
     <!--main content start-->
       <section id="main-content">
+@include("_partials.messages")
           <section class="wrapper">
               <!--state overview start-->
-                <span class="lead">Showing one customer</span>
+                <span class="lead">Create new customer</span>
                 <form class="form-inline" style="float:right;margin-right:15px;margin-top:-10px">
                     <input type="text" name="search" class="form-control" placeholder="fuzzy search"></input>
                 </form>
@@ -12,16 +13,21 @@
 <br>
             <section class="panel col-md-5 col-md-offset-3 profile-forms">
                 <p class="lead">Basic profile</p>
-                {!!Form::open(["url"=>"/companies/{!!$company!!}/customers/{!!$customer!!}/update","method"=>"POST","class" => "basic-profile"])!!}
+                {!!Form::open(["url"=>"/companies/" . $company . "/customers/". $customer_object->first_name ."/update","method"=>"post","class" => "basic-profile"])!!}
                     {!!Form::label("first name")!!}
-                    {!!Form::text("first name",$customer->first_name,["class" => "form-control"])!!}
+                    {!!Form::text("first name",$customer_object->first_name,["class" => "form-control"])!!}
                     {!!Form::label("last name")!!}
-                    {!!Form::text("last name",$customer->last_name,["class" => "form-control"])!!}
+                    {!!Form::text("last name",$customer_object->last_name,["class" => "form-control"])!!}
                     {!!Form::label("email")!!}
-                    {!!Form::text("email",$customer->email,["class" => "form-control"])!!}
+                    {!!Form::text("email",$customer_object->email,["class" => "form-control"])!!}
 <br>
-                    {!!Form::submit("submit",["class" => "btn btn-success pull-right"])!!}
+                    {!!Form::submit("Update",["class" => "btn btn-success pull-right"])!!}
                 {!!Form::close()!!}
+
+                {!!Form::open(["url"=>"/companies/" . $company . "/customers/". $customer_object->first_name ."/delete","method"=>"post","class" => "basic-profile"])!!}
+                    {!!Form::submit("Delete",["class" => "btn btn-danger delete-button"])!!}
+                {!!Form::close()!!}
+                
 <br>
                 <p class="lead">Billing profile</p>
                 {!!Form::open(["url"=>"/","method"=>"post","class" => "billing-profile"])!!}

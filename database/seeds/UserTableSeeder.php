@@ -1,16 +1,13 @@
 <?php
 use App\LoginDepot\User;
 use Illuminate\Database\Seeder;
-        /**
-        * 
-        **/
+use Faker\Factory;
+
         class UserTableSeeder extends Seeder {
-            /**
-            * 
-            */
             public function run()
             {
                 User::truncate();
+
                 User::create([
                     "name" => "admin",
                     "email" => "admin@logindepot.com",

@@ -3,6 +3,7 @@
     <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
+    @include("_partials.messages")
               <!--state overview start-->
                 <span class="lead">Customers</span>
                 <form class="form-inline" style="float:right;margin-right:15px;margin-top:-10px">
@@ -20,66 +21,26 @@
                     </tr>
                     </thead>
                     <tbody>
+                @foreach($customers as $customer)
                     <tr>
-                        <td>001</td>
-                        <td>Miroslav</td>
-                        <td>Trninic</td>
-                        <td>miroslav.trninic@gmail.com</td>
+                        <td>{!!$customer["id"]!!}</td>
+                        <td>{!!$customer["first_name"]!!}</td>
+                        <td>{!!$customer["last_name"]!!}</td>
+                        <td>{!!$customer["email"]!!}</td>
                     <td>
-                        <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-primary btn-xs">Edit</a>
+                        <a href="/companies/{!!$company!!}/customers/{!!$customer["first_name"]!!}/update" class="btn btn-primary btn-xs">Edit</a>
                     </td>
                     </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Miroslav</td>
-                        <td>Trninic</td>
-                        <td>miroslav.trninic@gmail.com</td>
-                    <td>
-                        <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-primary btn-xs">Edit</a>
-                    </td>
-                    </tr>
+                @endforeach
+
                     </tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>Miroslav</td>
-                        <td>Trninic</td>
-                        <td>miroslav.trninic@gmail.com</td>
-                    <td>
-                        <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-primary btn-xs">Edit</a>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Miroslav</td>
-                        <td>Trninic</td>
-                        <td>miroslav.trninic@gmail.com</td>
-                    <td>
-                        <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-primary btn-xs">Edit</a>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Miroslav</td>
-                        <td>Trninic</td>
-                        <td>miroslav.trninic@gmail.com</td>
-                    <td>
-                        <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-primary btn-xs">Edit</a>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Miroslav</td>
-                        <td>Trninic</td>
-                        <td>miroslav.trninic@gmail.com</td>
-                    <td>
-                        <a href="/companies/{!!$name!!}/customers/{!!$id!!}" class="btn btn-primary btn-xs">Edit</a>
-                    </td>
-                    </tr>
+
                 </table>
+<hr>
+                <a href="/companies/{!!$company!!}/customers/create" class="btn btn-success" style="margin-left:40%">Create new customer</a>
+<hr>
 
 
-<br>
-                <a href="#" class="btn btn-success" style="margin-left:40%">Create new customer</a>
             </section>
             </section>
         

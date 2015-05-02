@@ -30,10 +30,16 @@ Route::get('/', 'HomeController@getIndex');
 
 Route::get('/admin', 'AdminController@getIndex');
 
-Route::get('/companies/{name}', 'CompaniesController@getIndex');
-Route::get('/companies/{name}/calendar', 'CompaniesController@getCalendar');
-Route::get('/companies/{name}/customers', 'CompaniesController@getCustomers');
-Route::get('/companies/{name}/customers/{id}', 'CompaniesController@getShow');
+Route::get('/companies/{company}', 'CompaniesController@getIndex');
+Route::get('/companies/{company}/calendar', 'CompaniesController@getCalendar');
+Route::get('/companies/{company}/customers',["as" => "manage-customers", "uses" => 'CompaniesController@getCustomers']);
+Route::get('/companies/{company}/customers/create', 'CompaniesController@getCreate');
+Route::post('/companies/{company}/customers/create', 'CompaniesController@postCreate');
+Route::get('/companies/{company}/customers/{customer}', 'CompaniesController@getShow');
+
+Route::post('/companies/{company}/customers/{customer}/update',["as" => "post-update", "uses" => 'CompaniesController@postUpdate']);
+Route::post('/companies/{company}/customers/{customer}/delete',["as" => "post-delete", "uses" => 'CompaniesController@postDelete']);
+Route::get('/companies/{company}/customers/{customer}/update',["as" => "get-update", "uses" => 'CompaniesController@getUpdate']);
 
 Route::get('/workers/{name}', 'WorkersController@getShow');
 
