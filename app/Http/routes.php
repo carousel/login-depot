@@ -33,13 +33,13 @@ Route::get('/admin', 'AdminController@getIndex');
 Route::get('/companies/{company}', 'CompaniesController@getIndex');
 Route::get('/companies/{company}/calendar', 'CompaniesController@getCalendar');
 Route::get('/companies/{company}/customers',["as" => "manage-customers", "uses" => 'CompaniesController@getCustomers']);
-Route::get('/companies/{company}/customers/create', 'CompaniesController@getCreate');
-Route::post('/companies/{company}/customers/create', 'CompaniesController@postCreate');
-Route::get('/companies/{company}/customers/{customer}', 'CompaniesController@getShow');
+Route::get('/companies/{company}/customers/create', 'CompaniesController@getCreateCustomer');
+Route::post('/companies/{company}/customers/create', 'CompaniesController@postCreateCustomer');
+Route::get('/companies/{company}/customers/{customer}', 'CompaniesController@getShowCustomer');
 
-Route::post('/companies/{company}/customers/{customer}/update',["as" => "post-update", "uses" => 'CompaniesController@postUpdate']);
-Route::post('/companies/{company}/customers/{customer}/delete',["as" => "post-delete", "uses" => 'CompaniesController@postDelete']);
-Route::get('/companies/{company}/customers/{customer}/update',["as" => "get-update", "uses" => 'CompaniesController@getUpdate']);
+Route::get('/companies/{company}/customers/{customer}/update',["as" => "get-update-customer", "uses" => 'CompaniesController@getUpdateCustomer']);
+Route::post('/companies/{company}/customers/{customer}/update',["as" => "post-update-customer", "uses" => 'CompaniesController@postUpdateCustomer']);
+Route::post('/companies/{company}/customers/{customer}/delete',["as" => "post-delete-customer", "uses" => 'CompaniesController@postDeleteCustomer']);
 
 Route::get('/workers/{name}', 'WorkersController@getShow');
 

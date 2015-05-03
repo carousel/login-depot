@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\LoginDepot\Customer;
+use App\Http\Requests\CreateCustomerBasicProfileRequest;
+use App\Http\Requests\UpdateCustomerBasicProfileRequest;
 
 class CompaniesController extends Controller {
 
@@ -56,19 +58,19 @@ class CompaniesController extends Controller {
             ->with("customers",$customers);
     }
 
-    public function getShow($company,$customer)
+    public function getShowCustomer($company,$customer)
     {
         $customer = Customer::where("first_name",$customer)->first();
         return view("companies.customers.show")
             ->with("company",$company)
             ->with("customer",$customer);
     }
-    public function getCreate($company)
+    public function getCreateCustomer($company)
     {
         return view("companies.customers.create")
             ->with("company",$company);
     }
-    public function getUpdate($company,$customer)
+    public function getUpdateCustomer($company,$customer)
     {
         $customer_object = Customer::where("first_name",$customer)->first();
 
@@ -76,26 +78,24 @@ class CompaniesController extends Controller {
             ->with("company",$company)
             ->with("customer_object",$customer_object);
     }
-    public function postUpdate($company,$customer)
+    public function postUpdateCustomer($company,$customer,UpdateCustomerBasicProfileRequest $request)
     {
-        $input = \Input::all();
         $customer_object = Customer::where("first_name",$customer)->first();
-        $customer_object->first_name = $input["first_name"];
-        $customer_object->last_name = $input["last_name"];
-        $customer_object->email = $input["email"];
+        $customer_object->first_name = $request["first_name"];
+        $customer_object->last_name = $request["last_name"];
+        $customer_object->email = $request["email"];
         $customer_object->save();
-        $customer_object = Customer::where("first_name",$input["first_name"])->first();
+        $customer_object = Customer::where("first_name",$request["first_name"])->first();
         return \Redirect::route("manage-customers")
-            ->with("update_status","Customer {$input["first_name"]} profile updated")
+            ->with("update_status","Customer {$request["first_name"]} profile updated")
             ->with("customer_object",$customer_object);
     }
-    public function postCreate($company)
+    public function postCreateCustomer(CreateCustomerBasicProfileRequest $request)
     {
-        $input = \Input::all();
         $customer = new Customer;
-        $customer->first_name = $input["first_name"];
-        $customer->last_name = $input["last_name"];
-        $customer->email = $input["email"];
+        $customer->first_name = $request["first_name"];
+        $customer->last_name = $request["last_name"];
+        $customer->email = $request["email"];
         $customer->save();
         return \Redirect::route("manage-customers")
             ->with("create_status","Customer {$customer->first_name} profile has been created");
@@ -103,7 +103,7 @@ class CompaniesController extends Controller {
     /**
     * 
     */
-    public function postDelete($company,$customer)
+    public function postDeleteCustomer($company,$customer)
     {
         $customer = Customer::where("first_name",$customer)->first();
         $customer->delete();

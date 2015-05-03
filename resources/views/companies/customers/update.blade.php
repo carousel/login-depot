@@ -2,8 +2,9 @@
 @section("customer")
     <!--main content start-->
       <section id="main-content">
-@include("_partials.messages")
           <section class="wrapper">
+@include("_partials.messages")
+@include("_partials.errors")
               <!--state overview start-->
                 <span class="lead">Create new customer</span>
                 <form class="form-inline" style="float:right;margin-right:15px;margin-top:-10px">

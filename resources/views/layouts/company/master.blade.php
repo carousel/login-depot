@@ -58,6 +58,7 @@
     <script src="/js/owl.carousel.js" ></script>
     <script src="/js/jquery.customSelect.min.js" ></script>
     <script src="/js/respond.min.js" ></script>
+    <script src="/js/logindepot/logindepot.js" ></script>
 
     <!--right slidebar-->
     <script src="/js/slidebars.min.js"></script>
