@@ -6,7 +6,7 @@
 @include("_partials.messages")
 @include("_partials.errors")
               <!--state overview start-->
-                <span class="lead">Create new customer</span>
+                <span class="lead">Edit customer profile</span>
                 <form class="form-inline" style="float:right;margin-right:15px;margin-top:-10px">
                     <input type="text" name="search" class="form-control" placeholder="fuzzy search"></input>
                 </form>

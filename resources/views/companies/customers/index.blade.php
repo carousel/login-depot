@@ -5,7 +5,7 @@
           <section class="wrapper">
     @include("_partials.messages")
               <!--state overview start-->
-                <span class="lead">Customers</span>
+                <span class="lead customers-panel-heading">Customers</span>
                 <form class="form-inline" style="float:right;margin-right:15px;margin-top:-10px">
                     <input type="text" name="search" class="form-control" placeholder="fuzzy search"></input>
                 </form>
