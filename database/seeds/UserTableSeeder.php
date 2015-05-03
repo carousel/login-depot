@@ -21,6 +21,12 @@ use Faker\Factory;
                     "role" => "company"
                 ]);
                 User::create([
+                    "name" => "company1",
+                    "email" => "company1@logindepot.com",
+                    "password" => \Hash::make("company1"),
+                    "role" => "company"
+                ]);
+                User::create([
                     "name" => "joe",
                     "email" => "joe@logindepot.com",
                     "password" => \Hash::make("joeworker"),
