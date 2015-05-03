@@ -32,12 +32,10 @@
 <br>
                 <p class="lead">Billing profile</p>
                 {!!Form::open(["url"=>"/","method"=>"post","class" => "billing-profile"])!!}
-                    {!!Form::label("first name")!!}
-                    {!!Form::text("first name","",["class" => "form-control"])!!}
-                    {!!Form::label("last name")!!}
-                    {!!Form::text("last name","",["class" => "form-control"])!!}
-                    {!!Form::label("email")!!}
-                    {!!Form::text("email","",["class" => "form-control"])!!}
+                    {!!Form::label("billing method")!!}
+                    {!!Form::text("billing method","",["class" => "form-control"])!!}
+                    {!!Form::label("card number")!!}
+                    {!!Form::text("card number","",["class" => "form-control"])!!}
 <br>
                     {!!Form::submit("submit",["class" => "btn btn-success pull-right"])!!}
                 {!!Form::close()!!}
