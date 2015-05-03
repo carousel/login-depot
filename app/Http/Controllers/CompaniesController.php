@@ -86,19 +86,22 @@ class CompaniesController extends Controller {
         $customer_object->email = $request["email"];
         $customer_object->save();
         $customer_object = Customer::where("first_name",$request["first_name"])->first();
-        return \Redirect::route("manage-customers")
+
+        return \Redirect::to("companies/{$company}/customers")
             ->with("update_status","Customer {$request["first_name"]} profile updated")
-            ->with("customer_object",$customer_object);
+            ->with("customer_object",$customer_object)
+            ->with("company",$company);
     }
-    public function postCreateCustomer(CreateCustomerBasicProfileRequest $request)
+    public function postCreateCustomer($company,CreateCustomerBasicProfileRequest $request)
     {
         $customer = new Customer;
         $customer->first_name = $request["first_name"];
         $customer->last_name = $request["last_name"];
         $customer->email = $request["email"];
         $customer->save();
-        return \Redirect::route("manage-customers")
-            ->with("create_status","Customer {$customer->first_name} profile has been created");
+        return \Redirect::to("companies/{$company}/customers")
+            ->with("create_status","Customer {$customer->first_name} profile has been created")
+            ->with("company",$company);
     }
     /**
     * 
@@ -107,9 +110,10 @@ class CompaniesController extends Controller {
     {
         $customer = Customer::where("first_name",$customer)->first();
         $customer->delete();
-        return \Redirect::route("manage-customers")
+        return \Redirect::to("companies/{$company}/customers")
             ->with("delete_status","Customer {$customer->first_name} has been deleted")
-            ->with("customer",$customer);
+            ->with("customer",$customer)
+            ->with("company",$company);
         
     }
 
