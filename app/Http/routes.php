@@ -46,9 +46,12 @@ Route::get('/workers/{name}', 'WorkersController@getShow');
 Route::post('/post-email', 'Auth\PasswordController@postEmail');
 Route::post('/password/reset', 'Auth\PasswordController@postReset');
 
+Route::post('/calendars/store', 'CalendarController@store');
 //Route::get('home', 'HomeController@index');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
+

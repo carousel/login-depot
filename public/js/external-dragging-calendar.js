@@ -42,7 +42,7 @@ var Script = function () {
         editable: true,
         droppable: true, // this allows things to be dropped onto the calendar !!!
         drop: function(date, allDay) { // this function is called when something is dropped
-            alert(date);
+            alert(allDay);
 
             // retrieve the dropped element's stored Event Object
             var originalEventObject = $(this).data('eventObject');
