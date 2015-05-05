@@ -38,17 +38,15 @@
       <!--main content end-->
     <script src="/js/jquery.js"></script>
   <script type="text/javascript" src="/js/jquery-ui-1.9.2.custom.min.js"></script>
+  <script src="/assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <script class="include" type="text/javascript" src="/js/jquery.dcjqaccordion.2.7.js"></script>
   <script src="/js/jquery.scrollTo.min.js"></script>
   <script src="/js/jquery.nicescroll.js" type="text/javascript"></script>
   <script src="/js/respond.min.js" ></script>
 
-  <!--right slidebar-->
-  <script src="/js/slidebars.min.js"></script>
-
-    <!--common script for all pages-->
-    <script src="/js/common-scripts.js"></script>
 
     <!--script for this page only-->
+    <script src="/js/external-dragging-calendar.js"></script>
+    <script src="/js/logindepot/calendar.js"></script>
 @stop
