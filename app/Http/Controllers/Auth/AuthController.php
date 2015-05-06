@@ -53,7 +53,7 @@ class AuthController extends Controller {
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
             if($this->auth->user()->role == "company"){
-			    return redirect()->to("/companies/{$this->auth->user()->name}");
+			    return redirect()->to("/companies/{$this->auth->user()->username}");
             }
             if($this->auth->user()->role == "worker"){
 			    return redirect()->to("/workers/{$this->auth->user()->name}");
