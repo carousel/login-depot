@@ -28,10 +28,10 @@ class WorkersController extends Controller {
 	 *
 	 * @return Response
 	 */
-    //public function getIndex()
-    //{
-        //return view('companies.dashboard');
-    //}
+    public function getIndex()
+    {
+        return view('companies.dashboard');
+    }
 	/**
 	 * Show the application dashboard to the user.
 	 *

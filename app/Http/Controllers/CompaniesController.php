@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\LoginDepot\Customer;
+use App\LoginDepot\Worker;
 use App\Http\Requests\CreateCustomerBasicProfileRequest;
 use App\Http\Requests\UpdateCustomerBasicProfileRequest;
 
@@ -115,6 +116,19 @@ class CompaniesController extends Controller {
             ->with("customer",$customer)
             ->with("company",$company);
         
+    }
+    public function getWorkers($company) {
+        $workers = Worker::all();
+        return view("companies.workers.index")       
+            ->with("company",$company)
+            ->with("workers",$workers);
+    }
+    public function getUpdateWorker($company,$worker)
+    {
+        $worker_object = Worker::where("first_name",$worker)->first();
+        return view("companies.workers.update")
+            ->with("company",$company)
+            ->with("worker_object",$worker_object);
     }
 
 

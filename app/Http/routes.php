@@ -41,6 +41,9 @@ Route::get('/companies/{company}/customers/{customer}/update',["as" => "get-upda
 Route::post('/companies/{company}/customers/{customer}/update',["as" => "post-update-customer", "uses" => 'CompaniesController@postUpdateCustomer']);
 Route::post('/companies/{company}/customers/{customer}/delete',["as" => "post-delete-customer", "uses" => 'CompaniesController@postDeleteCustomer']);
 
+
+Route::get('/companies/{company}/workers',["as" => "manage-workers", "uses" => 'CompaniesController@getWorkers']);
+Route::get('/companies/{company}/workers/{worker}/update',["as" => "get-update-worker", "uses" => 'CompaniesController@getUpdateWorker']);
 Route::get('/workers/{name}', 'WorkersController@getShow');
 
 Route::post('/post-email', 'Auth\PasswordController@postEmail');

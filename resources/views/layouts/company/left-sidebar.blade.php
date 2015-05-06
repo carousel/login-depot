@@ -71,7 +71,12 @@
                       <ul class="sub">
                           <li><a  href="lobby.html">Company profile</a></li>
                           <li><a  href="chat_room.html"> Edit information</a></li>
-                          <li><a  href="chat_room.html">Manage workers</a></li>
+                                  <li class="sub-menu">
+                                      <a  href="javascript:;">Workers</a>
+                                      <ul class="sub">
+                                            <li><a href="/companies/{!!$company!!}/workers">Manage</a></li>
+                                      </ul>
+                                  </li>
                           <li><a  href="chat_room.html">Email templates</a></li>
                           <li><a  href="chat_room.html">Reports</a></li>
                           <li><a  href="chat_room.html">Payment information</a></li>

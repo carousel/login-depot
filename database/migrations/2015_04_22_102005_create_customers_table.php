@@ -16,10 +16,10 @@ class CreateCustomersTable extends Migration {
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('phone');
-			$table->string('email');
-            $table->string('secondary_email');
-            $table->integer('company_id');
+            $table->string('secondary_email')->unique();
+            $table->integer('phone');
+			$table->string('email')->unique();
+            $table->string('broker_id');
             $table->timestamps();        
         });
 	}

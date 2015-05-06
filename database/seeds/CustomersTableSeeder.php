@@ -5,7 +5,7 @@ use App\LoginDepot\Customer;
         /**
         * 
         **/
-        class CustomerTableSeeder extends Seeder {
+        class CustomersTableSeeder extends Seeder {
             /**
             * 
             */

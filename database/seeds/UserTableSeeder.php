@@ -9,25 +9,25 @@ use Faker\Factory;
                 User::truncate();
 
                 User::create([
-                    "name" => "admin",
+                    "username" => "admin",
                     "email" => "admin@logindepot.com",
                     "password" => \Hash::make("logindepot1234"),
                     "role" => "admin"
                 ]);
                 User::create([
-                    "name" => "miroslav",
+                    "username" => "miroslav",
                     "email" => "miroslav.trninic@gmail.com",
                     "password" => \Hash::make("bumerang"),
                     "role" => "company"
                 ]);
                 User::create([
-                    "name" => "company1",
+                    "username" => "company1",
                     "email" => "company1@logindepot.com",
                     "password" => \Hash::make("company1"),
                     "role" => "company"
                 ]);
                 User::create([
-                    "name" => "joe",
+                    "username" => "joe",
                     "email" => "joe@logindepot.com",
                     "password" => \Hash::make("joeworker"),
                     "role" => "worker"
