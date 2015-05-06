@@ -7,8 +7,8 @@
         <div class="login-wrap">
             <p>Enter your personal details below</p>
 
-        {!!Form::label("name")!!}
-        {!!Form::text("name","",["class"=>"form-control","placeholder"=>"enter your name"])!!}            
+        {!!Form::label("username")!!}
+        {!!Form::text("username","",["class"=>"form-control","placeholder"=>"enter your name"])!!}            
         {!!Form::label("email")!!}
         {!!Form::text("email","",["class"=>"form-control","placeholder"=>"enter your email"])!!}            
         {!!Form::label("password")!!}
