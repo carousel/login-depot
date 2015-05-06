@@ -3,7 +3,9 @@
 use App\LoginDepot\Customer;
 use App\LoginDepot\Worker;
 use App\Http\Requests\CreateCustomerBasicProfileRequest;
+use App\Http\Requests\CreateWorkerRequest;
 use App\Http\Requests\UpdateCustomerBasicProfileRequest;
+use App\Http\Requests\UpdateWorkerRequest;
 
 class CompaniesController extends Controller {
 
@@ -129,6 +131,48 @@ class CompaniesController extends Controller {
         return view("companies.workers.update")
             ->with("company",$company)
             ->with("worker_object",$worker_object);
+    }
+    public function getCreateWorker($company)
+    {
+        return view("companies.workers.create")
+            ->with("company",$company);
+    }
+    public function postCreateWorker($company,CreateWorkerRequest $request)
+    {
+        $worker = new Worker;
+        $worker->first_name = $request["first_name"];
+        $worker->last_name = $request["last_name"];
+        $worker->account_number = $request["account_number"];
+        $worker->email = $request["email"];
+        $worker->save();
+        return \Redirect::to("companies/{$company}/workers")
+            ->with("create_status","worker {$worker->first_name} profile has been created")
+            ->with("company",$company);
+    }
+    public function postDeleteWorker($company,$worker)
+    {
+        $worker = Worker::where("first_name",$worker)->first();
+        $worker->delete();
+        return \Redirect::to("companies/{$company}/workers")
+            ->with("delete_status","worker {$worker->first_name} has been deleted")
+            ->with("worker",$worker)
+            ->with("company",$company);
+        
+    }
+    public function postUpdateWorker($company,$worker,UpdateWorkerRequest $request)
+    {
+        $worker_object = Worker::where("first_name",$worker)->first();
+        $worker_object->first_name = $request["first_name"];
+        $worker_object->last_name = $request["last_name"];
+        $worker_object->account_number = $request["email"];
+        $worker_object->email = $request["email"];
+        $worker_object->save();
+        $worker_object = Worker::where("first_name",$request["first_name"])->first();
+
+        return \Redirect::to("companies/{$company}/workers")
+            ->with("update_status","worker {$request["first_name"]} profile updated")
+            ->with("worker_object",$worker_object)
+            ->with("company",$company);
     }
 
 

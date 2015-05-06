@@ -4,7 +4,7 @@
       <section id="main-content">
           <section class="wrapper">
               <!--state overview start-->
-                <span class="lead">Showing one customer</span>
+                <span class="lead">Showing one worker</span>
                 <form class="form-inline" style="float:right;margin-right:15px;margin-top:-10px">
                     <input type="text" name="search" class="form-control" placeholder="fuzzy search"></input>
                 </form>

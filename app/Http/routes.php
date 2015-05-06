@@ -42,9 +42,15 @@ Route::post('/companies/{company}/customers/{customer}/update',["as" => "post-up
 Route::post('/companies/{company}/customers/{customer}/delete',["as" => "post-delete-customer", "uses" => 'CompaniesController@postDeleteCustomer']);
 
 
+
+Route::get('/companies/{company}/workers/create', 'CompaniesController@getCreateWorker');
+Route::post('/companies/{company}/workers/create', 'CompaniesController@postCreateWorker');
 Route::get('/companies/{company}/workers',["as" => "manage-workers", "uses" => 'CompaniesController@getWorkers']);
 Route::get('/companies/{company}/workers/{worker}/update',["as" => "get-update-worker", "uses" => 'CompaniesController@getUpdateWorker']);
-Route::get('/workers/{name}', 'WorkersController@getShow');
+Route::post('/companies/{company}/workers/{worker}/update',["as" => "post-update-worker", "uses" => 'CompaniesController@postUpdateWorker']);
+Route::post('/companies/{company}/workers/{worker}/delete',["as" => "post-delete-worker", "uses" => 'CompaniesController@postDeleteWorker']);
+
+//Route::get('/workers/{name}', 'WorkersController@getShow');
 
 Route::post('/post-email', 'Auth\PasswordController@postEmail');
 Route::post('/password/reset', 'Auth\PasswordController@postReset');

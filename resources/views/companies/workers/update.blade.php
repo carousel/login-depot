@@ -6,7 +6,7 @@
 @include("_partials.messages")
 @include("_partials.errors")
               <!--state overview start-->
-                <span class="lead">Edit customer profile</span>
+                <span class="lead">Edit worker profile</span>
                 <form class="form-inline" style="float:right;margin-right:15px;margin-top:-10px">
                     <input type="text" name="search" class="form-control" placeholder="fuzzy search"></input>
                 </form>
@@ -22,7 +22,7 @@
                     {!!Form::label("email")!!}
                     {!!Form::text("email",$worker_object->email,["class" => "form-control"])!!}
                     {!!Form::label("account number")!!}
-                    {!!Form::text("email",$worker_object->account_number,["class" => "form-control"])!!}
+                    {!!Form::text("account number",$worker_object->account_number,["class" => "form-control"])!!}
 <br>
                     {!!Form::submit("Update",["class" => "btn btn-success pull-right"])!!}
                 {!!Form::close()!!}
