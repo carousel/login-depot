@@ -1,10 +1,13 @@
 <?php namespace App\Http\Controllers;
 
 use App\LoginDepot\Customer;
+use App\LoginDepot\User;
+use App\LoginDepot\Company;
 use App\LoginDepot\Worker;
 use App\Http\Requests\CreateCustomerBasicProfileRequest;
 use App\Http\Requests\CreateWorkerRequest;
 use App\Http\Requests\UpdateCustomerBasicProfileRequest;
+use App\Http\Requests\CreateCompanyProfileRequest;
 use App\Http\Requests\UpdateWorkerRequest;
 
 class CompaniesController extends Controller {
@@ -139,11 +142,18 @@ class CompaniesController extends Controller {
     }
     public function postCreateWorker($company,CreateWorkerRequest $request)
     {
+        $company = Company::where("company_name",$company)->first();
+        dd($company);
         $worker = new Worker;
+        $user = new User;
+        $user->username = $request["username"];
+        $user->email = $request["email"];
+        $user->password = \Hash::make($request["password"]);
+        $user->role = "worker";
+        $user->save();
         $worker->first_name = $request["first_name"];
         $worker->last_name = $request["last_name"];
         $worker->account_number = $request["account_number"];
-        $worker->email = $request["email"];
         $worker->save();
         return \Redirect::to("companies/{$company}/workers")
             ->with("create_status","worker {$worker->first_name} profile has been created")
@@ -175,5 +185,25 @@ class CompaniesController extends Controller {
             ->with("company",$company);
     }
 
+    public function getCreateProfile(){
+        return view("companies.profile.create");
+    }
 
+    public function postCreateProfile(CreateCompanyProfileRequest $request){
+        //dd($request->all());
+        $user_id = \Auth::user()->id;
+        $user = User::where("id",$user_id)->first();
+        $user->profile_complete = true;
+        $user->save();
+        $company = new Company;
+        $company->company_name = $request["company_name"];
+        $company->dot_number = $request["dot_number"];
+        $company->mc_number = $request["mc_number"];
+        $company->logo = $request["logo"];
+        $company->website = $request["website"];
+        $company->user_id = $user_id;
+        $company->save();
+
+        return \Redirect::to("/auth/login");
+    }
 }

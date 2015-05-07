@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration {
 			$table->string('username');
 			$table->string('email');
 			$table->string('role');
+            $table->boolean("profile_complete");
 			$table->string('password', 60);
 			$table->rememberToken();
 			$table->timestamps();

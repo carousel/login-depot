@@ -30,7 +30,7 @@ class WorkersController extends Controller {
 	 */
     public function getIndex()
     {
-        return view('companies.dashboard');
+        return view('workers.dashboard');
     }
 	/**
 	 * Show the application dashboard to the user.

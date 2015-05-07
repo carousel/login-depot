@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Broker extends Model {
+class Company extends Model {
 
 
 	/**
@@ -10,7 +10,9 @@ class Broker extends Model {
 	 *
 	 * @var string
 	 */
-	protected $table = 'brokers';
+	protected $table = 'companies';
+
+    protected $fillable = ['*'];
 
 
 

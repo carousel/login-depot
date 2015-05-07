@@ -17,8 +17,7 @@ class CreateCompaniesTable extends Migration {
             $table->string('company_name');
             $table->integer('dot_number');
             $table->integer('mc_number');
-            $table->integer('customer_id');
-            $table->integer('worker_id');
+            $table->integer('user_id');
             $table->string('logo');
             $table->string('website');
             $table->timestamps();        

@@ -1,4 +1,4 @@
-@extends("layouts.company.master")
+@extends("layouts.worker.master")
 @section("dashboard")
     <!--main content start-->
       <section id="main-content">

@@ -1,5 +1,5 @@
 @extends("layouts.company.master")
-@section("customer")
+@section("workers")
     <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
@@ -22,6 +22,9 @@
                     {!!Form::text("email","",["class" => "form-control"])!!}
                     {!!Form::label("account number")!!}
                     {!!Form::text("account number","",["class" => "form-control"])!!}
+<br>
+                    {!!Form::label("password")!!}
+                    {!!Form::text("password","",["class" => "form-control","placeholder" => "plain text for now,should be sent to worker"])!!}
 <br>
                     {!!Form::submit("submit",["class" => "btn btn-success pull-right"])!!}
                 {!!Form::close()!!}

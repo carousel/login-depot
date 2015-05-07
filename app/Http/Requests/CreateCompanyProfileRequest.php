@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class CreateWorkerRequest extends Request {
+class CreateCompanyProfileRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -22,11 +22,11 @@ class CreateWorkerRequest extends Request {
 	public function rules()
 	{
 		return [
-            "first_name" => "required|unique:workers",
-            "last_name" => "required|unique:workers",
-            "account_number" => "required",
-            "email" => "required|unique:customers",
-            "password" => "required"
+            "company_name" => "required",
+            "mc_number" => "required",
+            "dot_number" => "required",
+            "logo" => "required",
+            "website" => "required",
 		];
 	}
 
