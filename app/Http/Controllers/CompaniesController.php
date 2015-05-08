@@ -143,7 +143,7 @@ class CompaniesController extends Controller {
     public function postCreateWorker($company,CreateWorkerRequest $request)
     {
         $company = Company::where("company_name",$company)->first();
-        dd($company);
+        //dd($request->all());
         $worker = new Worker;
         $user = new User;
         $user->username = $request["username"];
@@ -152,18 +152,23 @@ class CompaniesController extends Controller {
         $user->role = "worker";
         $user->save();
         $worker->first_name = $request["first_name"];
+        $worker->email = $request["email"];
         $worker->last_name = $request["last_name"];
         $worker->account_number = $request["account_number"];
         $worker->save();
-        return \Redirect::to("companies/{$company}/workers")
+
+        //return \Redirect::to("companies/{$company}/workers")
+        return \Redirect::route("manage-workers")
             ->with("create_status","worker {$worker->first_name} profile has been created")
             ->with("company",$company);
     }
     public function postDeleteWorker($company,$worker)
     {
         $worker = Worker::where("first_name",$worker)->first();
+        $user = User::where("email",$worker->email)->first();
+        $user->delete();
         $worker->delete();
-        return \Redirect::to("companies/{$company}/workers")
+        return \Redirect::route("manage-workers")
             ->with("delete_status","worker {$worker->first_name} has been deleted")
             ->with("worker",$worker)
             ->with("company",$company);
@@ -172,12 +177,19 @@ class CompaniesController extends Controller {
     public function postUpdateWorker($company,$worker,UpdateWorkerRequest $request)
     {
         $worker_object = Worker::where("first_name",$worker)->first();
+        $worker_user = User::where("email",$worker_object->email)->first();
+        //dd("hello");
+        $worker_user->username = $request["username"];
+        $worker_user->email = $request["email"];
+        $worker_user->password = $request["password"];
+        $worker_user->role = "worker";
         $worker_object->first_name = $request["first_name"];
         $worker_object->last_name = $request["last_name"];
-        $worker_object->account_number = $request["email"];
+        $worker_object->account_number = $request["account_number"];
         $worker_object->email = $request["email"];
+        $worker_user->save();
         $worker_object->save();
-        $worker_object = Worker::where("first_name",$request["first_name"])->first();
+        //$worker_object = Worker::where("first_name",$request["first_name"])->first();
 
         return \Redirect::to("companies/{$company}/workers")
             ->with("update_status","worker {$request["first_name"]} profile updated")

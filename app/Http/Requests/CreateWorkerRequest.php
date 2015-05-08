@@ -22,6 +22,7 @@ class CreateWorkerRequest extends Request {
 	public function rules()
 	{
 		return [
+            "username" => "required|unique:users",
             "first_name" => "required|unique:workers",
             "last_name" => "required|unique:workers",
             "account_number" => "required",

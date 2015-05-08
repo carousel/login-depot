@@ -15,6 +15,8 @@
             <section class="panel col-md-5 col-md-offset-3 profile-forms">
                 <p class="lead">Basic profile</p>
                 {!!Form::open(["url"=>"/companies/" . $company . "/workers/". $worker_object->first_name ."/update","method"=>"post","class" => "basic-profile"])!!}
+                    {!!Form::label("username")!!}
+                    {!!Form::text("username",$worker_object->first_name,["class" => "form-control"])!!}
                     {!!Form::label("first name")!!}
                     {!!Form::text("first name",$worker_object->first_name,["class" => "form-control"])!!}
                     {!!Form::label("last name")!!}
@@ -23,6 +25,8 @@
                     {!!Form::text("email",$worker_object->email,["class" => "form-control"])!!}
                     {!!Form::label("account number")!!}
                     {!!Form::text("account number",$worker_object->account_number,["class" => "form-control"])!!}
+                    {!!Form::label("password")!!}
+                    {!!Form::text("password",$worker_object->account_number,["class" => "form-control"])!!}
 <br>
                     {!!Form::submit("Update",["class" => "btn btn-success pull-right"])!!}
                 {!!Form::close()!!}

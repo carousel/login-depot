@@ -60,7 +60,7 @@ class AuthController extends Controller {
                 }
             }
             if($this->auth->user()->role == "worker"){
-			    return redirect()->to("/workers/{$this->auth->user()->name}");
+                return redirect()->to("/workers/{$this->auth->user()->username}");
             }
             if($this->auth->user()->role == "admin"){
 			    return redirect()->intended("/admin");

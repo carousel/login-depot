@@ -22,9 +22,11 @@ class UpdateWorkerRequest extends Request {
 	public function rules()
 	{
 		return [
+            "username" => "required",
             "first_name" => "required",
             "last_name" => "required",
             "account_number" => "required",
+            "password" => "required",
             "email" => "required",
 		];
 	}
