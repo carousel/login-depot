@@ -3,9 +3,18 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
+@include("_partials.modals.calendar-modal")
               <!-- page start-->
               <div class="row">
                   <aside class="col-lg-3">
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit calendar event</button>-->
+                    <div>
+                        {!!Form::select("share",$workers,[],["class" => "form-control subscriber"])!!}
+                    <br>
+                        {!!Form::submit("Refresh",["class" => "btn btn-success pull-right view"])!!}
+                    <br>
+                    </div>
+                    <br>
                       <h4 class="drg-event-title"> Draggable Events</h4>
                       <div id='external-events'>
                           <div class='external-event label label-primary'>My Event 1</div>
@@ -38,7 +47,6 @@
       <!--main content end-->
     <script src="/js/jquery.js"></script>
   <script type="text/javascript" src="/js/jquery-ui-1.9.2.custom.min.js"></script>
-  <script src="/assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <script class="include" type="text/javascript" src="/js/jquery.dcjqaccordion.2.7.js"></script>
   <script src="/js/jquery.scrollTo.min.js"></script>
@@ -47,6 +55,5 @@
 
 
     <!--script for this page only-->
-    <script src="/js/external-dragging-calendar.js"></script>
     <script src="/js/logindepot/calendar.js"></script>
 @stop

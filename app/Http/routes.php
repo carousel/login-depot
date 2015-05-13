@@ -8,6 +8,8 @@ Route::get('/companies/{company}', 'CompaniesController@getIndex');
 Route::get('/companies/profile/create', 'CompaniesController@getCreateProfile');
 Route::post('/companies/profile/create', 'CompaniesController@postCreateProfile');
 Route::get('/companies/{company}/calendar', 'CompaniesController@getCalendar');
+Route::post('/companies/{company}/share-calendar', 'CompaniesController@shareCalendar');
+Route::get('/companies/{company}/view-calendar', 'CompaniesController@viewCalendar');
 Route::get('/companies/{company}/customers',["as" => "manage-customers", "uses" => 'CompaniesController@getCustomers']);
 Route::get('/companies/{company}/customers/create', 'CompaniesController@getCreateCustomer');
 Route::post('/companies/{company}/customers/create', 'CompaniesController@postCreateCustomer');
@@ -29,7 +31,9 @@ Route::get('/workers/{name}', 'WorkersController@getIndex');
 Route::post('/post-email', 'Auth\PasswordController@postEmail');
 Route::post('/password/reset', 'Auth\PasswordController@postReset');
 
-Route::post('/calendars/store', 'CalendarController@store');
+Route::post('/calendar/share', function(){
+    return \Input::all();
+});
 //Route::get('home', 'HomeController@index');
 
 Route::controllers([

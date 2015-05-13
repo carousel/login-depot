@@ -13,20 +13,20 @@
 <br>
             <section class="panel col-md-5 col-md-offset-3 profile-forms">
                 <p class="lead">Basic profile</p>
-                {!!Form::open(["url"=>"/companies/" . $company . "/workers/create","method"=>"POST","class" => "basic-profile"])!!}
+                {!!Form::open(["url"=>"/companies/". $company . "/workers/create","method"=>"POST","class" => "basic-profile"])!!}
                     {!!Form::label("username")!!}
-                    {!!Form::text("username","",["class" => "form-control"])!!}
+                    {!!Form::text("username","johndoe",["class" => "form-control","placeholder" => "johndoe"])!!}
                     {!!Form::label("first_name")!!}
-                    {!!Form::text("first_name","",["class" => "form-control"])!!}
+                    {!!Form::text("first_name","john",["class" => "form-control","placeholder" => "john"])!!}
                     {!!Form::label("last_name")!!}
-                    {!!Form::text("last_name","",["class" => "form-control"])!!}
+                    {!!Form::text("last_name","doe",["class" => "form-control","placeholder" => "doe"])!!}
                     {!!Form::label("email")!!}
-                    {!!Form::text("email","",["class" => "form-control"])!!}
+                    {!!Form::text("email","john.doe@logindep.com",["class" => "form-control","placeholder" => "john.doe@logindep.com"])!!}
                     {!!Form::label("account number")!!}
-                    {!!Form::text("account number","",["class" => "form-control"])!!}
+                    {!!Form::text("account number","123456789",["class" => "form-control","placeholder" => "123456789"])!!}
 <br>
                     {!!Form::label("password")!!}
-                    {!!Form::text("password","",["class" => "form-control","placeholder" => "plain text for now,should be sent to worker"])!!}
+                    {!!Form::text("password","987654321",["class" => "form-control","placeholder" => "987654321"])!!}
 <br>
                     {!!Form::submit("submit",["class" => "btn btn-success pull-right"])!!}
                 {!!Form::close()!!}

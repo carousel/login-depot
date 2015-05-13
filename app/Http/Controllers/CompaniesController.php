@@ -31,6 +31,10 @@ class CompaniesController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
+        $user = \Auth::user();
+        if($user->role = "company"){
+            \View::share("company",$user->first_name);
+        }
 	}
 
 	/**
@@ -54,7 +58,12 @@ class CompaniesController extends Controller {
 	}
 	public function getCalendar($company)
 	{
-        return view('companies.calendar')->with("company",$company);
+        $company_object = Company::where("company_name",$company)->first();
+        $workers = Worker::where("company_id",$company_object->id)->get();
+        $workers = $workers->lists("first_name");
+        return view('companies.calendar')
+            ->with("workers",$workers)
+            ->with("company",$company);
 	}
     public function getCustomers($company)
     {
@@ -133,7 +142,8 @@ class CompaniesController extends Controller {
         $worker_object = Worker::where("first_name",$worker)->first();
         return view("companies.workers.update")
             ->with("company",$company)
-            ->with("worker_object",$worker_object);
+            ->with("worker_object",$worker_object)
+            ->with("worker",$worker);
     }
     public function getCreateWorker($company)
     {
@@ -142,8 +152,9 @@ class CompaniesController extends Controller {
     }
     public function postCreateWorker($company,CreateWorkerRequest $request)
     {
-        $company = Company::where("company_name",$company)->first();
-        //dd($request->all());
+        $company_object = Company::where("company_name",$company)->first();
+        //dd($company_object->company_name);
+        $company = $company_object->company_name;
         $worker = new Worker;
         $user = new User;
         $user->username = $request["username"];
@@ -155,23 +166,24 @@ class CompaniesController extends Controller {
         $worker->email = $request["email"];
         $worker->last_name = $request["last_name"];
         $worker->account_number = $request["account_number"];
+        $worker->company_id = $company_object->id;
         $worker->save();
 
         //return \Redirect::to("companies/{$company}/workers")
-        return \Redirect::route("manage-workers")
+        return \Redirect::to("/companies/" . $company . "/workers")
             ->with("create_status","worker {$worker->first_name} profile has been created")
             ->with("company",$company);
     }
     public function postDeleteWorker($company,$worker)
     {
         $worker = Worker::where("first_name",$worker)->first();
+
         $user = User::where("email",$worker->email)->first();
         $user->delete();
         $worker->delete();
-        return \Redirect::route("manage-workers")
+        return \Redirect::to("/companies/" . $company . "/workers")
             ->with("delete_status","worker {$worker->first_name} has been deleted")
-            ->with("worker",$worker)
-            ->with("company",$company);
+            ->with("worker",$worker);
         
     }
     public function postUpdateWorker($company,$worker,UpdateWorkerRequest $request)
@@ -193,8 +205,7 @@ class CompaniesController extends Controller {
 
         return \Redirect::to("companies/{$company}/workers")
             ->with("update_status","worker {$request["first_name"]} profile updated")
-            ->with("worker_object",$worker_object)
-            ->with("company",$company);
+            ->with("worker_object",$worker_object);
     }
 
     public function getCreateProfile(){
@@ -217,5 +228,13 @@ class CompaniesController extends Controller {
         $company->save();
 
         return \Redirect::to("/auth/login");
+    }
+    public function shareCalendar(){
+        $input = \Input::all();
+        return $input;
+    }
+    public function viewCalendar(){
+        $input = \Input::all();
+        return $input;
     }
 }

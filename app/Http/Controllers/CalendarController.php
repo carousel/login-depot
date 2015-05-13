@@ -84,5 +84,14 @@ class CalendarController extends Controller {
 	{
 		//
 	}
+    /**
+    * 
+    */
+    public function share()
+    {
+        $input = \Input::all();
+        return $input;
+        
+    }
 
 }
