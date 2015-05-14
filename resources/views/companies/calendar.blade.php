@@ -1,59 +1,72 @@
 @extends("layouts.company.master")
 @section("calendar")
+<style>
+    #calendar{
+        margin-right:2%;
+    }
+    .fc-toolbar{
+        margin-bottom:6%;
+    }
+	#external-events {
+		float: left;
+		width: 250px;
+		padding: 0 10px;
+		border: 1px solid #ccc;
+		background: #eee;
+		text-align: left;
+	}
+		
+	#external-events h4 {
+		font-size: 16px;
+		margin-top: 0;
+		padding-top: 1em;
+	}
+		
+	#external-events .fc-event {
+		margin: 10px 0;
+		cursor: pointer;
+	}
+		
+	#external-events p {
+		margin: 1.5em 0;
+		font-size: 11px;
+		color: #666;
+	}
+		
+	#external-events p input {
+		margin: 0;
+		vertical-align: middle;
+	}
+
+</style>
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-@include("_partials.modals.calendar-modal")
               <!-- page start-->
-              <div class="row">
-                  <aside class="col-lg-3">
-<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit calendar event</button>-->
-                    <div>
-                        {!!Form::select("share",$workers,[],["class" => "form-control subscriber"])!!}
-                    <br>
-                        {!!Form::submit("Refresh",["class" => "btn btn-success pull-right view"])!!}
-                    <br>
-                    </div>
-                    <br>
-                      <h4 class="drg-event-title"> Draggable Events</h4>
-                      <div id='external-events'>
-                          <div class='external-event label label-primary'>My Event 1</div>
-                          <div class='external-event label label-success'>My Event 2</div>
-                          <div class='external-event label label-info'>My Event 3</div>
-                          <div class='external-event label label-inverse'>My Event 4</div>
-                          <div class='external-event label label-warning'>My Event 5</div>
-                          <div class='external-event label label-danger'>My Event 6</div>
-                          <div class='external-event label label-default'>My Event 7</div>
-                          <div class='external-event label label-primary'>My Event 8</div>
-                          <div class='external-event label label-info'>My Event 9</div>
-                          <div class='external-event label label-success'>My Event 10</div>
-                          <p class="border-top drp-rmv">
-                              <input type='checkbox' id='drop-remove' />
-                              remove after drop
-                          </p>
-                      </div>
-                  </aside>
-                  <aside class="col-lg-9">
-                      <section class="panel">
-                          <div class="panel-body">
-                              <div id="calendar" class="has-toolbar"></div>
-                          </div>
-                      </section>
-                  </aside>
+
+		    <div id='external-events'>
+                <h4>Draggable Events</h4>
+                <div class='fc-event btn'>My Event 1</div>
+                <div class='fc-event btn'>My Event 2</div>
+                <div class='fc-event btn'>My Event 3</div>
+                <div class='fc-event btn'>My Event 4</div>
+                <div class='fc-event btn'>My Event 5</div>
+                <p>
+                    <input type='checkbox' id='drop-remove' />
+                    <label for='drop-remove'>remove after drop</label>
+                </p>
               </div>
+            <div class="col-md-5">
+                    <p class="lead">Choose worker for event share</p>
+                    {!!Form::select("",$workers,[],["class" => "form-control subscriber"])!!}
+                        <br>
+                    {!!Form::submit("Refresh",["class" => "btn btn-primary pull-right"])!!}
+            </div>
               <!-- page end-->
           </section>
+		                <div id='calendar'></div>
       </section>
       <!--main content end-->
-    <script src="/js/jquery.js"></script>
-  <script type="text/javascript" src="/js/jquery-ui-1.9.2.custom.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script class="include" type="text/javascript" src="/js/jquery.dcjqaccordion.2.7.js"></script>
-  <script src="/js/jquery.scrollTo.min.js"></script>
-  <script src="/js/jquery.nicescroll.js" type="text/javascript"></script>
-  <script src="/js/respond.min.js" ></script>
 
 
-    <!--script for this page only-->
-    <script src="/js/logindepot/calendar.js"></script>
 @stop

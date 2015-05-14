@@ -16,7 +16,7 @@
     <link href="/css/bootstrap-reset.css" rel="stylesheet">
     <!--external css-->
     <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
+    <link href="/assets/fullcalendar/fullcalendar.css" rel="stylesheet" />
     <link href="/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/css/owl.carousel.css" type="text/css">
 
@@ -526,7 +526,8 @@
     <script src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/jquery-ui-1.9.2.custom.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
+    <script src="/assets/fullcalendar/lib/moment.min.js"></script>
+    <script src="/assets/fullcalendar/fullcalendar.js"></script>
     <script class="include" type="text/javascript" src="/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="/js/jquery.scrollTo.min.js"></script>
     <script src="/js/jquery.nicescroll.js" type="text/javascript"></script>
