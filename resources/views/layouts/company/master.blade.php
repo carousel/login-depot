@@ -361,7 +361,7 @@
                           <span>Quotes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="lobby.html">New quote</a></li>
+                          <li><a  href="/companies/{!!$company!!}/quotes/create">Create quote</a></li>
                           <li><a  href="chat_room.html">Drafts</a></li>
                       </ul>
                   </li>
@@ -521,6 +521,7 @@
         @yield("customers")
         @yield("workers")
         @yield("customer")
+        @yield("quote")
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="/js/jquery.js"></script>

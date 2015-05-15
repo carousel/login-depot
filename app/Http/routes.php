@@ -34,7 +34,13 @@ Route::post('/password/reset', 'Auth\PasswordController@postReset');
 Route::post('/calendar/share', function(){
     return \Input::all();
 });
-//Route::get('home', 'HomeController@index');
+
+Route::get('/companies/{company}/quotes/create', 'QuotesController@getCreate');
+Route::post('/companies/{company}/quotes/create', 'QuotesController@postCreate');
+Route::post('/companies/{company}/quotes/{quote}/edit', 'QuotesController@postEditQuote');
+Route::post('/companies/{company}/quotes/{quote}/delete', 'QuotesController@postDeleteQuote');
+
+
 
 Route::controllers([
     'auth' => 'Auth\AuthController',

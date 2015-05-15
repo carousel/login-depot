@@ -4738,6 +4738,9 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
     background: #5b6e84;
     color: #fff;
     padding: 10px 0;
+    position:fixed;
+    width:84%;
+    bottom:0;
 }
 
 .go-top {
@@ -6214,3 +6217,4 @@ header.blue-bg .search:focus {
 .customers-panel-heading{
     color:red;
 }
+
