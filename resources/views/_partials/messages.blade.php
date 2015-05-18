@@ -28,3 +28,9 @@
         <span>{!!Session::get("create_status")!!}</span>
     </div>
 @endif
+@if(Session::has("calendar_event_status"))
+    <div class="alert alert-info">
+        <a href="#"class="close" data-dismiss="alert">&times;</a>
+        <span>{!!Session::get("calendar_event_status")!!}</span>
+    </div>
+@endif

@@ -13,7 +13,7 @@
 <br>
             <section class="panel col-md-12  profile-forms">
 <br>
-                {!!Form::open(["url"=>"/companies/" . $company . "/quotes/create","method"=>"POST","class" => "form-inline","role"=>"form"])!!}
+                {!!Form::open(["url"=>"/companies/" . $company_name . "/quotes/create","method"=>"POST","class" => "form-inline","role"=>"form"])!!}
                     <div class="form-group">
                         {!!Form::label("year")!!}
                         {!!Form::selectRange("year",1999,2015,[],["class" => "form-control"])!!}

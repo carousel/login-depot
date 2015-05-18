@@ -546,7 +546,7 @@
 
     <!--common script for all pages-->
     <script src="/js/common-scripts.js"></script>
-    <script src="/js/external-dragging-calendar.js"></script>
+    <script src="/js/logindepot/calendar.js"></script>
 
     <!--script for this page-->
     <script src="/js/sparkline-chart.js"></script>
@@ -575,8 +575,8 @@
           $('select.styled').customSelect();
       });
 
-        $(".colorpicker").colorpicker();
 
+        $(".colorpicker").colorpicker();
   </script>
 
   </body>

@@ -8,37 +8,39 @@
         <h4 class="modal-title" id="exampleModalLabel">Edit event</h4>
       </div>
       <div class="modal-body">
-        <form>
+{!!Form::open(["url" => "/companies/" . $company_name . "/share-calendar","method" => "POST", "class" => "share-event-form"])!!}
           <div class="form-group">
-            <label for="recipient-name" class="control-label">Title:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <label for="title" class="control-label">Title:</label>
+            <input type="text" class="form-control" name="title">
           </div>
           <div class="form-group">
-            <label for="message-text" class="control-label">Description:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <label for="description" class="control-label">Description:</label>
+            <textarea class="form-control" name="description"></textarea>
           </div>
           <div class="form-group">
-                <label for="message-text" class="control-label">Clic to pick a color for event:</label>
-                <input type="text" id="colorpicker" class="colorpicker form-control" value="#cdccff">
+                <label for="color" class="control-label">Click to pick a color for event:</label>
+                <input type="text" name="color" class="colorpicker form-control" value="#cdccff">
           </div>
           <div class="form-group form-inline">
-            <label for="message-text" class="control-label">Start:</label>
-                {!!Form::selectRange("year",2015,2020,[],["class" => "form-control"])!!}
-                {!!Form::selectMonth("January",[],["class" => "form-control"])!!}
-                {!!Form::selectRange("day",1,31,[],["class" => "form-control"])!!}
+            <label for="start_date" class="control-label">Start:</label>
+                {!!Form::selectRange("start_year",2015,2020,[],["class" => "form-control"])!!}
+                {!!Form::selectMonth("start_month",[],["class" => "form-control"])!!}
+                {!!Form::selectRange("start_day",1,31,[],["class" => "form-control"])!!}
           </div>
           <div class="form-group form-inline">
-            <label for="message-text" class="control-label">End:</label>
-                {!!Form::selectRange("year",2015,2020,[],["class" => "form-control"])!!}
-                {!!Form::selectMonth("January",[],["class" => "form-control"])!!}
-                {!!Form::selectRange("day",1,31,[],["class" => "form-control"])!!}
+            <label for="end_date" class="control-label">End:</label>
+                {!!Form::selectRange("end_year",2015,2020,[],["class" => "form-control"])!!}
+                {!!Form::selectMonth("end_month",[],["class" => "form-control"])!!}
+                {!!Form::selectRange("end_day",1,31,[],["class" => "form-control"])!!}
+                <input type="hidden" name="worker">
           </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Share event</button>
+        {!!Form::submit("Share event",["class" => "btn btn-success share-event-button"])!!}
+        {!!Form::close()!!}
       </div>
     </div>
   </div>
 </div>
+<script src="//code.jquery.com/jquery.js"></script>

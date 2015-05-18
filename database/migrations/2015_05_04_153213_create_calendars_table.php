@@ -16,8 +16,12 @@ class CreateCalendarsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('company_id');
-			$table->string('event_name');
-			$table->string('event_info');
+			$table->integer('worker_id');
+			$table->string('event_title');
+			$table->string('event_description');
+			$table->string('event_color');
+			$table->string('event_start_date');
+			$table->string('event_end_date');
 			$table->timestamps();
 		});
 	}

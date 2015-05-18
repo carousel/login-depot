@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\LoginDepot\Customer;
+use App\LoginDepot\Calendar;
 use App\LoginDepot\User;
 use App\LoginDepot\Company;
 use App\LoginDepot\Worker;
@@ -8,6 +9,7 @@ use App\Http\Requests\CreateCustomerBasicProfileRequest;
 use App\Http\Requests\CreateWorkerRequest;
 use App\Http\Requests\UpdateCustomerBasicProfileRequest;
 use App\Http\Requests\CreateCompanyProfileRequest;
+use App\Http\Requests\CalendarEventShareRequest;
 use App\Http\Requests\UpdateWorkerRequest;
 
 class CompaniesController extends Controller {
@@ -56,7 +58,11 @@ class CompaniesController extends Controller {
 	{
         $company = Company::where("company_name",$company_name)->first();
         $workers = Worker::where("company_id",$company->id)->get();
-        $workers = $workers->lists("first_name");
+        $workers  = $workers->lists("first_name");
+        //$workers["default"] = "Please select a worker";
+        $keys = array_values($workers);
+        $values = array_values($workers);
+        $workers = array_combine($keys,$values);
         return view('companies.calendar')
             ->with("workers",$workers)
             ->with("company_name",$company_name);
@@ -224,9 +230,25 @@ public function postCreateCustomer($company_name,CreateCustomerBasicProfileReque
 
         return \Redirect::to("/auth/login");
     }
-    public function shareCalendar(){
-        $input = \Input::all();
-        return $input;
+    public function shareCalendar(CalendarEventShareRequest $request){
+
+        if(\Auth::user()->role == "company"){
+            $company = Company::where("user_id",\Auth::user()->id)->first();
+        }
+        $calendar = new Calendar;
+        $start_date = $request->start_year . "-" . $request->start_month . "-" . $request->start_day;
+        $end_date = $request->end_year . "-" . $request->end_month . "-" . $request->end_day;
+        $worker = Worker::where("first_name",$request->worker)->first();
+        $calendar->company_id = $company->id;
+        $calendar->worker_id = $worker->id;
+        $calendar->event_title = $request->title;
+        $calendar->event_description = $request->description;
+        $calendar->event_color = $request->color;
+        $calendar->event_start_date = $start_date;
+        $calendar->event_end_date = $end_date;
+        $calendar->save();
+        return \Redirect::to("/companies/" . $company->company_name . "/calendar")
+            ->with("calendar_event_status","New event for {$worker->first_name} has been created");
     }
     public function viewCalendar(){
         $input = \Input::all();

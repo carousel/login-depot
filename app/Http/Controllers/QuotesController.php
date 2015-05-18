@@ -11,10 +11,10 @@ class QuotesController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
-        $user = \Auth::user();
-        if($user->role = "company"){
-            \View::share("company",$user->first_name);
-        }
+        //$user = \Auth::user();
+        //if($user->role = "company"){
+            //\View::share("company",$user->first_name);
+        //}
 	}
 
 	/**
@@ -22,10 +22,10 @@ class QuotesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function getCreate($company)
+	public function getCreate($company_name)
 	{
         return view("companies.quotes.create")
-            ->with("company",$company);
+            ->with("company_name",$company_name);
 	}
 	/**
 

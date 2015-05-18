@@ -43,13 +43,15 @@
       <section id="main-content">
           <section class="wrapper">
             @include("_partials.modals.calendar-modal")
+            @include("_partials.messages")
+            @include("_partials.errors")
 <!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
 </button>-->
               <!-- page start-->
 
 		    <div id='external-events'>
-                <h4>Draggable Events</h4>
+                <h4>Drag and click on event</h4>
                 <!--<div class='fc-event btn' data-toggle="modal" data-target="#exampleModal">My Event</div>-->
                 <div class='fc-event btn'>My Event</div>
                 <!--<p>
@@ -59,9 +61,8 @@
               </div>
             <div class="col-md-5">
                     <p class="lead">Choose worker for event share</p>
-                    {!!Form::select("",$workers,[],["class" => "form-control subscriber"])!!}
+                    {!!Form::select("",$workers,"default",["class" => "form-control subscriber"])!!}
                         <br>
-                    {!!Form::submit("Refresh",["class" => "btn btn-primary pull-right"])!!}
             </div>
               <!-- page end-->
           </section>
