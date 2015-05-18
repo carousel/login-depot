@@ -14,7 +14,7 @@
 <br>
             <section class="panel col-md-5 col-md-offset-3 profile-forms">
                 <p class="lead">Basic profile</p>
-                {!!Form::open(["url"=>"/companies/" . $company . "/workers/". $worker_object->first_name ."/update","method"=>"post","class" => "basic-profile"])!!}
+                {!!Form::open(["url"=>"/companies/" . $company_name . "/workers/". $worker_object->first_name ."/update","method"=>"post","class" => "basic-profile"])!!}
                     {!!Form::label("username")!!}
                     {!!Form::text("username",$worker_object->first_name,["class" => "form-control"])!!}
                     {!!Form::label("first name")!!}
@@ -31,7 +31,7 @@
                     {!!Form::submit("Update",["class" => "btn btn-success pull-right"])!!}
                 {!!Form::close()!!}
 
-                {!!Form::open(["url"=>"/companies/" . $company . "/workers/". $worker_object->first_name ."/delete","method"=>"post","class" => "basic-profile"])!!}
+                {!!Form::open(["url"=>"/companies/" . $company_name . "/workers/". $worker_object->first_name ."/delete","method"=>"post","class" => "basic-profile"])!!}
                     {!!Form::submit("Delete",["class" => "btn btn-danger delete-button"])!!}
                 {!!Form::close()!!}
                 

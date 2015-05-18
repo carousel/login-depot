@@ -5,7 +5,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li>
-                      <a class="active" href="/companies/{!!$company!!}">
+                      <a class="active" href="/companies/{!!$company_name!!}">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
@@ -16,7 +16,7 @@
                           <span>Customers</span>
                       </a>
                       <ul class="sub">
-                          <li><a href="/companies/{!!$company!!}/customers">Manage</a></li>
+                          <li><a href="/companies/{!!$company_name!!}/customers">Manage</a></li>
                           <li><a  href="#">Hello</a></li>
                       </ul>
                   </li>
@@ -74,7 +74,7 @@
                                   <li class="sub-menu">
                                       <a  href="javascript:;">Workers</a>
                                       <ul class="sub">
-                                            <li><a href="/companies/{!!$company!!}/workers">Manage</a></li>
+                                            <li><a href="/companies/{!!$company_name!!}/workers">Manage</a></li>
                                       </ul>
                                   </li>
                           <li><a  href="chat_room.html">Email templates</a></li>

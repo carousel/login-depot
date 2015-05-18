@@ -25,27 +25,11 @@
 
 		/* initialize the calendar
 		-----------------------------------------------------------------*/
-
-		$('#calendar').fullCalendar({
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
-			},
-			editable: true,
-			droppable: true, // this allows things to be dropped onto the calendar
-			drop: function() {
-				// is the "remove after drop" checkbox checked?
-				if ($('#drop-remove').is(':checked')) {
-					// if so, remove the element from the "Draggable Events" list
-					$(this).remove();
-				}
-			},        
-			events: [
+        var events = [
 				{
 					title: 'All Day Event',
 					start: '2015-05-01',
-                    backgroundColor: "#c33"
+                    backgroundColor: "green"
 				},
 				{
 					title: 'Long Event',
@@ -98,7 +82,30 @@
 					start: '2015-02-28'
 				}
 			]
-		});
+
+
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			editable: true,
+			droppable: true, // this allows things to be dropped onto the calendar
+			drop: function() {
+				// is the "remove after drop" checkbox checked?
+				if ($('#drop-remove').is(':checked')) {
+					// if so, remove the element from the "Draggable Events" list
+					$(this).remove();
+				}
+			},        
+			events: [],
+            eventClick: function(calEvent,jsEvent,view){
+                //$(this).text("hello");
+                $("#exampleModal").modal();
+            },
+        
+        });
 
 
 	});

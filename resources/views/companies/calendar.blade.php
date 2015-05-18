@@ -42,19 +42,20 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
+            @include("_partials.modals.calendar-modal")
+<!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>-->
               <!-- page start-->
 
 		    <div id='external-events'>
                 <h4>Draggable Events</h4>
-                <div class='fc-event btn'>My Event 1</div>
-                <div class='fc-event btn'>My Event 2</div>
-                <div class='fc-event btn'>My Event 3</div>
-                <div class='fc-event btn'>My Event 4</div>
-                <div class='fc-event btn'>My Event 5</div>
-                <p>
+                <!--<div class='fc-event btn' data-toggle="modal" data-target="#exampleModal">My Event</div>-->
+                <div class='fc-event btn'>My Event</div>
+                <!--<p>
                     <input type='checkbox' id='drop-remove' />
                     <label for='drop-remove'>remove after drop</label>
-                </p>
+                </p>-->
               </div>
             <div class="col-md-5">
                     <p class="lead">Choose worker for event share</p>
@@ -67,6 +68,7 @@
 		                <div id='calendar'></div>
       </section>
       <!--main content end-->
+
 
 
 @stop

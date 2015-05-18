@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Handlers\Events\CompanyRegisteredHandler;
+use App\LoginDepot\Company;
 
 class AuthController extends Controller {
 
@@ -53,10 +54,11 @@ class AuthController extends Controller {
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
             if($this->auth->user()->role == "company"){
-                if($this->auth->user()->profile_complete == false){
+                if($this->auth->user()->profile_complete == 0){
 			        return redirect()->to("/companies/profile/create");
                 }else{
-			        return redirect()->to("/companies/{$this->auth->user()->username}");
+                    $company = Company::where("user_id",$this->auth->user()->id)->first();
+			        return redirect()->to("/companies/{$company->company_name}");
                 }
             }
             if($this->auth->user()->role == "worker"){

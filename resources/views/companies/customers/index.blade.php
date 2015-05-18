@@ -28,7 +28,7 @@
                         <td>{!!$customer["last_name"]!!}</td>
                         <td>{!!$customer["email"]!!}</td>
                     <td>
-                        <a href="/companies/{!!$company!!}/customers/{!!$customer["first_name"]!!}/update" class="btn btn-primary btn-xs">Edit</a>
+                        <a href="/companies/{!!$company_name!!}/customers/{!!$customer["first_name"]!!}/update" class="btn btn-primary btn-xs">Edit</a>
                     </td>
                     </tr>
                 @endforeach
@@ -37,7 +37,7 @@
 
                 </table>
 <hr>
-                <a href="/companies/{!!$company!!}/customers/create" class="btn btn-success" style="margin-left:40%">Create new customer</a>
+                <a href="/companies/{!!$company_name!!}/customers/create" class="btn btn-success" style="margin-left:40%">Create new customer</a>
 <hr>
 
 

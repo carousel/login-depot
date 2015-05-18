@@ -17,6 +17,7 @@
     <!--external css-->
     <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="/assets/fullcalendar/fullcalendar.css" rel="stylesheet" />
+    <link href="/assets/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css" rel="stylesheet" />
     <link href="/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/css/owl.carousel.css" type="text/css">
 
@@ -234,7 +235,7 @@
                         </ul>
                     </li>
                     <li id="header_notification_bar">
-                        <a href="/companies/{!!$company!!}/calendar">
+                        <a href="/companies/{!!$company_name!!}/calendar">
                             <i class="fa fa-calendar"></i>
                         </a>
                     </li>
@@ -252,7 +253,7 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="/img/avatar1_small.jpg">
-                            <span class="username">{!!$company!!}</span>
+                            <span class="username">{!!$company_name!!}</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -278,7 +279,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li>
-                      <a class="active" href="/companies/{!!$company!!}">
+                      <a class="active" href="/companies/{!!$company_name!!}">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
@@ -289,7 +290,7 @@
                           <span>Customers</span>
                       </a>
                       <ul class="sub">
-                          <li><a href="/companies/{!!$company!!}/customers">Manage</a></li>
+                          <li><a href="/companies/{!!$company_name!!}/customers">Manage</a></li>
                           <li><a  href="#">Hello</a></li>
                       </ul>
                   </li>
@@ -347,7 +348,7 @@
                                   <li class="sub-menu">
                                       <a  href="javascript:;">Workers</a>
                                       <ul class="sub">
-                                            <li><a href="/companies/{!!$company!!}/workers">Manage</a></li>
+                                            <li><a href="/companies/{!!$company_name!!}/workers">Manage</a></li>
                                       </ul>
                                   </li>
                           <li><a  href="chat_room.html">Email templates</a></li>
@@ -361,7 +362,7 @@
                           <span>Quotes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="/companies/{!!$company!!}/quotes/create">Create quote</a></li>
+                          <li><a  href="/companies/{!!$company_name!!}/quotes/create">Create quote</a></li>
                           <li><a  href="chat_room.html">Drafts</a></li>
                       </ul>
                   </li>
@@ -538,6 +539,7 @@
     <script src="/js/jquery.customSelect.min.js" ></script>
     <script src="/js/respond.min.js" ></script>
     <script src="/js/logindepot/logindepot.js" ></script>
+    <script src="/assets/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js"></script>
 
     <!--right slidebar-->
     <script src="/js/slidebars.min.js"></script>
@@ -572,6 +574,8 @@
       $(function(){
           $('select.styled').customSelect();
       });
+
+        $(".colorpicker").colorpicker();
 
   </script>
 

@@ -194,7 +194,7 @@
                         </ul>
                     </li>
                     <li id="header_notification_bar">
-                        <a href="/companies/{!!$company!!}/calendar">
+                        <a href="/companies/{!!$company_name!!}/calendar">
                             <i class="fa fa-calendar"></i>
                         </a>
                     </li>
@@ -212,7 +212,7 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="/img/avatar1_small.jpg">
-                            <span class="username">{!!$company!!}</span>
+                            <span class="username">{!!$company_name!!}</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">

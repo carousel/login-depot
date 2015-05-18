@@ -4,7 +4,7 @@ Route::get('/', 'HomeController@getIndex');
 
 Route::get('/admin', 'AdminController@getIndex');
 
-Route::get('/companies/{company}', 'CompaniesController@getIndex');
+Route::get('/companies/{company_name}', 'CompaniesController@getIndex');
 Route::get('/companies/profile/create', 'CompaniesController@getCreateProfile');
 Route::post('/companies/profile/create', 'CompaniesController@postCreateProfile');
 Route::get('/companies/{company}/calendar', 'CompaniesController@getCalendar');

@@ -13,7 +13,7 @@
 <br>
             <section class="panel col-md-5 col-md-offset-3 profile-forms">
                 <p class="lead">Basic profile</p>
-                {!!Form::open(["url"=>"/companies/" . $company . "/customers/create","method"=>"POST","class" => "basic-profile"])!!}
+                {!!Form::open(["url"=>"/companies/" . $company_name . "/customers/create","method"=>"POST","class" => "basic-profile"])!!}
                     {!!Form::label("first_name")!!}
                     {!!Form::text("first_name","",["class" => "form-control"])!!}
                     {!!Form::label("last_name")!!}
