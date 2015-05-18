@@ -9,12 +9,4 @@ $(".delete-button").on("click",function(e){
 });
 
 $(".share-event-button").on("click",function(e){
-    var worker = $("select.subscriber").val();
-    $("input[name='worker']").val(worker);
-    if(!worker){
-        e.preventDefault();
-        alert("Please create  a worker to share event");
-    }else{
-        return true;
-    }
 });

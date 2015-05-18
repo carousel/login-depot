@@ -101,8 +101,14 @@
 			},        
 			events: [],
             eventClick: function(calEvent,jsEvent,view){
-                //$(this).text("hello");
-                $("#exampleModal").modal();
+                var worker = $("select.subscriber").val();
+                if(!worker){
+                    alert("Please create  a worker to share event");
+                    return false;
+                }else{
+                    $("input[name='worker']").val(worker);
+                    $("#exampleModal").modal();
+                }
             },
         
         });
