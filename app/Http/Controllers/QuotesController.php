@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateQuotesRequest;
+use App\LoginDepot\Vehicle;
+use App\LoginDepot\ZipCode;
 
 use Illuminate\Http\Request;
 
@@ -26,6 +28,15 @@ class QuotesController extends Controller {
 	{
         return view("companies.quotes.create")
             ->with("company_name",$company_name);
+	}
+
+	public function getVehicles()
+	{
+        return Vehicle::select("year","make")->get();
+	}
+	public function pickupCity()
+	{
+        return ZipCode::select("primary_city")->limit(100)->get();
 	}
 	/**
 

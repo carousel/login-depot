@@ -547,6 +547,8 @@
     <!--common script for all pages-->
     <script src="/js/common-scripts.js"></script>
     <script src="/js/logindepot/calendar.js"></script>
+    <script src="/js/typeahead.js"></script>
+    <script src="/js/logindepot/typeahead.js"></script>
 
     <!--script for this page-->
     <script src="/js/sparkline-chart.js"></script>

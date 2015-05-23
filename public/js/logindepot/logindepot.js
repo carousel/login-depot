@@ -8,5 +8,3 @@ $(".delete-button").on("click",function(e){
     }
 });
 
-$(".share-event-button").on("click",function(e){
-});

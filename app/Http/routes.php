@@ -40,11 +40,14 @@ Route::post('/companies/{company}/quotes/create', 'QuotesController@postCreate')
 Route::post('/companies/{company}/quotes/{quote}/edit', 'QuotesController@postEditQuote');
 Route::post('/companies/{company}/quotes/{quote}/delete', 'QuotesController@postDeleteQuote');
 
+//TYPEAHEAD AJAX
+//Route::get("vehicles","QuotesController@getVehicles");
+//Route::get("pickup-city","QuotesController@pickupCity");
+
 
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
-
 

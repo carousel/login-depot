@@ -20,3 +20,12 @@
     -company
 
 #events
+
+
+#COMMUNICATION WITH CUSTOMER
+    - profile info
+    - pickup info (city,state,zip)
+    - dropoff info (city,state,zip)
+    - vehicle info
+        - year,make,model,condition 
+    - carrier type

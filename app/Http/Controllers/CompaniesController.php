@@ -70,6 +70,9 @@ class CompaniesController extends Controller {
     public function getCustomers($company_name)
     {
         $customers = Customer::all();
+        if(\Request::ajax()){
+            return $customers;
+        };
         return view("companies.customers.index")       
             ->with("company_name",$company_name)
             ->with("customers",$customers);
@@ -111,10 +114,14 @@ class CompaniesController extends Controller {
     }
 public function postCreateCustomer($company_name,CreateCustomerBasicProfileRequest $request)
 {
+    $company_id = Company::where("company_name",$company_name)->first()->id;
     $customer = new Customer;
     $customer->first_name = $request["first_name"];
     $customer->last_name = $request["last_name"];
     $customer->email = $request["email"];
+    $customer->secondary_email = $request["secondary_email"];
+    $customer->phone = $request["phone"];
+    $customer->company_id = $company_id;
     $customer->save();
     return \Redirect::to("companies/{$company_name}/customers")
         ->with("create_status","Customer {$customer->first_name} profile has been created")
