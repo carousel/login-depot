@@ -10,7 +10,7 @@
 <br>
             <section class="panel col-md-12 ">
 <br>
-                {!!Form::open(["class" => "quote-form"])!!}
+                {!!Form::open(["url" => "/companies/" . $company_name . "/quotes/create-quote","class" => "quote-form"])!!}
                     <div class="form-group">
                         <p class="lead quote-header">Choose Customer</p>
                         {!!Form::label("Customer")!!}
@@ -40,35 +40,33 @@
                         {!!Form::text("Delivery ZipCode","",["class" => "form-control typeahead","placeholder" => "Enter Zip Code"])!!}
 &nbsp;
                     </div>
-<a href="#" class="btn btn-primary show-google-maps">Show in google maps</a>
+<a href="#" class="btn btn-info show-google-maps">Show in google maps</a>
 <br>
 <br>
                     <p class="lead quote-header">Add Vehicles</p>
                     <div class="form-inline add-vehicles">
-                        {!!Form::label("year")!!}
-                        {!!Form::text("year","",["class" => "form-control add-vehicle","id" => "year","placeholder" => "Enter year"])!!}
+<span></span>
+                        {!!Form::text("Year","",["class" => "form-control add-vehicle","id" => "year","placeholder" => "Enter year"])!!}
 &nbsp;
-                        {!!Form::label("make")!!}
-                        {!!Form::text("make","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle make"])!!}
+<span></span>
+                        {!!Form::text("Make","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle make"])!!}
 &nbsp;
-                        {!!Form::label("model")!!}
-                        {!!Form::text("model","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle model"])!!}
+<span></span>
+                        {!!Form::text("Model","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle model"])!!}
 &nbsp;
-<br>
-                        {!!Form::label("Type")!!}
+<span></span>
                         {!!Form::select("Type",$vehicle_type,"",["class" => "form-control add-vehicle","placeholder" => "Select vehicle type"])!!}
 &nbsp;
-                        {!!Form::label("Condition")!!}
-                        {!!Form::select("Condition",["Running"=> "Running","Not Running" => "Not Running"],"",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
-&nbsp;
+<span></span>
+                        {!!Form::select("Condition",[null => "Select Condition","Running"=> "Running","Not Running" => "Not Running"],"",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
 <i class="fa fa-plus-circle"></i>
 </div>
 &nbsp;
 <div class="form-inline">
-                        {!!Form::label("Carrier Type")!!}
-                        {!!Form::select("Carrier Type",["Open Carrier" => "Open Carrier","Enclosed Carrier" => "Enclosed Carrier"],"",["class" => "form-control","placeholder" => "Select Carrier Type"])!!}
+                        {!!Form::select("Carrier Type",[null => "Select Carrier Type","Open Carrier" => "Open Carrier","Enclosed Carrier" => "Enclosed Carrier"],"",["class" => "form-control","placeholder" => "Select Carrier Type"])!!}
 &nbsp;
                     </div>
+<a href="#" class="btn btn-info show-google-maps">Compare Prices</a>
 <br>
                     <div class="form-group">
                         <p class="lead quote-header">Notes</p>
