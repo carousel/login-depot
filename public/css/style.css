@@ -6215,11 +6215,24 @@ header.blue-bg .search:focus {
     color:red;
 }
 .quote-header{
-    padding:3px;
-    background:#ccfcca;
+    color:red;
+    /*font-weight:bold;*/
+    padding:4px;
+    /*background:#78CD51;*/
+    /*background:red;*/
+
+    /*border-radius:5px;*/
+    /*border:1px solid green;*/
 }
 .vehicle-notes-textarea{
     width:100%;
+    height:50px;
+}
+input{
+    border:1px solid #ccf!important;
+}
+select{
+    border:1px solid #ccf!important;
 }
 .tt-query {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -6260,3 +6273,30 @@ header.blue-bg .search:focus {
      .tt-suggestion p {
        margin: 0;
    }
+.show-google-maps{
+    margin-left:43%;
+}
+.add-vehicle{
+    margin-bottom:3px;
+}
+
+.add-vehicles{
+    background:#d8d8d8;
+    margin-bottom:7px;
+    border-radius: 5px;
+    padding:5px;
+}
+i.fa-plus-circle{
+    cursor:pointer;
+    color:green;
+    font-size:1.5em;
+    left:60%;
+    position:relative;
+}
+i.fa-minus-circle{
+    cursor:pointer;
+    font-size:1.5em;
+    color:red;
+    left:60%;
+    position:relative;
+}

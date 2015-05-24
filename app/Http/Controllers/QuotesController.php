@@ -26,8 +26,12 @@ class QuotesController extends Controller {
 	 */
 	public function getCreate($company_name)
 	{
+        $states = \Config::get("lists.states");
+        $vehicle_type = \Config::get("lists.vehicle_type");
         return view("companies.quotes.create")
-            ->with("company_name",$company_name);
+            ->with("company_name",$company_name)
+            ->with("states",$states)
+            ->with("vehicle_type",$vehicle_type);
 	}
 
 	public function getVehicles()

@@ -36,7 +36,7 @@ Route::post('/calendar/share', function(){
 });
 
 Route::get('/companies/{company}/quotes/create', 'QuotesController@getCreate');
-Route::post('/companies/{company}/quotes/create', 'QuotesController@postCreate');
+Route::post('/companies/{company}/quotes/create-quote', 'QuotesController@postCreate');
 Route::post('/companies/{company}/quotes/{quote}/edit', 'QuotesController@postEditQuote');
 Route::post('/companies/{company}/quotes/{quote}/delete', 'QuotesController@postDeleteQuote');
 

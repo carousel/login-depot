@@ -6,72 +6,88 @@
 @include("_partials.errors")
               <!--state overview start-->
                 <span class="lead">Create New Quote</span>
-                <form class="form-inline" style="float:right;margin-right:15px;margin-top:-10px">
-                    <input type="text" name="search" class="form-control" placeholder="fuzzy search"></input>
-                </form>
               <div class="row state-overview">
 <br>
             <section class="panel col-md-12 ">
 <br>
-                {!!Form::open(["url"=>"/companies/" . $company_name . "/quotes/create","method"=>"POST"])!!}
+                {!!Form::open(["class" => "quote-form"])!!}
                     <div class="form-group">
                         <p class="lead quote-header">Choose Customer</p>
                         {!!Form::label("Customer")!!}
                         {!!Form::text("Customer","",["class" => "form-control typeahead-customer","placeholder" => "Type customer name"])!!}
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <p class="lead quote-header">Pickup Address</p>
                         {!!Form::label("Pickup City")!!}
-                        {!!Form::text("Pickup City","",["class" => "form-control","placeholder" => "Enter city name"])!!}
+                        {!!Form::text("Pickup City","",["class" => "form-control","placeholder" => "Enter City Name"])!!}
 &nbsp;
                         {!!Form::label("Pickup State")!!}
-                        {!!Form::select("Pickup State",["Select Pickup State"],"",["class" => "form-control","placeholder" => "Enter State"])!!}
+                        {!!Form::select("Pickup State",$states,"",["class" => "form-control","placeholder" => "Enter State"])!!}
 &nbsp;
                         {!!Form::label("Pickup ZipCode")!!}
                         {!!Form::text("Pickup ZipCode","",["class" => "form-control","placeholder" => "Enter Zip Code"])!!}
 &nbsp;
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <p class="lead quote-header">Delivery Address</p>
                         {!!Form::label("Delivery City")!!}
-                        {!!Form::text("Delivery City","",["class" => "form-control typeahead","placeholder" => "Type city name"])!!}
+                        {!!Form::text("Delivery City","",["class" => "form-control typeahead","placeholder" => "Enter City Name"])!!}
 &nbsp;
                         {!!Form::label("Delivery State")!!}
-                        {!!Form::select("Delivery State",["Select Delivery State"],"",["class" => "form-control typeahead","placeholder" => "Select State"])!!}
+                        {!!Form::select("Delivery State",$states,"",["class" => "form-control typeahead","placeholder" => "Select State"])!!}
 &nbsp;
                         {!!Form::label("Delivery ZipCode")!!}
-                        {!!Form::text("Delivery ZipCode","",["class" => "form-control typeahead","placeholder" => "Type zip code"])!!}
+                        {!!Form::text("Delivery ZipCode","",["class" => "form-control typeahead","placeholder" => "Enter Zip Code"])!!}
 &nbsp;
                     </div>
-                    <div class="form-group col-md-4">
-                        <p class="lead quote-header">Vehicle Information</p>
-                        {!!Form::label("Year")!!}
-                        {!!Form::text("Year","",["class" => "form-control typeahead","placeholder" => "Type year"])!!}
+<a href="#" class="btn btn-primary show-google-maps">Show in google maps</a>
+<br>
+<br>
+                    <p class="lead quote-header">Add Vehicles</p>
+                    <div class="form-inline add-vehicles">
+                        {!!Form::label("year")!!}
+                        {!!Form::text("year","",["class" => "form-control add-vehicle","id" => "year","placeholder" => "Enter year"])!!}
 &nbsp;
-                        {!!Form::label("Make")!!}
-                        {!!Form::text("Make","",["class" => "form-control typeahead","placeholder" => "Type vehicle make"])!!}
+                        {!!Form::label("make")!!}
+                        {!!Form::text("make","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle make"])!!}
 &nbsp;
-                        {!!Form::label("Model")!!}
-                        {!!Form::text("Model","",["class" => "form-control typeahead","placeholder" => "Type vehicle model"])!!}
+                        {!!Form::label("model")!!}
+                        {!!Form::text("model","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle model"])!!}
 &nbsp;
-                        {!!Form::label("Vehicle Type")!!}
-                        {!!Form::select("Vehicle Type",["Select Vehicle Type"],"",["class" => "form-control typeahead","placeholder" => "Select Vehicle Type"])!!}
+<br>
+                        {!!Form::label("Type")!!}
+                        {!!Form::select("Type",$vehicle_type,"",["class" => "form-control add-vehicle","placeholder" => "Select vehicle type"])!!}
 &nbsp;
+                        {!!Form::label("Condition")!!}
+                        {!!Form::select("Condition",["Running"=> "Running","Not Running" => "Not Running"],"",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
+&nbsp;
+<i class="fa fa-plus-circle"></i>
+</div>
+&nbsp;
+<div class="form-inline">
                         {!!Form::label("Carrier Type")!!}
-                        {!!Form::select("Carrier Type",["Select Carrier Type"],"",["class" => "form-control typeahead","placeholder" => "Select Carrier Type"])!!}
+                        {!!Form::select("Carrier Type",["Open Carrier" => "Open Carrier","Enclosed Carrier" => "Enclosed Carrier"],"",["class" => "form-control","placeholder" => "Select Carrier Type"])!!}
 &nbsp;
                     </div>
-<br>
-<a href="#" class="lead">Show in google maps</a>
-<br>
 <br>
                     <div class="form-group">
+                        <p class="lead quote-header">Notes</p>
                         {!!Form::label("Vehicle Notes")!!}
 <br>
                         {!!Form::textarea("Vehicle Notes","",["class" => "vehicle-notes-textarea"])!!}
                     </div>
+                    <div class="form-group">
+                        {!!Form::label("Notes For Customer")!!}
 <br>
-                    {!!Form::submit("submit",["class" => "btn btn-success pull-right"])!!}
+                        {!!Form::textarea("Notes For Customer","",["class" => "vehicle-notes-textarea"])!!}
+                    </div>
+                    <div class="form-group">
+                        {!!Form::label("Notes For Office")!!}
+<br>
+                        {!!Form::textarea("Notes For Office","",["class" => "vehicle-notes-textarea"])!!}
+                    </div>
+<br>
+                    {!!Form::submit("submit",["class" => "btn btn-success pull-right submit-quote"])!!}
                 {!!Form::close()!!}
 <br>
 
