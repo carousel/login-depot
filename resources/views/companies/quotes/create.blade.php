@@ -20,28 +20,22 @@
                         <p class="lead quote-header">Pickup Address</p>
                         {!!Form::label("Pickup City")!!}
                         {!!Form::text("Pickup City","",["class" => "form-control","placeholder" => "Enter City Name"])!!}
-&nbsp;
                         {!!Form::label("Pickup State")!!}
                         {!!Form::select("Pickup State",$states,"",["class" => "form-control","placeholder" => "Enter State"])!!}
-&nbsp;
                         {!!Form::label("Pickup ZipCode")!!}
                         {!!Form::text("Pickup ZipCode","",["class" => "form-control","placeholder" => "Enter Zip Code"])!!}
-&nbsp;
                     </div>
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Delivery Address</p>
                         {!!Form::label("Delivery City")!!}
                         {!!Form::text("Delivery City","",["class" => "form-control typeahead","placeholder" => "Enter City Name"])!!}
-&nbsp;
                         {!!Form::label("Delivery State")!!}
                         {!!Form::select("Delivery State",$states,"",["class" => "form-control typeahead","placeholder" => "Select State"])!!}
-&nbsp;
                         {!!Form::label("Delivery ZipCode")!!}
                         {!!Form::text("Delivery ZipCode","",["class" => "form-control typeahead","placeholder" => "Enter Zip Code"])!!}
-&nbsp;
-                    </div>
-<a href="#" class="btn btn-info show-google-maps">Show in google maps</a>
 <br>
+                    </div>
+                    <a href="#" class="btn btn-info show-google-maps">Show in google maps</a>
 <br>
                     <p class="lead quote-header">Add Vehicles</p>
                     <div class="form-inline add-vehicles">
@@ -85,6 +79,16 @@
                         {!!Form::textarea("Notes For Office","",["class" => "vehicle-notes-textarea"])!!}
                     </div>
 <br>
+                    <div class="form-inline">
+                        <p class="lead quote-header">Price</p>
+                        {!!Form::label("Price")!!}
+                        {!!Form::text("Price","",["class" => "form-control","placeholder" => "Enter Price"])!!}
+                        {!!Form::label("Post Price")!!}
+                        {!!Form::text("Post Price","",["class" => "form-control","placeholder" => "Post Price"])!!}
+                    </div>
+<hr>
+                    {!!Form::label("Send Email to Customer")!!}&nbsp;
+                    {!!Form::checkbox("Send Email to Customer",true,true)!!}
                     {!!Form::submit("submit",["class" => "btn btn-success pull-right submit-quote"])!!}
                 {!!Form::close()!!}
 <br>

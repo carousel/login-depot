@@ -6215,8 +6215,8 @@ header.blue-bg .search:focus {
     color:red;
 }
 .quote-header{
-    color:red;
-    /*font-weight:bold;*/
+    color:green;
+    font-weight:bold;
     padding:4px;
     /*background:#78CD51;*/
     /*background:red;*/
