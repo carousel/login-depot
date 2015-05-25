@@ -28,6 +28,7 @@
 
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/style-responsive.css" rel="stylesheet" />
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
 
 
 
@@ -526,6 +527,7 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="/js/jquery.js"></script>
+    <script src="/js/logindepot/googlemap.js" ></script>
     <script type="text/javascript" src="/js/jquery-ui-1.9.2.custom.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/assets/fullcalendar/lib/moment.min.js"></script>

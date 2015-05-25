@@ -29,3 +29,9 @@
     - vehicle info
         - year,make,model,condition 
     - carrier type
+
+#QUOTE FORM
+    - changes
+    - autocomplete (what and from where to pull data)
+    - after submit:
+        - where to dispatch input data (central dispatch, check price, database ...)?

@@ -4,6 +4,7 @@
       <section id="main-content">
           <section class="wrapper">
 @include("_partials.errors")
+@include("_partials.modals.google-maps")
               <!--state overview start-->
                 <span class="lead">Create New Quote</span>
               <div class="row state-overview">
@@ -19,7 +20,7 @@
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Pickup Address</p>
                         {!!Form::label("Pickup City")!!}
-                        {!!Form::text("Pickup City","",["class" => "form-control","placeholder" => "Enter City Name"])!!}
+                        {!!Form::text("Pickup City","",["class" => "form-control pickup-city","placeholder" => "Enter City Name"])!!}
                         {!!Form::label("Pickup State")!!}
                         {!!Form::select("Pickup State",$states,"",["class" => "form-control","placeholder" => "Enter State"])!!}
                         {!!Form::label("Pickup ZipCode")!!}
@@ -28,7 +29,7 @@
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Delivery Address</p>
                         {!!Form::label("Delivery City")!!}
-                        {!!Form::text("Delivery City","",["class" => "form-control typeahead","placeholder" => "Enter City Name"])!!}
+                        {!!Form::text("Delivery City","",["class" => "form-control delivery-city","placeholder" => "Enter City Name"])!!}
                         {!!Form::label("Delivery State")!!}
                         {!!Form::select("Delivery State",$states,"",["class" => "form-control typeahead","placeholder" => "Select State"])!!}
                         {!!Form::label("Delivery ZipCode")!!}
