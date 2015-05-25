@@ -26,7 +26,6 @@ function codeAddress() {
             infoWindow.open(map,marker);
           } else {
             alert('There was a problem with your input. Please try again');
-            $("#googleMapsModal").modal('hide');
         }
     });
   geocoder.geocode( { 'address': deliveryCity}, function(results, status) {
@@ -41,16 +40,19 @@ function codeAddress() {
             });
             infoWindow.open(map,marker);
           } else {
-            $("#googleMapsModal").modal('hide');
+            alert('There was a problem with your input. Please try again');
         }
     });
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
-
-
-
 $(".show-google-maps").on("click",function(e){
+    var pickupCity = $(".pickup-city").val();
+    var deliveryCity = $(".delivery-city").val();
+    if(pickupCity == "" || deliveryCity == ""){
+        alert("Please enter pickup and delivery cities");
+        return false;
+    }
     $("#googleMapsModal").modal();
 });
 
