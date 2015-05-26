@@ -15,10 +15,15 @@ $("i.fa-plus-circle").on("click",function(e){
     var clone = $("body").find(".add-vehicles:first").clone(true,true);
 
     clone.children()[1].name = "Year_" + Math.floor((Math.random() * 9999) + 1);
+    clone.children()[1].value = "";
     clone.children()[3].name = "Make_" + Math.floor((Math.random() * 9999) + 1);
+    clone.children()[3].value = "";
     clone.children()[5].name = "Model_" + Math.floor((Math.random() * 9999) + 1);
+    clone.children()[5].value = "";
     clone.children()[7].name = "Type_" + Math.floor((Math.random() * 9999) + 1);
+    clone.children()[7].value = "";
     clone.children()[9].name = "Condition_" + Math.floor((Math.random() * 9999) + 1);
+    clone.children()[9].value = "";
 
     clone.insertAfter($(this).parent()).append("<i class='fa fa-minus-circle'></i>");
 });
