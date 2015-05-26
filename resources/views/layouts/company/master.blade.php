@@ -18,6 +18,7 @@
     <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="/assets/fullcalendar/fullcalendar.css" rel="stylesheet" />
     <link href="/assets/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css" rel="stylesheet" />
+    <link href="/assets/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
     <link href="/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/css/owl.carousel.css" type="text/css">
 
@@ -531,6 +532,7 @@
     <script type="text/javascript" src="/js/jquery-ui-1.9.2.custom.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/assets/fullcalendar/lib/moment.min.js"></script>
+    <script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script src="/assets/fullcalendar/fullcalendar.js"></script>
     <script class="include" type="text/javascript" src="/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="/js/jquery.scrollTo.min.js"></script>
@@ -581,6 +583,7 @@
 
 
         $(".colorpicker").colorpicker();
+        $(".datepicker").datepicker();
   </script>
 
   </body>

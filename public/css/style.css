@@ -6275,6 +6275,9 @@ select{
 .show-google-maps{
     margin-left:43%;
 }
+.compare-prices{
+    margin-left:45%;
+}
 .add-vehicle{
     margin-bottom:3px;
 }
@@ -6284,19 +6287,20 @@ select{
     margin-bottom:7px;
     border-radius: 5px;
     padding:5px;
+    width:90%;
 }
 i.fa-plus-circle{
     cursor:pointer;
     color:green;
     font-size:1.5em;
-    left:3%;
+    left:1%;
     position:relative;
 }
 i.fa-minus-circle{
     cursor:pointer;
     font-size:1.5em;
     color:red;
-    left:3%;
+    left:1%;
     position:relative;
 }
 div.labels{
@@ -6309,5 +6313,12 @@ div.labels>span{
 }
 .google-map-modal-dialog{
     width:900px;
+}
+#customer-id{
+    margin-left:5px;
+    padding:5px;
+    color:red;
+    border:1px solid #ccc;
+    border-radius:5px;
 }
 

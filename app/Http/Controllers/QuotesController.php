@@ -28,10 +28,13 @@ class QuotesController extends Controller {
 	{
         $states = \Config::get("lists.states");
         $vehicle_type = \Config::get("lists.vehicle_type");
+        $customer_id = str_random(8);
         return view("companies.quotes.create")
             ->with("company_name",$company_name)
             ->with("states",$states)
-            ->with("vehicle_type",$vehicle_type);
+            ->with("vehicle_type",$vehicle_type)
+            ->with("customer_id",$customer_id);
+
 	}
 
 	public function getVehicles()

@@ -12,10 +12,21 @@
             <section class="panel col-md-12 ">
 <br>
                 {!!Form::open(["url" => "/companies/" . $company_name . "/quotes/create-quote","class" => "quote-form"])!!}
-                    <div class="form-group">
-                        <p class="lead quote-header">Choose Customer</p>
-                        {!!Form::label("Customer")!!}
-                        {!!Form::text("Customer","",["class" => "form-control typeahead-customer","placeholder" => "Type customer name"])!!}
+                    <p>Customer id:<span id="customer-id">{!!$customer_id!!}</span></p>
+                    <div class="form-group col-md-6">
+                        <p class="lead quote-header">Customer Information</p>
+                    {!!Form::label("name")!!}
+                    {!!Form::text("name","",["class" => "form-control"])!!}
+                    {!!Form::label("phone")!!}
+                    {!!Form::text("phone","",["class" => "form-control"])!!}
+                    {!!Form::label("secondary phone")!!}
+                    {!!Form::text("secondary phone","",["class" => "form-control"])!!}
+                    {!!Form::label("email")!!}
+                    {!!Form::text("email","",["class" => "form-control"])!!}
+                    {!!Form::label("secondary email")!!}
+                    {!!Form::text("secondary email","",["class" => "form-control"])!!}
+                    {!!Form::label("Pickup Date")!!}
+                    {!!Form::text("Pickup date","",["class" => "form-control datepicker","placeholder" => "choose a date"])!!}
                     </div>
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Pickup Address</p>
@@ -42,18 +53,17 @@
                     <div class="form-inline add-vehicles">
 <span></span>
                         {!!Form::text("Year","",["class" => "form-control add-vehicle","id" => "year","placeholder" => "Enter year"])!!}
-&nbsp;
 <span></span>
                         {!!Form::text("Make","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle make"])!!}
-&nbsp;
 <span></span>
                         {!!Form::text("Model","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle model"])!!}
-&nbsp;
 <span></span>
                         {!!Form::select("Type",$vehicle_type,"",["class" => "form-control add-vehicle","placeholder" => "Select vehicle type"])!!}
-&nbsp;
 <span></span>
                         {!!Form::select("Condition",[null => "Select Condition","Running"=> "Running","Not Running" => "Not Running"],"",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
+&nbsp;
+                        {!!Form::label("quantity")!!}
+                        {!!Form::selectRange("quantity",1,20,"quantity",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
 <i class="fa fa-plus-circle"></i>
 </div>
 &nbsp;
@@ -61,7 +71,7 @@
                         {!!Form::select("Carrier Type",[null => "Select Carrier Type","Open Carrier" => "Open Carrier","Enclosed Carrier" => "Enclosed Carrier"],"",["class" => "form-control","placeholder" => "Select Carrier Type"])!!}
 &nbsp;
                     </div>
-<a href="#" class="btn btn-info show-google-maps">Compare Prices</a>
+<a href="#" class="btn btn-info compare-prices">Compare Prices</a>
 <br>
                     <div class="form-group">
                         <p class="lead quote-header">Notes</p>
@@ -88,8 +98,12 @@
                         {!!Form::text("Post Price","",["class" => "form-control","placeholder" => "Post Price"])!!}
                     </div>
 <hr>
+<div class="form-group form-inline">
                     {!!Form::label("Send Email to Customer")!!}&nbsp;
                     {!!Form::checkbox("Send Email to Customer",true,true)!!}
+&nbsp;
+                    {!!Form::select("Add Resource",[null => "Add Resource","google"=> "google","bing" => "bing"],"",["class" => "form-control"])!!}
+</div>
                     {!!Form::submit("submit",["class" => "btn btn-success pull-right submit-quote"])!!}
                 {!!Form::close()!!}
 <br>

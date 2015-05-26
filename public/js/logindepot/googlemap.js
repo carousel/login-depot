@@ -27,6 +27,7 @@ function codeAddress() {
           } else {
             alert('There was a problem with your input. Please try again');
         }
+      marker = null;
     });
   geocoder.geocode( { 'address': deliveryCity}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
@@ -42,6 +43,7 @@ function codeAddress() {
           } else {
             alert('There was a problem with your input. Please try again');
         }
+      marker = null;
     });
 }
 google.maps.event.addDomListener(window, 'load', initialize);
