@@ -14,21 +14,22 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
+                        <th>Order Id</th>
+                        <th>Name</th>
+                        <th>Modified At</th>
+                        <th>Status</th>
+                        <th>Edit/View</th>
                     </tr>
                     </thead>
                     <tbody>
                 @foreach($customers as $customer)
                     <tr>
-                        <td>{!!$customer["id"]!!}</td>
-                        <td>{!!$customer["first_name"]!!}</td>
-                        <td>{!!$customer["last_name"]!!}</td>
-                        <td>{!!$customer["email"]!!}</td>
+                        <td>{!!$customer["order_id"]!!}</td>
+                        <td>{!!$customer["name"]!!}</td>
+                        <td>{!!$customer["modified_at"]!!}</td>
+                        <td>{!!$customer["status"]!!}</td>
                     <td>
-                        <a href="/companies/{!!$company_name!!}/customers/{!!$customer["first_name"]!!}/update" class="btn btn-primary btn-xs">Edit</a>
+                        <a href="/companies/{!!$company_name!!}/customers/{!!$customer["name"]!!}/update/{!!$customer["order_id"]!!}" class="btn btn-primary btn-xs">Edit</a>
                     </td>
                     </tr>
                 @endforeach
@@ -37,7 +38,6 @@
 
                 </table>
 <hr>
-                <a href="/companies/{!!$company_name!!}/customers/create" class="btn btn-success" style="margin-left:40%">Create new customer</a>
 <hr>
 
 

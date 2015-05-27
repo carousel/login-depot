@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class CreateQuotesRequest extends Request {
+class CreateOrdersRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.

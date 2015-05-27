@@ -11,6 +11,7 @@ use App\Http\Requests\UpdateCustomerBasicProfileRequest;
 use App\Http\Requests\CreateCompanyProfileRequest;
 use App\Http\Requests\CalendarEventShareRequest;
 use App\Http\Requests\UpdateWorkerRequest;
+use App\Http\LoginDepot\Order;
 
 class CompaniesController extends Controller {
 
@@ -90,27 +91,32 @@ class CompaniesController extends Controller {
         return view("companies.customers.create")
             ->with("company_name",$company_name);
     }
-    public function getUpdateCustomer($company_name,$customer)
+    public function getUpdateCustomer($company,$customer,$order)
     {
-        $customer_object = Customer::where("first_name",$customer)->first();
+        $order = \DB::table("orders")->where("order_id",$order)->get();
+        //dd($order);
+        //$customer = \DB::table("customers")->where("order_id",$order)->first();
+        $customer_object = Customer::where("order_id",$order)->first();
 
-        return view("companies.customers.update")
-            ->with("company_name",$company_name)
-            ->with("customer_object",$customer_object);
+        //return view("companies.customers.update")
+            //->with("company_name",$company_name)
+            //->with("customer_object",$customer_object);
     }
     public function postUpdateCustomer($company_name,$customer_name,UpdateCustomerBasicProfileRequest $request)
     {
-        $customer = Customer::where("first_name",$customer_name)->first();
-        $customer->first_name = $request["first_name"];
-        $customer->last_name = $request["last_name"];
-        $customer->email = $request["email"];
-        $customer->save();
-        $customer = Customer::where("first_name",$request["first_name"])->first();
+        dd($customer_name);
+        $customer = Customer::where("name",$customer_name)->first();
+        dd($customer);
+        //$customer->first_name = $request["first_name"];
+        //$customer->last_name = $request["last_name"];
+        //$customer->email = $request["email"];
+        //$customer->save();
+        //$customer = Customer::where("first_name",$request["first_name"])->first();
 
-        return \Redirect::to("companies/{$company_name}/customers")
-            ->with("update_status","Customer {$request["first_name"]} profile updated")
-            ->with("customer",$customer)
-            ->with("company_name",$company_name);
+        //return \Redirect::to("companies/{$company_name}/customers")
+            //->with("update_status","Customer {$request["first_name"]} profile updated")
+            //->with("customer",$customer)
+            //->with("company_name",$company_name);
     }
 public function postCreateCustomer($company_name,CreateCustomerBasicProfileRequest $request)
 {

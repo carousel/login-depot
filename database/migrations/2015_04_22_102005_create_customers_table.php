@@ -14,12 +14,16 @@ class CreateCustomersTable extends Migration {
 	{
         Schema::create("customers",function($table){
             $table->increments('id');
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('secondary_phone')->nullable();
+            $table->string('email')->nullable();
             $table->string('secondary_email')->nullable();
-            $table->integer('phone')->nullable();
-			$table->string('email')->unique();
             $table->string('company_id');
+            $table->dateTime('pickup_date');
+            $table->string("order_id");
+            $table->string("status");
+            $table->dateTime("modified_at");
             $table->timestamps();        
         });
 	}

@@ -15,7 +15,7 @@ Route::get('/companies/{company}/customers/create', 'CompaniesController@getCrea
 Route::post('/companies/{company}/customers/create', 'CompaniesController@postCreateCustomer');
 Route::get('/companies/{company}/customers/{customer}', 'CompaniesController@getShowCustomer');
 
-Route::get('/companies/{company}/customers/{customer}/update',["as" => "get-update-customer", "uses" => 'CompaniesController@getUpdateCustomer']);
+Route::get('/companies/{company}/customers/{customer}/update/{order}',["as" => "get-update-customer", "uses" => 'CompaniesController@getUpdateCustomer']);
 Route::post('/companies/{company}/customers/{customer}/update',["as" => "post-update-customer", "uses" => 'CompaniesController@postUpdateCustomer']);
 Route::post('/companies/{company}/customers/{customer}/delete',["as" => "post-delete-customer", "uses" => 'CompaniesController@postDeleteCustomer']);
 
@@ -35,10 +35,10 @@ Route::post('/calendar/share', function(){
     return \Input::all();
 });
 
-Route::get('/companies/{company}/quotes/create', 'QuotesController@getCreate');
-Route::post('/companies/{company}/quotes/create-quote', 'QuotesController@postCreate');
-Route::post('/companies/{company}/quotes/{quote}/edit', 'QuotesController@postEditQuote');
-Route::post('/companies/{company}/quotes/{quote}/delete', 'QuotesController@postDeleteQuote');
+Route::get('/companies/{company}/orders/create', 'OrdersController@getCreate');
+Route::post('/companies/{company}/orders/create', 'OrdersController@postCreate');
+Route::post('/companies/{company}/orders/{quote}/edit', 'OrdersController@postEditQuote');
+Route::post('/companies/{company}/orders/{quote}/delete', 'OrdersController@postDeleteQuote');
 
 //TYPEAHEAD AJAX
 //Route::get("vehicles","QuotesController@getVehicles");

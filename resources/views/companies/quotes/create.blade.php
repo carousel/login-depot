@@ -5,28 +5,30 @@
           <section class="wrapper">
 @include("_partials.errors")
 @include("_partials.modals.google-maps")
+@include("_partials.messages")
               <!--state overview start-->
                 <span class="lead">Create New Quote</span>
               <div class="row state-overview">
 <br>
             <section class="panel col-md-12 ">
 <br>
-                {!!Form::open(["url" => "/companies/" . $company_name . "/quotes/create-quote","class" => "quote-form"])!!}
-                    <p>Customer id:<span id="customer-id">{!!$customer_id!!}</span></p>
+                {!!Form::open(["url" => "/companies/" . $company_name . "/orders/create","class" => "quote-form"])!!}
+                    <p>Customer id:<span id="customer-id">{!!$order_id!!}</span></p>
+                    {!!Form::hidden("Order_Id",$order_id)!!}
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Customer Information</p>
-                    {!!Form::label("name")!!}
-                    {!!Form::text("name","",["class" => "form-control"])!!}
-                    {!!Form::label("phone")!!}
-                    {!!Form::text("phone","",["class" => "form-control"])!!}
-                    {!!Form::label("secondary phone")!!}
-                    {!!Form::text("secondary phone","",["class" => "form-control"])!!}
-                    {!!Form::label("email")!!}
-                    {!!Form::text("email","",["class" => "form-control"])!!}
-                    {!!Form::label("secondary email")!!}
-                    {!!Form::text("secondary email","",["class" => "form-control"])!!}
+                    {!!Form::label("Name")!!}
+                    {!!Form::text("Name","",["class" => "form-control"])!!}
+                    {!!Form::label("Phone")!!}
+                    {!!Form::text("Phone","",["class" => "form-control"])!!}
+                    {!!Form::label("Secondary Phone")!!}
+                    {!!Form::text("Secondary Phone","",["class" => "form-control"])!!}
+                    {!!Form::label("Email")!!}
+                    {!!Form::text("Email","",["class" => "form-control"])!!}
+                    {!!Form::label("Secondary Email")!!}
+                    {!!Form::text("Secondary Email","",["class" => "form-control"])!!}
                     {!!Form::label("Pickup Date")!!}
-                    {!!Form::text("Pickup date","",["class" => "form-control datepicker","placeholder" => "choose a date"])!!}
+                    {!!Form::text("Pickup Date","",["class" => "form-control datepicker","placeholder" => "choose a date"])!!}
                     </div>
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Pickup Address</p>
@@ -52,18 +54,18 @@
                     <p class="lead quote-header">Add Vehicles</p>
                     <div class="form-inline add-vehicles">
 <span></span>
-                        {!!Form::text("Year","",["class" => "form-control add-vehicle","id" => "year","placeholder" => "Enter year"])!!}
+                        {!!Form::text("Year_1","",["class" => "form-control add-vehicle","id" => "year","placeholder" => "Enter year"])!!}
 <span></span>
-                        {!!Form::text("Make","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle make"])!!}
+                        {!!Form::text("Make_1","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle make"])!!}
 <span></span>
-                        {!!Form::text("Model","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle model"])!!}
+                        {!!Form::text("Model_1","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle model"])!!}
 <span></span>
-                        {!!Form::select("Type",$vehicle_type,"",["class" => "form-control add-vehicle","placeholder" => "Select vehicle type"])!!}
+                        {!!Form::select("Type_1",$vehicle_type,"",["class" => "form-control add-vehicle","placeholder" => "Select vehicle type"])!!}
 <span></span>
-                        {!!Form::select("Condition",[null => "Select Condition","Running"=> "Running","Not Running" => "Not Running"],"",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
-&nbsp;
-                        {!!Form::label("quantity")!!}
-                        {!!Form::selectRange("quantity",1,20,"quantity",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
+                        {!!Form::select("Condition_1",[null => "Select Condition","Running"=> "Running","Not Running" => "Not Running"],"",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
+<span></span>
+                        {!!Form::label("Quantity")!!}
+                        {!!Form::selectRange("Quantity_1",1,20,"quantity",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
 <i class="fa fa-plus-circle"></i>
 </div>
 &nbsp;

@@ -292,8 +292,7 @@
                           <span>Customers</span>
                       </a>
                       <ul class="sub">
-                          <li><a href="/companies/{!!$company_name!!}/customers">Manage</a></li>
-                          <li><a  href="#">Hello</a></li>
+                          <li><a href="/companies/{!!$company_name!!}/customers">Show</a></li>
                       </ul>
                   </li>
                   <!--multi level menu start-->
@@ -364,7 +363,7 @@
                           <span>Quotes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="/companies/{!!$company_name!!}/quotes/create">Create quote</a></li>
+                          <li><a  href="/companies/{!!$company_name!!}/orders/create">Create quote</a></li>
                           <li><a  href="chat_room.html">Drafts</a></li>
                       </ul>
                   </li>
@@ -583,7 +582,10 @@
 
 
         $(".colorpicker").colorpicker();
-        $(".datepicker").datepicker();
+        $(".datepicker").datepicker({
+            format: 'yyyy-mm-dd'
+        
+        });
   </script>
 
   </body>

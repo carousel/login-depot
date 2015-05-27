@@ -34,3 +34,9 @@
         <span>{!!Session::get("calendar_event_status")!!}</span>
     </div>
 @endif
+@if(Session::has("order_create_status"))
+    <div class="alert alert-info">
+        <a href="#"class="close" data-dismiss="alert">&times;</a>
+        <span>{!!Session::get("order_create_status")!!}</span>
+    </div>
+@endif
