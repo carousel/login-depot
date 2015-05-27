@@ -35,3 +35,9 @@
     - autocomplete (what and from where to pull data)
     - after submit:
         - where to dispatch input data (central dispatch, check price, database ...)?
+
+#RESOURCES
+    -company ( company controller)
+        -worker (company controller)
+        -order,customer (order controller)
+

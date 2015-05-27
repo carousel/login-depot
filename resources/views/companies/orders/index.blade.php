@@ -29,7 +29,7 @@
                         <td>{!!$customer["modified_at"]!!}</td>
                         <td>{!!$customer["status"]!!}</td>
                     <td>
-                        <a href="/companies/{!!$company_name!!}/customers/{!!$customer["name"]!!}/update/{!!$customer["order_id"]!!}" class="btn btn-primary btn-xs">Edit</a>
+                        <a href="/companies/{!!$company_name!!}/orders/{!!$customer["order_id"]!!}/edit" class="btn btn-primary btn-xs">Edit</a>
                     </td>
                     </tr>
                 @endforeach

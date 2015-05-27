@@ -21,9 +21,32 @@ class CreateOrdersRequest extends Request {
 	 */
 	public function rules()
 	{
-		return [
-			//
-		];
+        return [
+            "name" => "required",
+            "phone" => "required",
+            "secondary_phone" => "required",
+            "email" => "required",
+            "secondary_email" => "required",
+            "pickup_date" => "required",
+            "pickup_city" => "required",
+            "pickup_state" => "required",
+            "pickup_zipcode" => "required",
+            "delivery_city" => "required",
+            "delivery_state" => "required",
+            "delivery_zipcode" => "required",
+            "year_1" => "required",
+            "make_1" => "required",
+            "model_1" => "required",
+            "type_1" => "required",
+            "condition_1" => "required",
+            "quantity_1" => "required",
+            "carrier_type" => "required",
+            "vehicle_notes" => "required",
+            "notes_for_customer" => "required",
+            "notes_for_office" => "required",
+            "price" => "required",
+            "post_price" => "required"
+        ];
 	}
 
 }

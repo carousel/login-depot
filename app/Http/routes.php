@@ -10,10 +10,16 @@ Route::post('/companies/profile/create', 'CompaniesController@postCreateProfile'
 Route::get('/companies/{company}/calendar', 'CompaniesController@getCalendar');
 Route::post('/companies/{company}/share-calendar', 'CompaniesController@shareCalendar');
 Route::get('/companies/{company}/view-calendar', 'CompaniesController@viewCalendar');
-Route::get('/companies/{company}/customers',["as" => "manage-customers", "uses" => 'CompaniesController@getCustomers']);
-Route::get('/companies/{company}/customers/create', 'CompaniesController@getCreateCustomer');
+
+Route::get('/companies/{company}/orders',["as" => "manage-customers", "uses" => 'OrdersController@getOrders']);
+//Route::get('/companies/{company}/customers/create', 'CompaniesController@getCreateCustomer');
 Route::post('/companies/{company}/customers/create', 'CompaniesController@postCreateCustomer');
 Route::get('/companies/{company}/customers/{customer}', 'CompaniesController@getShowCustomer');
+Route::get('/companies/{company}/orders/create', 'OrdersController@getCreate');
+Route::post('/companies/{company}/orders/create', 'OrdersController@postCreate');
+Route::get('/companies/{company}/orders/{order}/edit', 'OrdersController@getEdit');
+
+
 
 Route::get('/companies/{company}/customers/{customer}/update/{order}',["as" => "get-update-customer", "uses" => 'CompaniesController@getUpdateCustomer']);
 Route::post('/companies/{company}/customers/{customer}/update',["as" => "post-update-customer", "uses" => 'CompaniesController@postUpdateCustomer']);
@@ -35,10 +41,6 @@ Route::post('/calendar/share', function(){
     return \Input::all();
 });
 
-Route::get('/companies/{company}/orders/create', 'OrdersController@getCreate');
-Route::post('/companies/{company}/orders/create', 'OrdersController@postCreate');
-Route::post('/companies/{company}/orders/{quote}/edit', 'OrdersController@postEditQuote');
-Route::post('/companies/{company}/orders/{quote}/delete', 'OrdersController@postDeleteQuote');
 
 //TYPEAHEAD AJAX
 //Route::get("vehicles","QuotesController@getVehicles");

@@ -17,10 +17,6 @@ class OrdersController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
-        //$user = \Auth::user();
-        //if($user->role = "company"){
-            //\View::share("company",$user->first_name);
-        //}
 	}
 
 	/**
@@ -33,12 +29,20 @@ class OrdersController extends Controller {
         $states = \Config::get("lists.states");
         $vehicle_type = \Config::get("lists.vehicle_type");
         $order_id = str_random(10);
-        return view("companies.quotes.create")
+        return view("companies.orders.create")
             ->with("company_name",$company_name)
             ->with("states",$states)
             ->with("vehicle_type",$vehicle_type)
             ->with("order_id",$order_id);
 
+	}
+	public function getOrders($company_name)
+	{
+        $customers = Customer::all();
+        $orders = Order::all();
+        return view("companies.orders.index")       
+            ->with("company_name",$company_name)
+            ->with("customers",$customers);
 	}
 
 	public function getVehicles()
@@ -49,6 +53,10 @@ class OrdersController extends Controller {
 	{
         return ZipCode::select("primary_city")->limit(100)->get();
 	}
+
+    public function postUpdateOrder(){
+        dd(\Input::all());
+    }
 	/**
 
 	/**
@@ -65,126 +73,127 @@ class OrdersController extends Controller {
             $company = Company::where("user_id",\Auth::user()->id)->first();
         }
         $request = $request->all();
+        //dd($request);
 
-        $date = $request["Pickup_Date"];
+        $date = $request["pickup_date"];
         $date = explode("-",$date);
         $pickup_date = Carbon::createFromDate($date[0],$date[1],$date[2]);
-        $customer->name = $request["Name"];
-        $customer->phone = $request["Phone"];
-        $customer->secondary_phone = $request["Secondary_Phone"];
-        $customer->email = $request["Email"];
-        $customer->secondary_email = $request["Secondary_Email"];
+        $customer->name = $request["name"];
+        $customer->phone = $request["phone"];
+        $customer->secondary_phone = $request["secondary_phone"];
+        $customer->email = $request["email"];
+        $customer->secondary_email = $request["secondary_email"];
         $customer->pickup_date = $pickup_date;
-        $customer->order_id = $request["Order_Id"];
+        $customer->order_id = $request["order_id"];
         $customer->company_id = $company->id;
         $customer->status = "saved";
         $customer->modified_at = Carbon::now();
         $customer->save();
 
-        $order->pickup_city = $request["Pickup_City"];
-        $order->pickup_state = $request["Pickup_State"];
-        $order->pickup_zipcode = $request["Pickup_ZipCode"];
+        $order->pickup_city = $request["pickup_city"];
+        $order->pickup_state = $request["pickup_state"];
+        $order->pickup_zipcode = $request["pickup_zipcode"];
 
-        $order->delivery_city = $request["Delivery_City"];
-        $order->delivery_state = $request["Delivery_State"];
-        $order->delivery_zipcode = $request["Delivery_ZipCode"];
-        $order->order_id = $request["Order_Id"];
+        $order->delivery_city = $request["delivery_city"];
+        $order->delivery_state = $request["delivery_state"];
+        $order->delivery_zipcode = $request["delivery_zipcode"];
+        $order->order_id = $request["order_id"];
 
-        if(!empty($request["Year_1"])){
-            $order->vehicle_one_year = $request["Year_1"];        
-            $order->vehicle_one_make = $request["Make_1"];        
-            $order->vehicle_one_model = $request["Model_1"];        
-            $order->vehicle_one_type = $request["Type_1"];        
-            $order->vehicle_one_condition = $request["Condition_1"];        
-            $order->vehicle_one_quantity = $request["Quantity_1"];        
+        if(!empty($request["year_1"])){
+            $order->vehicle_one_year = $request["year_1"];        
+            $order->vehicle_one_make = $request["make_1"];        
+            $order->vehicle_one_model = $request["model_1"];        
+            $order->vehicle_one_type = $request["type_1"];        
+            $order->vehicle_one_condition = $request["condition_1"];        
+            $order->vehicle_one_quantity = $request["quantity_1"];        
         };
-        if(!empty($request["Year_2"])){
-            $order->vehicle_two_year = $request["Year_2"];        
-            $order->vehicle_two_make = $request["Make_2"];        
-            $order->vehicle_two_model = $request["Model_2"];        
-            $order->vehicle_two_type = $request["Type_2"];        
-            $order->vehicle_two_condition = $request["Condition_2"];        
-            $order->vehicle_two_quantity = $request["Quantity_2"];        
+        if(!empty($request["year_2"])){
+            $order->vehicle_two_year = $request["year_2"];        
+            $order->vehicle_two_make = $request["make_2"];        
+            $order->vehicle_two_model = $request["model_2"];        
+            $order->vehicle_two_type = $request["type_2"];        
+            $order->vehicle_two_condition = $request["condition_2"];        
+            $order->vehicle_two_quantity = $request["quantity_2"];        
         };
-        if(!empty($request["Year_3"])){
-            $order->vehicle_three_year = $request["Year_3"];        
-            $order->vehicle_three_make = $request["Make_3"];        
-            $order->vehicle_three_model = $request["Model_3"];        
-            $order->vehicle_three_type = $request["Type_3"];        
-            $order->vehicle_three_condition = $request["Condition_3"];        
-            $order->vehicle_three_quantity = $request["Quantity_3"];        
+        if(!empty($request["year_3"])){
+            $order->vehicle_three_year = $request["year_3"];        
+            $order->vehicle_three_make = $request["make_3"];        
+            $order->vehicle_three_model = $request["model_3"];        
+            $order->vehicle_three_type = $request["type_3"];        
+            $order->vehicle_three_condition = $request["condition_3"];        
+            $order->vehicle_three_quantity = $request["quantity_3"];        
         };
-        if(!empty($request["Year_4"])){
-            $order->vehicle_four_year = $request["Year_4"];        
-            $order->vehicle_four_make = $request["Make_4"];        
-            $order->vehicle_four_model = $request["Model_4"];        
-            $order->vehicle_four_type = $request["Type_4"];        
-            $order->vehicle_four_condition = $request["Condition_4"];        
-            $order->vehicle_four_quantity = $request["Quantity_4"];        
+        if(!empty($request["year_4"])){
+            $order->vehicle_four_year = $request["year_4"];        
+            $order->vehicle_four_make = $request["make_4"];        
+            $order->vehicle_four_model = $request["model_4"];        
+            $order->vehicle_four_type = $request["type_4"];        
+            $order->vehicle_four_condition = $request["condition_4"];        
+            $order->vehicle_four_quantity = $request["quantity_4"];        
         };
-        if(!empty($request["Year_5"])){
-            $order->vehicle_five_year = $request["Year_5"];        
-            $order->vehicle_five_make = $request["Make_5"];        
-            $order->vehicle_five_model = $request["Model_5"];        
-            $order->vehicle_five_type = $request["Type_5"];        
-            $order->vehicle_five_condition = $request["Condition_5"];        
-            $order->vehicle_five_quantity = $request["Quantity_5"];        
+        if(!empty($request["year_5"])){
+            $order->vehicle_five_year = $request["year_5"];        
+            $order->vehicle_five_make = $request["make_5"];        
+            $order->vehicle_five_model = $request["model_5"];        
+            $order->vehicle_five_type = $request["type_5"];        
+            $order->vehicle_five_condition = $request["condition_5"];        
+            $order->vehicle_five_quantity = $request["quantity_5"];        
         };
-        if(!empty($request["Year_6"])){
-            $order->vehicle_six_year = $request["Year_6"];        
-            $order->vehicle_six_make = $request["Make_6"];        
-            $order->vehicle_six_model = $request["Model_6"];        
-            $order->vehicle_six_type = $request["Type_6"];        
-            $order->vehicle_six_condition = $request["Condition_6"];        
-            $order->vehicle_six_quantity = $request["Quantity_6"];        
+        if(!empty($request["year_6"])){
+            $order->vehicle_six_year = $request["year_6"];        
+            $order->vehicle_six_make = $request["make_6"];        
+            $order->vehicle_six_model = $request["model_6"];        
+            $order->vehicle_six_type = $request["type_6"];        
+            $order->vehicle_six_condition = $request["condition_6"];        
+            $order->vehicle_six_quantity = $request["quantity_6"];        
         };
-        if(!empty($request["Year_7"])){
-            $order->vehicle_seven_year = $request["Year_7"];        
-            $order->vehicle_seven_make = $request["Make_7"];        
-            $order->vehicle_seven_model = $request["Model_7"];        
-            $order->vehicle_seven_type = $request["Type_7"];        
-            $order->vehicle_seven_condition = $request["Condition_7"];        
-            $order->vehicle_seven_quantity = $request["Quantity_7"];        
+        if(!empty($request["year_7"])){
+            $order->vehicle_seven_year = $request["year_7"];        
+            $order->vehicle_seven_make = $request["make_7"];        
+            $order->vehicle_seven_model = $request["model_7"];        
+            $order->vehicle_seven_type = $request["type_7"];        
+            $order->vehicle_seven_condition = $request["condition_7"];        
+            $order->vehicle_seven_quantity = $request["quantity_7"];        
         };
-        if(!empty($request["Year_8"])){
-            $order->vehicle_eight_year = $request["Year_8"];        
-            $order->vehicle_eight_make = $request["Make_8"];        
-            $order->vehicle_eight_model = $request["Model_8"];        
-            $order->vehicle_eight_type = $request["Type_8"];        
-            $order->vehicle_eight_condition = $request["Condition_8"];        
-            $order->vehicle_eight_quantity = $request["Quantity_8"];        
+        if(!empty($request["year_8"])){
+            $order->vehicle_eight_year = $request["year_8"];        
+            $order->vehicle_eight_make = $request["make_8"];        
+            $order->vehicle_eight_model = $request["model_8"];        
+            $order->vehicle_eight_type = $request["type_8"];        
+            $order->vehicle_eight_condition = $request["condition_8"];        
+            $order->vehicle_eight_quantity = $request["quantity_8"];        
         };
-        if(!empty($request["Year_9"])){
-            $order->vehicle_nine_year = $request["Year_9"];        
-            $order->vehicle_nine_make = $request["Make_9"];        
-            $order->vehicle_nine_model = $request["Model_9"];        
-            $order->vehicle_nine_type = $request["Type_9"];        
-            $order->vehicle_nine_condition = $request["Condition_9"];        
-            $order->vehicle_nine_quantity = $request["Quantity_9"];        
+        if(!empty($request["year_9"])){
+            $order->vehicle_nine_year = $request["year_9"];        
+            $order->vehicle_nine_make = $request["make_9"];        
+            $order->vehicle_nine_model = $request["model_9"];        
+            $order->vehicle_nine_type = $request["type_9"];        
+            $order->vehicle_nine_condition = $request["condition_9"];        
+            $order->vehicle_nine_quantity = $request["quantity_9"];        
         };
-        if(!empty($request["Year_10"])){
-            $order->vehicle_ten_year = $request["Year_10"];        
-            $order->vehicle_ten_make = $request["Make_10"];        
-            $order->vehicle_ten_model = $request["Model_10"];        
-            $order->vehicle_ten_type = $request["Type_10"];        
-            $order->vehicle_ten_condition = $request["Condition_10"];        
-            $order->vehicle_ten_quantity = $request["Quantity_10"];        
+        if(!empty($request["year_10"])){
+            $order->vehicle_ten_year = $request["year_10"];        
+            $order->vehicle_ten_make = $request["make_10"];        
+            $order->vehicle_ten_model = $request["model_10"];        
+            $order->vehicle_ten_type = $request["type_10"];        
+            $order->vehicle_ten_condition = $request["condition_10"];        
+            $order->vehicle_ten_quantity = $request["quantity_10"];        
         };
 
-        if(!empty($request["Vehicle_Notes"])){
-            $order->vehicle_notes = $request["Vehicle_Notes"];                
+        if(!empty($request["vehicle_notes"])){
+            $order->vehicle_notes = $request["vehicle_notes"];                
         };
-        if(!empty($request["Notes_For_Customer"])){
-            $order->customer_notes = $request["Notes_For_Customer"];                
+        if(!empty($request["notes_for_customer"])){
+            $order->customer_notes = $request["notes_for_customer"];                
         };
-        if(!empty($request["Notes_For_Office"])){
-            $order->office_notes = $request["Notes_For_Office"];                
+        if(!empty($request["notes_for_office"])){
+            $order->office_notes = $request["notes_for_office"];                
         };
-        if(!empty($request["Price"])){
-            $order->quote_price = $request["Price"];                
+        if(!empty($request["price"])){
+            $order->quote_price = $request["price"];                
         };
-        if(!empty($request["Post_Price"])){
-            $order->post_price = $request["Post_Price"];                
+        if(!empty($request["post_price"])){
+            $order->post_price = $request["post_price"];                
         };
         $order->customer_id = $customer->id;
         $order->company_id = $company->id;
@@ -194,6 +203,22 @@ class OrdersController extends Controller {
         return \Redirect::back()
             ->with("order_create_status","Order has been created");
 	}
+    public function getEdit($company,$order){
+
+        $order_object = \DB::table("orders")->where("order_id",$order)->first();
+        $customer_object = Customer::where("order_id",$order)->first();
+
+        $states = \Config::get("lists.states");
+        $vehicle_type = \Config::get("lists.vehicle_type");
+        return view("companies.orders.edit")
+            ->with("company_name",$company)
+            ->with("states",$states)
+            ->with("vehicle_type",$vehicle_type)
+            ->with("order_id",$order_object->order_id)
+            ->with("order_object",$order_object)
+            ->with("customer_object",$customer_object);
+    
+    }
 
 	/**
 	 * Store a newly created resource in storage.

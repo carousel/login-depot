@@ -292,7 +292,7 @@
                           <span>Customers</span>
                       </a>
                       <ul class="sub">
-                          <li><a href="/companies/{!!$company_name!!}/customers">Show</a></li>
+                          <li><a href="/companies/{!!$company_name!!}/orders">Show</a></li>
                       </ul>
                   </li>
                   <!--multi level menu start-->

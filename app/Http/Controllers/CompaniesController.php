@@ -93,14 +93,17 @@ class CompaniesController extends Controller {
     }
     public function getUpdateCustomer($company,$customer,$order)
     {
-        $order = \DB::table("orders")->where("order_id",$order)->get();
-        //dd($order);
+        $order_object = \DB::table("orders")->where("order_id",$order)->first();
         //$customer = \DB::table("customers")->where("order_id",$order)->first();
         $customer_object = Customer::where("order_id",$order)->first();
 
-        //return view("companies.customers.update")
-            //->with("company_name",$company_name)
-            //->with("customer_object",$customer_object);
+        $states = \Config::get("lists.states");
+        $vehicle_type = \Config::get("lists.vehicle_type");
+        return view("companies.quotes.create")
+            ->with("company_name",$company)
+            ->with("states",$states)
+            ->with("vehicle_type",$vehicle_type)
+            ->with("order_id",$order_object->order_id);
     }
     public function postUpdateCustomer($company_name,$customer_name,UpdateCustomerBasicProfileRequest $request)
     {

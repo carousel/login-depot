@@ -18,35 +18,35 @@
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Customer Information</p>
                     {!!Form::label("Name")!!}
-                    {!!Form::text("Name","",["class" => "form-control"])!!}
+                    {!!Form::text("Name",$customer_object->name,["class" => "form-control"])!!}
                     {!!Form::label("Phone")!!}
-                    {!!Form::text("Phone","",["class" => "form-control"])!!}
+                    {!!Form::text("Phone",$customer_object->phone,["class" => "form-control"])!!}
                     {!!Form::label("Secondary Phone")!!}
-                    {!!Form::text("Secondary Phone","",["class" => "form-control"])!!}
+                    {!!Form::text("Secondary Phone",$customer_object->secondary_phone,["class" => "form-control"])!!}
                     {!!Form::label("Email")!!}
-                    {!!Form::text("Email","",["class" => "form-control"])!!}
+                    {!!Form::text("Email",$customer_object->email,["class" => "form-control"])!!}
                     {!!Form::label("Secondary Email")!!}
-                    {!!Form::text("Secondary Email","",["class" => "form-control"])!!}
+                    {!!Form::text("Secondary Email",$customer_object->secondary_email,["class" => "form-control"])!!}
                     {!!Form::label("Pickup Date")!!}
-                    {!!Form::text("Pickup Date","",["class" => "form-control datepicker","placeholder" => "choose a date"])!!}
+                    {!!Form::text("Pickup Date",$customer_object->pickup_date,["class" => "form-control datepicker","placeholder" => "choose a date"])!!}
                     </div>
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Pickup Address</p>
                         {!!Form::label("Pickup City")!!}
-                        {!!Form::text("Pickup City","",["class" => "form-control pickup-city","placeholder" => "Enter City Name"])!!}
+                        {!!Form::text("Pickup City",$order_object->pickup_city,["class" => "form-control pickup-city","placeholder" => "Enter City Name"])!!}
                         {!!Form::label("Pickup State")!!}
-                        {!!Form::select("Pickup State",$states,"",["class" => "form-control","placeholder" => "Enter State"])!!}
+                        {!!Form::select("Pickup State",$states,$order_object->pickup_state,["class" => "form-control","placeholder" => "Enter State"])!!}
                         {!!Form::label("Pickup ZipCode")!!}
-                        {!!Form::text("Pickup ZipCode","",["class" => "form-control","placeholder" => "Enter Zip Code"])!!}
+                        {!!Form::text("Pickup ZipCode",$order_object->pickup_zipcode,["class" => "form-control","placeholder" => "Enter Zip Code"])!!}
                     </div>
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Delivery Address</p>
                         {!!Form::label("Delivery City")!!}
-                        {!!Form::text("Delivery City","",["class" => "form-control delivery-city","placeholder" => "Enter City Name"])!!}
+                        {!!Form::text("Delivery City",$order_object->delivery_city,["class" => "form-control delivery-city","placeholder" => "Enter City Name"])!!}
                         {!!Form::label("Delivery State")!!}
-                        {!!Form::select("Delivery State",$states,"",["class" => "form-control typeahead","placeholder" => "Select State"])!!}
+                        {!!Form::select("Delivery State",$states,$order_object->delivery_state,["class" => "form-control typeahead","placeholder" => "Select State"])!!}
                         {!!Form::label("Delivery ZipCode")!!}
-                        {!!Form::text("Delivery ZipCode","",["class" => "form-control typeahead","placeholder" => "Enter Zip Code"])!!}
+                        {!!Form::text("Delivery ZipCode",$order_object->delivery_zipcode,["class" => "form-control typeahead","placeholder" => "Enter Zip Code"])!!}
 <br>
                     </div>
                     <a href="#" class="btn btn-info show-google-maps">Show in google maps</a>
