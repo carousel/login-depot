@@ -100,7 +100,7 @@
                         <a class="btn btn-success uship">Calculate</a>
                         &nbsp;
                         {!!Form::label("post price")!!}
-                        {!!Form::text("post price","$550",["class" => "form-control","placeholder" => "Post Price"])!!}
+                        {!!Form::text("post price","",["class" => "form-control","placeholder" => "enter post price"])!!}
                     </div>
 <hr>
 <div class="form-group form-inline">
