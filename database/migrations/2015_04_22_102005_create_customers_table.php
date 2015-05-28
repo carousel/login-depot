@@ -21,7 +21,7 @@ class CreateCustomersTable extends Migration {
             $table->string('secondary_email')->nullable();
             $table->string('company_id');
             $table->dateTime('pickup_date');
-            $table->string("order_id");
+            $table->string("quote_id");
             $table->string("status");
             $table->dateTime("modified_at");
             $table->timestamps();        

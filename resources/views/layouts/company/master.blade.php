@@ -292,7 +292,7 @@
                           <span>Customers</span>
                       </a>
                       <ul class="sub">
-                          <li><a href="/companies/{!!$company_name!!}/orders">Show</a></li>
+                          <li><a href="/companies/{!!$company_name!!}/quotes">Show</a></li>
                       </ul>
                   </li>
                   <!--multi level menu start-->
@@ -363,7 +363,7 @@
                           <span>Quotes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="/companies/{!!$company_name!!}/orders/create">Create quote</a></li>
+                          <li><a  href="/companies/{!!$company_name!!}/quotes/create">Create quote</a></li>
                           <li><a  href="chat_room.html">Drafts</a></li>
                       </ul>
                   </li>

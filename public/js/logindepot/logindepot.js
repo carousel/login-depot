@@ -156,4 +156,38 @@ $("body").on("click","i.fa-minus-circle",function(e){
     $(this).parent().remove();
 });
 
+$(".uship").on("click",function(){
+
+    $(".price").val("");
+
+    var pickup_zipcode = $(".pickup_zipcode").val();
+    var delivery_zipcode = $(".delivery_zipcode").val();
+    var vehicle_type = $(".select_vehicle_type").val();
+    var vehicle_condition = $(".select_condition").val();
+    var carrier_type = $(".select_carrier_type").val();
+
+    var username = $("span.username").text();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        "url": "/companies/" + username + "/quotes/uship",
+        "method": "POST",
+        "data" : {
+            "pickupZipcode": pickup_zipcode,
+            "deliveryZipcode": delivery_zipcode,
+            "vehicleType": vehicle_type,
+            "vehicleCondition": vehicle_condition,
+            "carrierType": carrier_type,
+        },
+        "success": function(result){
+            var result = "$" + result;
+            $(".price").val(result);
+        }
+    
+    });
+});
 

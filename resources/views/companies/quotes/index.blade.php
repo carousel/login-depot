@@ -14,7 +14,7 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>Order Id</th>
+                        <th>Quote Id</th>
                         <th>Name</th>
                         <th>Modified At</th>
                         <th>Status</th>
@@ -24,7 +24,7 @@
                     <tbody>
                 @foreach($customers as $customer)
                     <tr>
-                        <td>{!!$customer["order_id"]!!}</td>
+                        <td>{!!$customer["quote_id"]!!}</td>
                         <td>{!!$customer["name"]!!}</td>
                         <td>{!!$customer["modified_at"]!!}</td>
                         <td>{!!$customer["status"]!!}</td>

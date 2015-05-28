@@ -1,6 +1,7 @@
 <?php namespace App\LoginDepot;
 
 use Illuminate\Database\Eloquent\Model;
+use App\LoginDepot\Quote;
 
 class Customer extends Model {
 
@@ -10,7 +11,14 @@ class Customer extends Model {
 	 * @var string
 	 */
 	protected $table = 'customers';
-
 	protected $fillable = ['*'];
+
+    /**
+    * 
+    */
+    public function quotes()
+    {
+        return $this->hasMany("App\LoginDepot\Quote");
+    }
 
 }

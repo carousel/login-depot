@@ -15,9 +15,16 @@ Route::get('/companies/{company}/orders',["as" => "manage-customers", "uses" => 
 //Route::get('/companies/{company}/customers/create', 'CompaniesController@getCreateCustomer');
 Route::post('/companies/{company}/customers/create', 'CompaniesController@postCreateCustomer');
 Route::get('/companies/{company}/customers/{customer}', 'CompaniesController@getShowCustomer');
-Route::get('/companies/{company}/orders/create', 'OrdersController@getCreate');
-Route::post('/companies/{company}/orders/create', 'OrdersController@postCreate');
-Route::get('/companies/{company}/orders/{order}/edit', 'OrdersController@getEdit');
+
+Route::get('/companies/{company}/quotes','QuotesController@getQuotes');
+Route::get('/companies/{company}/quotes/create', 'QuotesController@getCreate');
+Route::post('/companies/{company}/quotes/create', 'QuotesController@postCreate');
+Route::get('/companies/{company}/quotes/{id}/edit', 'QuotesController@getEdit');
+Route::post('/companies/{company}/quotes/uship', 'QuotesController@getUshipPrice');
+//Route::get('/uship', 'QuotesController@getUshipPrice');
+
+Route::get('/companies/{company}/order-form/{quote_id}', 'OrdersController@getOrderForm');
+
 
 
 
@@ -40,6 +47,7 @@ Route::post('/password/reset', 'Auth\PasswordController@postReset');
 Route::post('/calendar/share', function(){
     return \Input::all();
 });
+
 
 
 //TYPEAHEAD AJAX

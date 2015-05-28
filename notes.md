@@ -39,5 +39,11 @@
 #RESOURCES
     -company ( company controller)
         -worker (company controller)
-        -order,customer (order controller)
+        -quote,customer (quote controller)
+        -order (order controller)
+
+#TODO
+    -create quote
+    -on customer link, create form
+    -store form data
 

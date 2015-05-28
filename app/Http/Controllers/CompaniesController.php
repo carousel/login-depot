@@ -91,9 +91,9 @@ class CompaniesController extends Controller {
         return view("companies.customers.create")
             ->with("company_name",$company_name);
     }
-    public function getUpdateCustomer($company,$customer,$order)
+    public function getUpdateCustomer($company,$customer,$quote)
     {
-        $order_object = \DB::table("orders")->where("order_id",$order)->first();
+        $quote_object = \DB::table("quotes")->where("quote_id",$quote)->first();
         //$customer = \DB::table("customers")->where("order_id",$order)->first();
         $customer_object = Customer::where("order_id",$order)->first();
 
@@ -103,7 +103,7 @@ class CompaniesController extends Controller {
             ->with("company_name",$company)
             ->with("states",$states)
             ->with("vehicle_type",$vehicle_type)
-            ->with("order_id",$order_object->order_id);
+            ->with("quote_id",$quote_object->quote_id);
     }
     public function postUpdateCustomer($company_name,$customer_name,UpdateCustomerBasicProfileRequest $request)
     {

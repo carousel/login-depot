@@ -12,41 +12,41 @@
 <br>
             <section class="panel col-md-12 ">
 <br>
-                {!!Form::open(["url" => "/companies/" . $company_name . "/orders/create","class" => "quote-form"])!!}
-                    <p>Order id:<span id="customer-id">{!!$order_id!!}</span></p>
-                    {!!Form::hidden("Order_Id",$order_id)!!}
+                {!!Form::open(["url" => "/companies/" . $company_name . "/quotes/create","class" => "quote-form"])!!}
+                    <p>Order id:<span id="customer-id">{!!$quote_id!!}</span></p>
+                    {!!Form::hidden("quote_id",$quote_id)!!}
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Customer Information</p>
-                    {!!Form::label("Name")!!}
-                    {!!Form::text("Name","",["class" => "form-control"])!!}
-                    {!!Form::label("Phone")!!}
-                    {!!Form::text("Phone","",["class" => "form-control"])!!}
-                    {!!Form::label("Secondary Phone")!!}
-                    {!!Form::text("Secondary Phone","",["class" => "form-control"])!!}
-                    {!!Form::label("Email")!!}
-                    {!!Form::text("Email","",["class" => "form-control"])!!}
-                    {!!Form::label("Secondary Email")!!}
-                    {!!Form::text("Secondary Email","",["class" => "form-control"])!!}
-                    {!!Form::label("Pickup Date")!!}
-                    {!!Form::text("Pickup Date","",["class" => "form-control datepicker","placeholder" => "choose a date"])!!}
+                    {!!Form::label("name")!!}
+                    {!!Form::text("name","John",["class" => "form-control"])!!}
+                    {!!Form::label("phone")!!}
+                    {!!Form::text("phone","0038765222480",["class" => "form-control"])!!}
+                    {!!Form::label("secondary phone")!!}
+                    {!!Form::text("secondary phone","0038751427476",["class" => "form-control"])!!}
+                    {!!Form::label("email")!!}
+                    {!!Form::text("email","john.doe@example.com",["class" => "form-control"])!!}
+                    {!!Form::label("secondary email")!!}
+                    {!!Form::text("secondary email","charlie.parker@bebop.com",["class" => "form-control"])!!}
+                    {!!Form::label("pickup date")!!}
+                    {!!Form::text("pickup date","2015-05-30",["class" => "form-control datepicker","placeholder" => "choose a date"])!!}
                     </div>
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Pickup Address</p>
-                        {!!Form::label("Pickup City")!!}
-                        {!!Form::text("Pickup City","",["class" => "form-control pickup-city","placeholder" => "Enter City Name"])!!}
-                        {!!Form::label("Pickup State")!!}
-                        {!!Form::select("Pickup State",$states,"",["class" => "form-control","placeholder" => "Enter State"])!!}
-                        {!!Form::label("Pickup ZipCode")!!}
-                        {!!Form::text("Pickup ZipCode","",["class" => "form-control","placeholder" => "Enter Zip Code"])!!}
+                        {!!Form::label("pickup city")!!}
+                        {!!Form::text("pickup city","Miami",["class" => "form-control pickup-city","placeholder" => "Enter City Name"])!!}
+                        {!!Form::label("pickup state")!!}
+                        {!!Form::select("pickup state",$states,"",["class" => "form-control","placeholder" => "Enter State"])!!}
+                        {!!Form::label("pickup zipcode")!!}
+                        {!!Form::text("pickup zipcode","90004",["class" => "form-control pickup_zipcode","placeholder" => "Enter Zip Code"])!!}
                     </div>
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Delivery Address</p>
-                        {!!Form::label("Delivery City")!!}
-                        {!!Form::text("Delivery City","",["class" => "form-control delivery-city","placeholder" => "Enter City Name"])!!}
-                        {!!Form::label("Delivery State")!!}
-                        {!!Form::select("Delivery State",$states,"",["class" => "form-control typeahead","placeholder" => "Select State"])!!}
-                        {!!Form::label("Delivery ZipCode")!!}
-                        {!!Form::text("Delivery ZipCode","",["class" => "form-control typeahead","placeholder" => "Enter Zip Code"])!!}
+                        {!!Form::label("delivery city")!!}
+                        {!!Form::text("delivery city","Dallas",["class" => "form-control delivery-city","placeholder" => "Enter City Name"])!!}
+                        {!!Form::label("delivery state")!!}
+                        {!!Form::select("delivery state",$states,"",["class" => "form-control typeahead","placeholder" => "Select State"])!!}
+                        {!!Form::label("delivery zipcode")!!}
+                        {!!Form::text("delivery zipcode","701007",["class" => "form-control typeahead delivery_zipcode","placeholder" => "Enter Zip Code"])!!}
 <br>
                     </div>
                     <a href="#" class="btn btn-info show-google-maps">Show in google maps</a>
@@ -54,23 +54,23 @@
                     <p class="lead quote-header">Add Vehicles</p>
                     <div class="form-inline add-vehicles">
 <span></span>
-                        {!!Form::text("Year_1","",["class" => "form-control add-vehicle","id" => "year","placeholder" => "Enter year"])!!}
+                        {!!Form::text("year_1","2013",["class" => "form-control add-vehicle","id" => "year","placeholder" => "Enter year"])!!}
 <span></span>
-                        {!!Form::text("Make_1","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle make"])!!}
+                        {!!Form::text("make_1","Toyota",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle make"])!!}
 <span></span>
-                        {!!Form::text("Model_1","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle model"])!!}
+                        {!!Form::text("model_1","Avensis",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle model"])!!}
 <span></span>
-                        {!!Form::select("Type_1",$vehicle_type,"",["class" => "form-control add-vehicle","placeholder" => "Select vehicle type"])!!}
+                        {!!Form::select("type_1",$vehicle_type,"Car",["class" => "form-control select_vehicle_type","placeholder" => "Select vehicle type"])!!}
 <span></span>
-                        {!!Form::select("Condition_1",[null => "Select Condition","Running"=> "Running","Not Running" => "Not Running"],"",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
+                        {!!Form::select("condition_1",[null => "Select Condition","Yes"=> "Running","No" => "Not Running"],"Running",["class" => "form-control select_condition","placeholder" => "Select Vehicle Condition"])!!}
 <span></span>
-                        {!!Form::label("Quantity")!!}
-                        {!!Form::selectRange("Quantity_1",1,20,"quantity",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
+                        {!!Form::label("quantity")!!}
+                        {!!Form::selectRange("quantity_1",1,20,"quantity",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
 <i class="fa fa-plus-circle"></i>
 </div>
 &nbsp;
 <div class="form-inline">
-                        {!!Form::select("Carrier Type",[null => "Select Carrier Type","Open Carrier" => "Open Carrier","Enclosed Carrier" => "Enclosed Carrier"],"",["class" => "form-control","placeholder" => "Select Carrier Type"])!!}
+                        {!!Form::select("carrier type",[null => "Select Carrier Type","Open" => "Open Carrier","Enclosed" => "Enclosed Carrier"],"Open Carrier",["class" => "form-control select_carrier_type","placeholder" => "Select Carrier Type"])!!}
 &nbsp;
                     </div>
 <a href="#" class="btn btn-info compare-prices">Compare Prices</a>
@@ -79,32 +79,35 @@
                         <p class="lead quote-header">Notes</p>
                         {!!Form::label("Vehicle Notes")!!}
 <br>
-                        {!!Form::textarea("Vehicle Notes","",["class" => "vehicle-notes-textarea"])!!}
+                        {!!Form::textarea("vehicle notes","Some notes about this awesome toyota",["class" => "vehicle-notes-textarea"])!!}
                     </div>
                     <div class="form-group">
-                        {!!Form::label("Notes For Customer")!!}
+                        {!!Form::label("notes for customer")!!}
 <br>
-                        {!!Form::textarea("Notes For Customer","",["class" => "vehicle-notes-textarea"])!!}
+                        {!!Form::textarea("notes for customer","New order has beeen placed",["class" => "vehicle-notes-textarea"])!!}
                     </div>
                     <div class="form-group">
-                        {!!Form::label("Notes For Office")!!}
+                        {!!Form::label("notes for office")!!}
 <br>
-                        {!!Form::textarea("Notes For Office","",["class" => "vehicle-notes-textarea"])!!}
+                        {!!Form::textarea("notes for office","please review this order",["class" => "vehicle-notes-textarea"])!!}
                     </div>
 <br>
                     <div class="form-inline">
                         <p class="lead quote-header">Price</p>
-                        {!!Form::label("Price")!!}
-                        {!!Form::text("Price","",["class" => "form-control","placeholder" => "Enter Price"])!!}
-                        {!!Form::label("Post Price")!!}
-                        {!!Form::text("Post Price","",["class" => "form-control","placeholder" => "Post Price"])!!}
+                        {!!Form::label("price")!!}
+                        {!!Form::text("price","",["class" => "form-control price","placeholder" => "Enter Price"])!!}
+                        &nbsp;
+                        <a class="btn btn-success uship">Calculate</a>
+                        &nbsp;
+                        {!!Form::label("post price")!!}
+                        {!!Form::text("post price","$550",["class" => "form-control","placeholder" => "Post Price"])!!}
                     </div>
 <hr>
 <div class="form-group form-inline">
-                    {!!Form::label("Send Email to Customer")!!}&nbsp;
-                    {!!Form::checkbox("Send Email to Customer",true,true)!!}
+                    {!!Form::label("send email to customer")!!}&nbsp;
+                    {!!Form::checkbox("send email to customer",true,true)!!}
 &nbsp;
-                    {!!Form::select("Add Resource",[null => "Add Resource","google"=> "google","bing" => "bing"],"",["class" => "form-control"])!!}
+                    {!!Form::select("add resource",[null => "Add Resource","google"=> "google","bing" => "bing"],"",["class" => "form-control"])!!}
 </div>
                     {!!Form::submit("submit",["class" => "btn btn-success pull-right submit-quote"])!!}
                 {!!Form::close()!!}

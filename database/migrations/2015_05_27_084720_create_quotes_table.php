@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrdersTable extends Migration {
+class CreateQuotesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateOrdersTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create("orders",function($table){
+        Schema::create("quotes",function($table){
 
             $table->increments('id');
-            $table->string('order_id');
+            $table->string('quote_id');
 
             //pickup info
             $table->string("pickup_city");
@@ -126,7 +126,7 @@ class CreateOrdersTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop("orders");
+        Schema::drop("quotes");
 	}
 
 }
