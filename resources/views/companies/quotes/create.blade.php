@@ -62,7 +62,7 @@
 <span></span>
                         {!!Form::select("type_1",$vehicle_type,"Car",["class" => "form-control select_vehicle_type","placeholder" => "Select vehicle type"])!!}
 <span></span>
-                        {!!Form::select("condition_1",[null => "Select Condition","Yes"=> "Running","No" => "Not Running"],"Running",["class" => "form-control select_condition","placeholder" => "Select Vehicle Condition"])!!}
+                        {!!Form::select("condition_1",["Yes" => "Running","Yes"=> "Running","No" => "Not Running"],"Running",["class" => "form-control select_condition","placeholder" => "Select Vehicle Condition"])!!}
 <span></span>
                         {!!Form::label("quantity")!!}
                         {!!Form::selectRange("quantity_1",1,20,"quantity",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
@@ -70,7 +70,7 @@
 </div>
 &nbsp;
 <div class="form-inline">
-                        {!!Form::select("carrier type",[null => "Select Carrier Type","Open" => "Open Carrier","Enclosed" => "Enclosed Carrier"],"Open Carrier",["class" => "form-control select_carrier_type","placeholder" => "Select Carrier Type"])!!}
+                        {!!Form::select("carrier type",["Open" => "Open Carrier","Open" => "Open Carrier","Enclosed" => "Enclosed Carrier"],"Open Carrier",["class" => "form-control select_carrier_type","placeholder" => "Select Carrier Type"])!!}
 &nbsp;
                     </div>
 <a href="#" class="btn btn-info compare-prices">Compare Prices</a>
