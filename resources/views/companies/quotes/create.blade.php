@@ -46,7 +46,7 @@
                         {!!Form::label("delivery state")!!}
                         {!!Form::select("delivery state",$states,"",["class" => "form-control typeahead","placeholder" => "Select State"])!!}
                         {!!Form::label("delivery zipcode")!!}
-                        {!!Form::text("delivery zipcode","701007",["class" => "form-control typeahead delivery_zipcode","placeholder" => "Enter Zip Code"])!!}
+                        {!!Form::text("delivery zipcode","00610",["class" => "form-control typeahead delivery_zipcode","placeholder" => "Enter Zip Code"])!!}
 <br>
                     </div>
                     <a href="#" class="btn btn-info show-google-maps">Show in google maps</a>
