@@ -52,21 +52,23 @@
                     <a href="#" class="btn btn-info show-google-maps">Show in google maps</a>
 <br>
                     <p class="lead quote-header">Add Vehicles</p>
+<div class="input-wrap">
                     <div class="form-inline add-vehicles">
 <span></span>
-                        {!!Form::text("year_1","2013",["class" => "form-control add-vehicle","id" => "year","placeholder" => "Enter year"])!!}
+                        {!!Form::text("year_1","2013",["class" => "form-control add-vehicle year","id" => "year","placeholder" => "Enter year"])!!}
 <span></span>
-                        {!!Form::text("make_1","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle make"])!!}
+                        {!!Form::text("make_1","",["class" => "form-control add-vehicle make","placeholder" => "Enter vehicle make"])!!}
 <span></span>
-                        {!!Form::text("model_1","Avensis",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle model"])!!}
+                        {!!Form::text("model_1","Avensis",["class" => "form-control add-vehicle model","placeholder" => "Enter vehicle model"])!!}
 <span></span>
-                        {!!Form::select("type_1",$vehicle_type,"Car",["class" => "form-control select_vehicle_type","placeholder" => "Select vehicle type"])!!}
+                        {!!Form::select("type_1",$vehicle_type,"Car",["class" => "form-control vehicle_type","placeholder" => "Select vehicle type"])!!}
 <span></span>
-                        {!!Form::select("condition_1",["Yes" => "Running","Yes"=> "Running","No" => "Not Running"],"Running",["class" => "form-control select_condition","placeholder" => "Select Vehicle Condition"])!!}
+                        {!!Form::select("condition_1",["Yes"=> "Running","No" => "Not Running"],"Running",["class" => "form-control condition","placeholder" => "Select Vehicle Condition"])!!}
 <span></span>
                         {!!Form::label("quantity")!!}
-                        {!!Form::selectRange("quantity_1",1,20,"quantity",["class" => "form-control","placeholder" => "Select Vehicle Condition"])!!}
+                        {!!Form::selectRange("quantity_1",1,20,"quantity",["class" => "form-control","placeholder" => "Select Quantity"])!!}
 <i class="fa fa-plus-circle"></i>
+    </div>
 </div>
 &nbsp;
 <div class="form-inline">

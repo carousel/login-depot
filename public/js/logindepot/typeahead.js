@@ -20,12 +20,12 @@ var substringMatcher = function(strs) {
   };
 };
 
-var make = [];
+var make_1 = [];
 var company = $("span.username").text();
 $("input[name='make_1']").on("keypress",function(){
     $.get("/companies/" + company + "/quotes/make/",function(data){
         for(i in data){
-            make[i] = data[i].make;
+            make_1[i] = data[i].make;
         }
     });
 });
@@ -38,6 +38,52 @@ $("input[name='make_1']").typeahead(
   minLength: 1
 },
 {
-  name: 'make',
-  source: substringMatcher(make)
+  name: 'make_1',
+  source: substringMatcher(make_1)
+});
+
+var make_2 = [];
+$("body").on("keypress","input[name='make_2']",function(){
+    $.get("/companies/" + company + "/quotes/make/",function(data){
+        for(i in data){
+            make_2[i] = data[i].make;
+        }
+    });
+});
+
+
+$("input[name='make_2']").typeahead(
+{
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'make_2',
+  source: substringMatcher(make_2)
+});
+
+
+
+
+var make_3 = [];
+var company = $("span.username").text();
+$("body").on("keypress","input[name='make_3']",function(){
+    $.get("/companies/" + company + "/quotes/make/",function(data){
+        for(i in data){
+            make_3[i] = data[i].make;
+        }
+    });
+});
+
+
+$("input[name='make_3']").typeahead(
+{
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'make_3',
+  source: substringMatcher(make_3)
 });
