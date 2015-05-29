@@ -373,13 +373,16 @@ class QuotesController extends Controller {
             $subscriber = new QuoteCreateHandler;
             $data = [];
             $data["name"] = $request["name"];
-            $data["phone"] = $request["phone"];
-            $data["secondary_phone"] = $request["secondary_phone"];
-            $data["email"] = $request["email"];
-            $data["secondary_email"] = $request["secondary_email"];
-            $data["pickup_date"] = $request["pickup_date"];
             $data["company_name"] = $company->company_name;
             $data["quote_id"] = $request["quote_id"];
+            $data["pickup_location"] = $request["pickup_city"];
+            $data["dropoff_location"] = $request["delivery_city"];
+            $data["vehicles"] = "Honda Accord";
+            $data["carrier_type"] = "Open Carrier";
+            $data["vehicle_condition"] = "Running";
+            $data["post_price"] = "$600";
+            $data["email"] = "miroslav.trninic@gmail.com";
+            $data["notes"] = "Some notes for customer";
             \Event::fire($subscriber->onQuoteCreate($data));
 
             return \Redirect::back()
@@ -406,6 +409,17 @@ class QuotesController extends Controller {
             ->with("order_object",$order_object)
             ->with("customer_object",$customer_object);
     
+    }
+
+    public function getMake()
+    {
+        $make = Vehicle::select("make")->groupBy("make")->get();
+        return $make;
+    }
+
+    public function getModel()
+    {
+        
     }
 
 

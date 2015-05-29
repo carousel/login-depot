@@ -20,24 +20,24 @@ var substringMatcher = function(strs) {
   };
 };
 
-var customers = [];
+var make = [];
 var company = $("span.username").text();
-$(".typeahead-customer").on("keypress",function(){
-    $.get("/companies/" + company + "/customers",function(data){
+$("input[name='make_1']").on("keypress",function(){
+    $.get("/companies/" + company + "/quotes/make/",function(data){
         for(i in data){
-            customers[i] = data[i].first_name;
+            make[i] = data[i].make;
         }
     });
 });
 
 
-$('.typeahead-customer').typeahead(
+$("input[name='make_1']").typeahead(
 {
   hint: true,
   highlight: true,
   minLength: 1
 },
 {
-  name: 'customers',
-  source: substringMatcher(customers)
+  name: 'make',
+  source: substringMatcher(make)
 });

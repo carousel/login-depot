@@ -44,7 +44,6 @@ class CreateOrdersRequest extends Request {
             "vehicle_notes" => "required",
             "notes_for_customer" => "required",
             "notes_for_office" => "required",
-            "price" => "required",
             "post_price" => "required"
         ];
 	}

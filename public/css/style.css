@@ -6321,4 +6321,7 @@ div.labels>span{
     border:1px solid #ccc;
     border-radius:5px;
 }
+.tt-input{
+    vertical-align:inherit!important;
+}
 

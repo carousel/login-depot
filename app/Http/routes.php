@@ -21,7 +21,13 @@ Route::get('/companies/{company}/quotes/create', 'QuotesController@getCreate');
 Route::post('/companies/{company}/quotes/create', 'QuotesController@postCreate');
 Route::get('/companies/{company}/quotes/{id}/edit', 'QuotesController@getEdit');
 Route::post('/companies/{company}/quotes/uship', 'QuotesController@getUshipPrice');
-//Route::get('/uship', 'QuotesController@getUshipPrice');
+Route::get('/companies/{company}/quotes/make', 'QuotesController@getMake');
+
+
+Route::get("/original",function()
+{
+    return view("emails.original");
+});
 
 Route::get('/companies/{company}/order-form/{quote_id}', 'OrdersController@getOrderForm');
 

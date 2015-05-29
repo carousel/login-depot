@@ -56,7 +56,7 @@
 <span></span>
                         {!!Form::text("year_1","2013",["class" => "form-control add-vehicle","id" => "year","placeholder" => "Enter year"])!!}
 <span></span>
-                        {!!Form::text("make_1","Toyota",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle make"])!!}
+                        {!!Form::text("make_1","",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle make"])!!}
 <span></span>
                         {!!Form::text("model_1","Avensis",["class" => "form-control add-vehicle","placeholder" => "Enter vehicle model"])!!}
 <span></span>
