@@ -43,6 +43,11 @@
         -order (order controller)
 
 #TODO
+    -clone
+        -make
+        -model
+        -condition
+        -quantity
     -create quote
     -on customer link, create form
     -store form data

@@ -27,47 +27,28 @@ $("i.fa-plus-circle").on("click",function(e){
     $(original).find("select[name='type_1']").val("Car");
     $(original).find("select[name='condition_1']").val("Yes");
 
-    clone.find("i").remove();
+    $(clone).find("i").remove();
     //$(".input-wrap").append($(clone).append("<i class='fa fa-minus-circle'></i>"));
-    clone.insertAfter($(this).parent()).append("<i class='fa fa-minus-circle'></i>");
-
-    var last = $(".input-wrap").children().last();
+    //clone.insertAfter($(this).parent()).append("<i class='fa fa-minus-circle'></i>");
     var len = $(".input-wrap").children().length;
+    $(clone).children()[1].name = "year_" + (len + 1);
+    $(clone).children()[3].children[0].name = "make_" + (len + 1);
+    $(clone).children()[5].name = "model_" + (len + 1);
+    $(clone).children()[7].name = "type_" + (len + 1);
+    $(clone).children()[9].name = "condition_" + (len + 1);
+    $(clone).children()[12].name = "quantity_" + (len + 1);
+    $(clone).insertAfter($(".input-wrap").children()[0]).append("<i class='fa fa-minus-circle'></i>");
 
+    //var first = $(".input-wrap").children().first();
+    //var len = $(".input-wrap").children().length;
 
-    switch(len){
-        case 1:
-            //$(last)[0].children[1].name = "year_" + 1;
-            break;
-        case 2:
-            $(last)[0].children[1].name = "year_" + 2;
-            break;
-        case 3:
-            $(last)[0].children[1].name = "year_" + 3;
-            break;
-        case 4:
-            $(last)[0].children[1].name = "year_" + 4;
-            break;
-        case 5:
-            $(last)[0].children[1].name = "year_" + 5;
-            break;
-        case 6:
-            $(last)[0].children[1].name = "year_" + 6;
-            break;
-        case 7:
-            $(last)[0].children[1].name = "year_" + 7;
-            break;
-        case 8:
-            $(last)[0].children[1].name = "year_" + 8;
-            break;    
-        case 9:
-            $(last)[0].children[1].name = "year_" + 9;
-            break;    
-        case 10:
-            $(last)[0].children[1].name = "year_" + 10;
-            break;    
-    }
-
+        //var form = $("form");
+        //var len = form.children().length + 1;
+        //var clone = $(".year_1").clone(true,true).first();
+        //clone.find("span.x").remove();
+        //$(clone).append("<span class='minus'>-</span>");
+        //$(clone).children()[0].name = "year_" + len;
+        //$(clone).insertAfter($("form").children()[0]);
 
 });
 
@@ -75,45 +56,20 @@ $("i.fa-plus-circle").on("click",function(e){
 $("body").on("click","i.fa-minus-circle",function(e){ 
 
 
-    //var last = $(".input-wrap").children().last();
     $(this).parent().remove();
     var len = $(".input-wrap").children().length;
-
-
-    switch(len){
-        case 1:
-            //$(last)[0].children[1].name = "year_" + 1;
-            break;
-        case 2:
-            $(last)[0].children[1].name = "year_" + 2;
-            break;
-        case 3:
-            $(last)[0].children[1].name = "year_" + 3;
-            break;
-        case 4:
-            $(last)[0].children[1].name = "year_" + 4;
-            break;
-        case 5:
-            $(last)[0].children[1].name = "year_" + 5;
-            break;
-        case 6:
-            $(last)[0].children[1].name = "year_" + 6;
-            break;
-        case 7:
-            $(last)[0].children[1].name = "year_" + 7;
-            break;
-        case 8:
-            $(last)[0].children[1].name = "year_" + 8;
-            break;    
-        case 9:
-            $(last)[0].children[1].name = "year_" + 9;
-            break;    
-        case 10:
-            $(last)[0].children[1].name = "year_" + 10;
-            break;    
-    }
-
-
+    console.log(len);
+    $(".input-wrap").children()[0].children[1].name = "year_1";
+    $(".input-wrap").children()[1].children[1].name = "year_" + len;
+    $(".input-wrap").children()[2].children[1].name = "year_" + (len - 1);
+    $(".input-wrap").children()[3].children[1].name = "year_" + (len - 2);
+    $(".input-wrap").children()[4].children[1].name = "year_" + (len - 3);
+    $(".input-wrap").children()[5].children[1].name = "year_" + (len - 4);
+    $(".input-wrap").children()[6].children[1].name = "year_" + (len - 5);
+    $(".input-wrap").children()[7].children[1].name = "year_" + (len - 6);
+    $(".input-wrap").children()[8].children[1].name = "year_" + (len - 7);
+    $(".input-wrap").children()[9].children[1].name = "year_" + (len - 9);
+    $(".input-wrap").children()[10].children[1].name = "year_" + (len - 10);
 
 });
 
@@ -125,8 +81,8 @@ $(".uship").on("click",function(){
 
     var pickup_zipcode = $(".pickup_zipcode").val();
     var delivery_zipcode = $(".delivery_zipcode").val();
-    var vehicle_type = $(".select_vehicle_type").val();
-    var vehicle_condition = $(".select_condition").val();
+    var vehicle_type = $(".vehicle_type").val();
+    var vehicle_condition = $(".condition").val();
     var carrier_type = $(".select_carrier_type").val();
 
     var username = $("span.username").text();

@@ -529,6 +529,7 @@
     <script src="/js/jquery.js"></script>
     <script src="/js/logindepot/googlemap.js" ></script>
     <script type="text/javascript" src="/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/assets/fullcalendar/lib/moment.min.js"></script>
     <script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>

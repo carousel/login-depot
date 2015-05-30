@@ -21,6 +21,7 @@ class QuotesController extends Controller {
     */
     public function getUshipPrice()
     {
+        //dd($_POST);
 
         //$client_id = env("CLIENT_ID");
         //$client_secret = env("CLIENT_SECRET");
@@ -242,6 +243,8 @@ class QuotesController extends Controller {
 
         $customer = new Customer;
         $quote = new Quote;
+        dd($request->all());
+
 
 
         $date = $request["pickup_date"];
