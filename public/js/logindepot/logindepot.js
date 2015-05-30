@@ -107,6 +107,7 @@ $("body").on("click","i.fa-minus-circle",function(e){
     $(".input-wrap").children()[6].children[5].name = 'model_' + (len - 5);
     $(".input-wrap").children()[6].children[7].name = 'type_' + (len - 5);
     $(".input-wrap").children()[6].children[9].name = 'condition_' + (len - 5);
+    $(".input-wrap").children()[6].children[11].name = 'quantity_' + (len - 5);
 
     $(".input-wrap").children()[7].children[1].name = "year_" + (len - 6);
     $(".input-wrap").children()[7].children[3].children[1].name = 'make_' + (len -6);
