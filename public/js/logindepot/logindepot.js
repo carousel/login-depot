@@ -32,7 +32,7 @@ $("i.fa-plus-circle").on("click",function(e){
     //clone.insertAfter($(this).parent()).append("<i class='fa fa-minus-circle'></i>");
     var len = $(".input-wrap").children().length;
     $(clone).children()[1].name = "year_" + (len + 1);
-    $(clone).children()[3].children[0].name = "make_" + (len + 1);
+    $(clone).children()[3].children[1].name = "make_" + (len + 1);
     $(clone).children()[5].name = "model_" + (len + 1);
     $(clone).children()[7].name = "type_" + (len + 1);
     $(clone).children()[9].name = "condition_" + (len + 1);
@@ -58,18 +58,83 @@ $("body").on("click","i.fa-minus-circle",function(e){
 
     $(this).parent().remove();
     var len = $(".input-wrap").children().length;
-    console.log(len);
+
+
     $(".input-wrap").children()[0].children[1].name = "year_1";
+    $(".input-wrap").children()[0].children[3].children[1].name = 'make_1';
+    $(".input-wrap").children()[0].children[5].name = 'model_1';
+    $(".input-wrap").children()[0].children[7].name = 'type_1';
+    $(".input-wrap").children()[0].children[9].name = 'condition_1';
+    $(".input-wrap").children()[0].children[11].name = 'quantity_1';
+
     $(".input-wrap").children()[1].children[1].name = "year_" + len;
+    $(".input-wrap").children()[1].children[3].children[1].name = 'make_' + len;
+    $(".input-wrap").children()[1].children[5].name = 'model_' + len;
+    $(".input-wrap").children()[1].children[7].name = 'type_' + len;
+    $(".input-wrap").children()[1].children[9].name = 'condition_' + len;
+    $(".input-wrap").children()[1].children[11].name = 'quantity_' + len;
+
     $(".input-wrap").children()[2].children[1].name = "year_" + (len - 1);
+    $(".input-wrap").children()[2].children[3].children[1].name = 'make_' + (len -1);
+    $(".input-wrap").children()[2].children[5].name = 'model_' + (len - 1);
+    $(".input-wrap").children()[2].children[7].name = 'type_' + (len - 1);
+    $(".input-wrap").children()[2].children[9].name = 'condition_' + (len - 1);
+    $(".input-wrap").children()[2].children[11].name = 'quantity_' + (len - 1);
+
     $(".input-wrap").children()[3].children[1].name = "year_" + (len - 2);
+    $(".input-wrap").children()[3].children[3].children[1].name = 'make_' + (len -2);
+    $(".input-wrap").children()[3].children[5].name = 'model_' + (len - 2);
+    $(".input-wrap").children()[3].children[7].name = 'type_' + (len - 2);
+    $(".input-wrap").children()[3].children[9].name = 'condition_' + (len - 2);
+    $(".input-wrap").children()[3].children[11].name = 'quantity_' + (len - 2);
+
     $(".input-wrap").children()[4].children[1].name = "year_" + (len - 3);
+    $(".input-wrap").children()[4].children[3].children[1].name = 'make_' + (len -3);
+    $(".input-wrap").children()[4].children[5].name = 'model_' + (len - 3);
+    $(".input-wrap").children()[4].children[7].name = 'type_' + (len - 3);
+    $(".input-wrap").children()[4].children[9].name = 'condition_' + (len - 3);
+    $(".input-wrap").children()[4].children[11].name = 'quantity_' + (len - 3);
+
     $(".input-wrap").children()[5].children[1].name = "year_" + (len - 4);
+    $(".input-wrap").children()[5].children[3].children[1].name = 'make_' + (len -4);
+    $(".input-wrap").children()[5].children[5].name = 'model_' + (len - 4);
+    $(".input-wrap").children()[5].children[7].name = 'type_' + (len - 4);
+    $(".input-wrap").children()[5].children[9].name = 'condition_' + (len - 4);
+    $(".input-wrap").children()[5].children[11].name = 'quantity_' + (len - 4);
+
     $(".input-wrap").children()[6].children[1].name = "year_" + (len - 5);
+    $(".input-wrap").children()[6].children[3].children[1].name = 'make_' + (len -5);
+    $(".input-wrap").children()[6].children[5].name = 'model_' + (len - 5);
+    $(".input-wrap").children()[6].children[7].name = 'type_' + (len - 5);
+    $(".input-wrap").children()[6].children[9].name = 'condition_' + (len - 5);
+
     $(".input-wrap").children()[7].children[1].name = "year_" + (len - 6);
+    $(".input-wrap").children()[7].children[3].children[1].name = 'make_' + (len -6);
+    $(".input-wrap").children()[7].children[5].name = 'model_' + (len - 6);
+    $(".input-wrap").children()[7].children[7].name = 'type_' + (len - 6);
+    $(".input-wrap").children()[7].children[9].name = 'condition_' + (len - 6);
+    $(".input-wrap").children()[7].children[11].name = 'quantity_' + (len - 6);
+
     $(".input-wrap").children()[8].children[1].name = "year_" + (len - 7);
-    $(".input-wrap").children()[9].children[1].name = "year_" + (len - 9);
-    $(".input-wrap").children()[10].children[1].name = "year_" + (len - 10);
+    $(".input-wrap").children()[8].children[3].children[1].name = 'make_' + (len -7);
+    $(".input-wrap").children()[8].children[5].name = 'model_' + (len - 7);
+    $(".input-wrap").children()[8].children[7].name = 'type_' + (len - 7);
+    $(".input-wrap").children()[8].children[9].name = 'condition_' + (len - 7);
+    $(".input-wrap").children()[8].children[11].name = 'quantity_' + (len - 7);
+
+    $(".input-wrap").children()[9].children[1].name = "year_" + (len - 8);
+    $(".input-wrap").children()[9].children[3].children[1].name = 'make_' + (len -8);
+    $(".input-wrap").children()[9].children[5].name = 'model_' + (len - 8);
+    $(".input-wrap").children()[9].children[7].name = 'type_' + (len - 8);
+    $(".input-wrap").children()[9].children[9].name = 'condition_' + (len - 8);
+    $(".input-wrap").children()[9].children[11].name = 'quantity_' + (len - 8);
+
+    $(".input-wrap").children()[10].children[1].name = "year_" + (len - 9);
+    $(".input-wrap").children()[10].children[3].children[1].name = 'make_' + (len -9);
+    $(".input-wrap").children()[10].children[5].name = 'model_' + (len - 9);
+    $(".input-wrap").children()[10].children[7].name = 'type_' + (len - 9);
+    $(".input-wrap").children()[10].children[9].name = 'condition_' + (len - 9);
+    $(".input-wrap").children()[10].children[11].name = 'quantity_' + (len - 9);
 
 });
 
