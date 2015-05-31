@@ -11,8 +11,8 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
 }
 function codeAddress() {
-  var pickupCity = $(".pickup-city").val();
-  var deliveryCity = $(".delivery-city").val();
+  var pickupCity = $(".pickup-city").next().text();
+  var deliveryCity = $(".delivery-city").next().text();
   geocoder.geocode( { 'address': pickupCity}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);
@@ -49,9 +49,9 @@ function codeAddress() {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $(".show-google-maps").on("click",function(e){
-    var pickupCity = $(".pickup-city").val();
-    var deliveryCity = $(".delivery-city").val();
-    if(pickupCity == "" || deliveryCity == ""){
+    var pickupZipcode = $(".pickup-zipcode").val();
+    var deliveryZipcode = $(".delivery-zipcode").val();
+    if(pickupZipcode == "" || deliveryZipcode == ""){
         alert("Please enter pickup and delivery cities");
         return false;
     }

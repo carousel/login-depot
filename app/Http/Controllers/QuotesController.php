@@ -422,7 +422,78 @@ class QuotesController extends Controller {
 
     public function getModel()
     {
+        $input = \Input::all();
+        //return $input;
+        $model = Vehicle::select("name")
+            ->where("make",$input)
+            ->groupBy("name")
+            ->get();
+            //->groupBy("name")->get();
+        return $model;
         
+    }
+    public function getAddress()
+    {
+        $input = \Input::all();
+
+        $address = ZipCode::select("zip","primary_city","state")
+            ->where("primary_city",$input["pickup_city"])
+            //->groupBy("primary_city")
+            ->get();
+
+        return $address;
+    }
+
+    public function getPickupCity()
+    {
+        //$input = \Input::all();
+
+        $primary_city = ZipCode::select("primary_city")
+            //->where("primary_city",$input["primary_city"])
+            ->groupBy("primary_city")
+            //->take(5)
+            //->skip(100)
+            ->get();
+
+        return $primary_city;
+    }
+    public function getPickupZipState()
+    {
+
+        $input = \Input::all();
+
+        $state = ZipCode::select("state")
+            ->where("primary_city",$input["pickup_city"])
+            ->groupBy("state")
+            ->get();
+
+        $zip = ZipCode::select("zip")
+            ->where("primary_city",$input["pickup_city"])
+            //->groupBy("state")
+            ->get();
+
+        $zip_state = [$zip,$state];
+
+        return $zip_state;
+    }
+    public function getDeliveryZipState()
+    {
+
+        $input = \Input::all();
+
+        $state = ZipCode::select("state")
+            ->where("primary_city",$input["delivery_city"])
+            ->groupBy("state")
+            ->get();
+
+        $zip = ZipCode::select("zip")
+            ->where("primary_city",$input["delivery_city"])
+            //->groupBy("state")
+            ->get();
+
+        $zip_state = [$zip,$state];
+
+        return $zip_state;
     }
 
 

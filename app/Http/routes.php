@@ -21,13 +21,42 @@ Route::get('/companies/{company}/quotes/create', 'QuotesController@getCreate');
 Route::post('/companies/{company}/quotes/create', 'QuotesController@postCreate');
 Route::get('/companies/{company}/quotes/{id}/edit', 'QuotesController@getEdit');
 Route::post('/companies/{company}/quotes/uship', 'QuotesController@getUshipPrice');
+
+//ajax for vehicle make
 Route::get('/companies/{company}/quotes/make', 'QuotesController@getMake');
+
+//ajax for vehicle model based on make
+Route::post('/companies/{company}/quotes/model', 'QuotesController@getModel');
+
+//ajax for vehicle model based on make
+Route::post('/companies/{company}/quotes/address', 'QuotesController@getAddress');
+Route::get('/companies/{company}/quotes/pickup-city', 'QuotesController@getPickupCity');
+Route::post('/companies/{company}/quotes/pickup-zip-state', 'QuotesController@getPickupZipState');
+Route::post('/companies/{company}/quotes/delivery-zip-state', 'QuotesController@getDeliveryZipState');
+
+Route::get("/query",function()
+{
+        $state = App\LoginDepot\ZipCode::select("state")
+            ->where("primary_city","Dallas")
+            ->groupBy("state")
+            ->get();
+
+        $zip = App\LoginDepot\ZipCode::select("zip")
+            ->where("primary_city","New York")
+            //->groupBy("state")
+            ->get();
+        $zip_state = [$state];
+
+        return $zip_state;
+        
+});
 
 
 Route::get("/original",function()
 {
     return view("emails.original");
 });
+
 
 Route::get('/companies/{company}/order-form/{quote_id}', 'OrdersController@getOrderForm');
 
@@ -50,9 +79,6 @@ Route::get('/workers/{name}', 'WorkersController@getIndex');
 Route::post('/post-email', 'Auth\PasswordController@postEmail');
 Route::post('/password/reset', 'Auth\PasswordController@postReset');
 
-Route::post('/calendar/share', function(){
-    return \Input::all();
-});
 
 
 

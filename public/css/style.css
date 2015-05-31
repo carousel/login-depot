@@ -6245,10 +6245,12 @@ select{
 }
 
 .tt-menu {
-    width: 422px;
+    width: 100%;
     margin-top: 4px;
     padding: 4px 0;
-    background-color: #fff;
+    background-color: #000;
+    color:#fff;
+    cursor:pointer;
     border: 1px solid #ccc;
     border: 1px solid rgba(0, 0, 0, 0.2);
     -webkit-border-radius: 4px;
@@ -6323,5 +6325,11 @@ div.labels>span{
 }
 .tt-input{
     vertical-align:inherit!important;
+}
+.pickup-city{
+    width:490px;
+}
+.delivery-city{
+    width:490px;
 }
 

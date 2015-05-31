@@ -32,21 +32,25 @@
                     </div>
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Pickup Address</p>
-                        {!!Form::label("pickup city")!!}
-                        {!!Form::text("pickup city","Miami",["class" => "form-control pickup-city","placeholder" => "Enter City Name"])!!}
-                        {!!Form::label("pickup state")!!}
-                        {!!Form::select("pickup state",$states,"",["class" => "form-control","placeholder" => "Enter State"])!!}
-                        {!!Form::label("pickup zipcode")!!}
-                        {!!Form::text("pickup zipcode","90004",["class" => "form-control pickup_zipcode","placeholder" => "Enter Zip Code"])!!}
+                        {!!Form::label("pickup_city")!!}
+<br>
+                        {!!Form::text("pickup_city","",["class" => "form-control pickup-city","placeholder" => "Enter City Name"])!!}
+<br>
+                        {!!Form::label("pickup_state")!!}
+                        {!!Form::select("pickup_state",[],"",["class" => "form-control","placeholder" => "Enter State"])!!}
+                        {!!Form::label("pickup_zipcode")!!}
+                        {!!Form::select("pickup_zipcode",[],"",["class" => "form-control pickup-zipcode","placeholder" => "Enter Zip Code"])!!}
                     </div>
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Delivery Address</p>
-                        {!!Form::label("delivery city")!!}
-                        {!!Form::text("delivery city","Dallas",["class" => "form-control delivery-city","placeholder" => "Enter City Name"])!!}
-                        {!!Form::label("delivery state")!!}
-                        {!!Form::select("delivery state",$states,"",["class" => "form-control typeahead","placeholder" => "Select State"])!!}
-                        {!!Form::label("delivery zipcode")!!}
-                        {!!Form::text("delivery zipcode","00610",["class" => "form-control typeahead delivery_zipcode","placeholder" => "Enter Zip Code"])!!}
+                        {!!Form::label("delivery_city")!!}
+<br>
+                        {!!Form::text("delivery_city","",["class" => "form-control delivery-city","placeholder" => "Enter City Name"])!!}
+<br>
+                        {!!Form::label("delivery_state")!!}
+                        {!!Form::select("delivery_state",[],"",["class" => "form-control","placeholder" => "Select State"])!!}
+                        {!!Form::label("delivery_zipcode")!!}
+                        {!!Form::select("delivery_zipcode",[],"",["class" => "form-control delivery-zipcode","placeholder" => "Enter Zip Code"])!!}
 <br>
                     </div>
                     <a href="#" class="btn btn-info show-google-maps">Show in google maps</a>
@@ -55,11 +59,11 @@
 <div class="input-wrap">
                     <div class="form-inline add-vehicles">
 <span></span>
-                        {!!Form::text("year_1","2013",["class" => "form-control add-vehicle year","id" => "year","placeholder" => "Enter year"])!!}
+                        {!!Form::text("year_1","",["class" => "form-control add-vehicle year","id" => "year","placeholder" => "Enter year"])!!}
 <span></span>
                         {!!Form::text("make_1","",["class" => "form-control add-vehicle make","placeholder" => "Enter vehicle make"])!!}
 <span></span>
-                        {!!Form::text("model_1","Avensis",["class" => "form-control add-vehicle model","placeholder" => "Enter vehicle model"])!!}
+                        {!!Form::text("model_1","",["class" => "form-control add-vehicle model","placeholder" => "Enter vehicle model"])!!}
 <span></span>
                         {!!Form::select("type_1",$vehicle_type,"Car",["class" => "form-control vehicle_type","placeholder" => "Select vehicle type"])!!}
 <span></span>

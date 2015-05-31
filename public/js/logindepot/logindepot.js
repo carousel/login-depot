@@ -14,6 +14,22 @@ $("i.fa-plus-circle").on("click",function(e){
     
     
     var original = $("body").find(".add-vehicles:first");;
+    var year_1 = $(original).find("input[name='year_1']").val();
+    var make_1 = $(original).find("input[name='make_1']").val();
+    var model_1 = $(original).find("input[name='model_1']").val();
+
+    if(year_1 == ""){
+        alert("Please select vehicle year");
+        return false;
+    }
+    if(make_1 == ""){
+        alert("Please select vehicle make");
+        return false;
+    }
+    if(model_1 == ""){
+        alert("Please select vehicle make");
+        return false;
+    }
     var clone = $("body").find(".add-vehicles:first").clone(true,true);
 
     var type_1 = $(clone).find("select[name='type_1']");
@@ -28,8 +44,6 @@ $("i.fa-plus-circle").on("click",function(e){
     $(original).find("select[name='condition_1']").val("Yes");
 
     $(clone).find("i").remove();
-    //$(".input-wrap").append($(clone).append("<i class='fa fa-minus-circle'></i>"));
-    //clone.insertAfter($(this).parent()).append("<i class='fa fa-minus-circle'></i>");
     var len = $(".input-wrap").children().length;
     $(clone).children()[1].name = "year_" + (len + 1);
     $(clone).children()[3].children[1].name = "make_" + (len + 1);
@@ -38,17 +52,6 @@ $("i.fa-plus-circle").on("click",function(e){
     $(clone).children()[9].name = "condition_" + (len + 1);
     $(clone).children()[12].name = "quantity_" + (len + 1);
     $(clone).insertAfter($(".input-wrap").children()[0]).append("<i class='fa fa-minus-circle'></i>");
-
-    //var first = $(".input-wrap").children().first();
-    //var len = $(".input-wrap").children().length;
-
-        //var form = $("form");
-        //var len = form.children().length + 1;
-        //var clone = $(".year_1").clone(true,true).first();
-        //clone.find("span.x").remove();
-        //$(clone).append("<span class='minus'>-</span>");
-        //$(clone).children()[0].name = "year_" + len;
-        //$(clone).insertAfter($("form").children()[0]);
 
 });
 
