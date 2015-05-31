@@ -81,14 +81,15 @@ $("input[name='model_1']").typeahead(
 });
 
 var pickup_city = [];
-$("input[name='pickup_city']").on("keydown",function(){
-    $.get("/companies/" + company + "/quotes/pickup-city",function(data){
-        for(i in data){
-            pickup_city[i] = data[i].primary_city;
-        }
-        
-    });
-});
+//$("input[name='pickup_city']").on("keydown",function(e){
+    //if(e.keyCode == 9){
+        $.get("/companies/" + company + "/quotes/pickup-city",function(data){
+            for(i in data){
+                pickup_city[i] = data[i].primary_city;
+            }       
+        });
+    //}
+//});
 
 
 $("input[name='pickup_city']").typeahead(
@@ -131,14 +132,15 @@ $("input[name='pickup_city']").on("keydown",function(e){
         });
 
 var delivery_city = [];
-$("input[name='delivery_city']").on("keydown",function(){
-    $.get("/companies/" + company + "/quotes/pickup-city",function(data){
-        for(i in data){
-            delivery_city[i] = data[i].primary_city;
-        }
-        
-    });
-});
+//$("input[name='delivery_city']").on("keydown",function(e){
+    //if(e.keyCode == 9){
+        $.get("/companies/" + company + "/quotes/pickup-city",function(data){
+            for(i in data){
+                delivery_city[i] = data[i].primary_city;
+            }
+        });
+    //}
+//});
 
 
 $("input[name='delivery_city']").typeahead(
