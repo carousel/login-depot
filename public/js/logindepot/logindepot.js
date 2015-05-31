@@ -47,7 +47,7 @@ $("i.fa-plus-circle").on("click",function(e){
     var len = $(".input-wrap").children().length;
     $(clone).children()[1].name = "year_" + (len + 1);
     $(clone).children()[3].children[1].name = "make_" + (len + 1);
-    $(clone).children()[5].name = "model_" + (len + 1);
+    $(clone).children()[5].children[1].name = "model_" + (len + 1);
     $(clone).children()[7].name = "type_" + (len + 1);
     $(clone).children()[9].name = "condition_" + (len + 1);
     $(clone).children()[12].name = "quantity_" + (len + 1);
@@ -148,8 +148,8 @@ $(".uship").on("click",function(){
 
     $(".price").val("");
 
-    var pickup_zipcode = $(".pickup_zipcode").val();
-    var delivery_zipcode = $(".delivery_zipcode").val();
+    var pickup_zipcode = $(".pickup-zipcode").val();
+    var delivery_zipcode = $(".delivery-zipcode").val();
     var vehicle_type = $(".vehicle_type").val();
     var vehicle_condition = $(".condition").val();
     var carrier_type = $(".select_carrier_type").val();
@@ -172,7 +172,6 @@ $(".uship").on("click",function(){
             "carrierType": carrier_type,
         },
         "success": function(result){
-            var result = "$" + result;
             $(".price").val(result);
         }
     

@@ -6332,4 +6332,11 @@ div.labels>span{
 .delivery-city{
     width:490px;
 }
+.uship-price{
+    font-size:22px;
+    font-weight:bold;
+    color:green;
+    margin-right:3px;
+    margin-left:5px;
+}
 

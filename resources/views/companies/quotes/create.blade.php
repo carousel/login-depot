@@ -101,7 +101,7 @@
                     <div class="form-inline">
                         <p class="lead quote-header">Price</p>
                         {!!Form::label("price")!!}
-                        {!!Form::text("price","",["class" => "form-control price","placeholder" => "Enter Price"])!!}
+                        <span class="uship-price">$</span>{!!Form::text("price","",["class" => "form-control price","placeholder" => "Enter Price"])!!}
                         &nbsp;
                         <a class="btn btn-success uship">Calculate</a>
                         &nbsp;
