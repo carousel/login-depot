@@ -79,7 +79,7 @@
                         {!!Form::select("carrier type",["Open" => "Open Carrier","Open" => "Open Carrier","Enclosed" => "Enclosed Carrier"],"Open Carrier",["class" => "form-control select_carrier_type","placeholder" => "Select Carrier Type"])!!}
 &nbsp;
                     </div>
-<a href="#" class="btn btn-info compare-prices">Compare Prices</a>
+<!--<a href="#" class="btn btn-info compare-prices">Compare Prices</a>-->
 <br>
                     <div class="form-group">
                         <p class="lead quote-header">Notes</p>
@@ -89,8 +89,10 @@
                     </div>
                     <div class="form-group">
                         {!!Form::label("notes for customer")!!}
+<a href"#" class="btn btn-success btn-sm timestamp">Timestamp</a>
 <br>
-                        {!!Form::textarea("notes for customer","New order has beeen placed",["class" => "vehicle-notes-textarea"])!!}
+<br>
+                        {!!Form::textarea("notes for customer","New order has beeen placed",["class" => "vehicle-notes-textarea customer-notes-textarea"])!!}
                     </div>
                     <div class="form-group">
                         {!!Form::label("notes for office")!!}

@@ -2,7 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateOrdersRequest;
+use App\Http\Requests\CreateQuoteRequest;
 use App\LoginDepot\Vehicle;
 use App\LoginDepot\ZipCode;
 use App\LoginDepot\Customer;
@@ -234,30 +234,27 @@ class QuotesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function postCreate(CreateOrdersRequest $request)
+	public function postCreate(CreateQuoteRequest $request)
 	{
         if(\Auth::user()->role == "company"){
             $company = Company::where("user_id",\Auth::user()->id)->first();
         }
 
-
         $customer = new Customer;
         $quote = new Quote;
-        dd($request->all());
-
-
+        //dd($request->all());
 
         $date = $request["pickup_date"];
         $date = explode("-",$date);
         $pickup_date = Carbon::createFromDate($date[0],$date[1],$date[2]);
+        $customer->company_id = $company->id;
+        $customer->quote_id = $request["quote_id"];
         $customer->name = $request["name"];
         $customer->phone = $request["phone"];
         $customer->secondary_phone = $request["secondary_phone"];
         $customer->email = $request["email"];
         $customer->secondary_email = $request["secondary_email"];
         $customer->pickup_date = $pickup_date;
-        $customer->quote_id = $request["quote_id"];
-        $customer->company_id = $company->id;
         $customer->status = "saved";
         $customer->modified_at = Carbon::now();
         $customer->save();
@@ -271,14 +268,6 @@ class QuotesController extends Controller {
         $quote->delivery_zipcode = $request["delivery_zipcode"];
         $quote->quote_id = $request["quote_id"];
 
-        if(!empty($request["year_1"])){
-            $quote->vehicle_one_year = $request["year_1"];        
-            $quote->vehicle_one_make = $request["make_1"];        
-            $quote->vehicle_one_model = $request["model_1"];        
-            $quote->vehicle_one_type = $request["type_1"];        
-            $quote->vehicle_one_condition = $request["condition_1"];        
-            $quote->vehicle_one_quantity = $request["quantity_1"];        
-        };
         if(!empty($request["year_2"])){
             $quote->vehicle_two_year = $request["year_2"];        
             $quote->vehicle_two_make = $request["make_2"];        
@@ -361,9 +350,9 @@ class QuotesController extends Controller {
         if(!empty($request["notes_for_office"])){
             $quote->office_notes = $request["notes_for_office"];                
         };
-        if(!empty($request["price"])){
-            $quote->quote_price = $request["price"];                
-        };
+        //if(!empty($request["price"])){
+            //$quote->quote_price = $request["price"];                
+        //};
         if(!empty($request["post_price"])){
             $quote->post_price = $request["post_price"];                
         };
@@ -380,16 +369,16 @@ class QuotesController extends Controller {
             $data["quote_id"] = $request["quote_id"];
             $data["pickup_location"] = $request["pickup_city"];
             $data["dropoff_location"] = $request["delivery_city"];
-            $data["vehicles"] = "Honda Accord";
-            $data["carrier_type"] = "Open Carrier";
-            $data["vehicle_condition"] = "Running";
-            $data["post_price"] = "$600";
-            $data["email"] = "miroslav.trninic@gmail.com";
-            $data["notes"] = "Some notes for customer";
+            $data["vehicles"] = $request["make_2"] . "," . $request["model_2"];
+            $data["carrier_type"] = $request["carrier_type"];
+            $data["vehicle_condition"] = $request["condition_2"];
+            $data["post_price"] = $request["post_price"];
+            $data["email"] = $request["email"];
+            $data["notes"] = $request["notes_for_customer"];
             \Event::fire($subscriber->onQuoteCreate($data));
 
             return \Redirect::back()
-                ->with("quote_create_status","new quote has been created and sent to customer");
+                ->with("quote_create_status","New quote has been created and sent to customer");
        
         }
 

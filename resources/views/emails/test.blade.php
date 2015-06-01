@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+    $data = [];
+    $data["name"] = "Miroslav";
+    $data["company_name"] = "Awesome inc";
+    $data["quote_id"] = "345GD33Y112";
+    $data["pickup_location"] = "New York,NY,10005";
+    $data["dropoff_location"] = "Miami,FL, 39928";
+    $data["vehicles"] = "Toyota, Avensis";
+    $data["carrier_type"] = "Open Carrier";
+    $data["vehicle_condition"] = "Running";
+    $data["post_price"] = "$" . "660";
+    $data["email"] = "miroslav.trninic@gmail.com";
+    $data["notes"] = "In case of problems, please contact us";
+?>
 
 <!-- Define Charset -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -504,10 +518,9 @@ Thank you for your interest in shipping your vehicle with Nationwide Auto Transp
 
            </table>
 <table style="color:#717171;font:normal 11px Helvetica,Arial,sans-serif;margin:0;padding:0;width:374px;min-height:150px;margin-left:90px;font-weight:bold"><tbody><tr><td>Order ID</td><td>{!!$data["quote_id"]!!}</td></tr><tr><td>Pickup Location</td><td>{!!$data["pickup_location"]!!}</td></tr><tr><td>Dropoff Location</td><td>{!!$data["dropoff_location"]!!}</td></tr><tr><td>Vehicles</td><td>{!!$data["vehicles"]!!}</td></tr><tr><td>Carrier type</td><td>{!!$data["carrier_type"]!!}</td></tr><tr><td>Vehicle condition</td><td>{!!$data["vehicle_condition"]!!}</td></tr></tbody></table>
-<br>
-<p style="text-align:center;text-align:center;margin-top:15px;color:orange;font-weight:bold;font-size:30px">{!!"$" . $data["post_price"]!!}</p>
+<p style="text-align:center;text-align:center;margin-top:15px;color:orange;font-weight:bold;font-size:30px">{!!$data["post_price"]!!}</p>
 
-<a href="/companies/{!!$data["company_name"]!!}/order-form/{!!$data["quote_id"]!!}" style="background-color:cadetblue;padding:7px 7px 7px 7px;font-size:15px;text-decoration:none;color:white;font-weight:bolder;border-radius:4px;float:right;margin-top:16px;margin-right:160px" target="_blank">Click Here To Start Your Booking</a>
+<a href="http://www.logindepot.com/nation/terms_conditions.php?orderid=NT51228&amp;verify=1432834998" style="background-color:cadetblue;padding:7px 7px 7px 7px;font-size:15px;text-decoration:none;color:white;font-weight:bolder;border-radius:4px;float:right;margin-top:16px;margin-right:160px" target="_blank">Click Here To Start Your Booking</a>
 </td>
 </tr>
 
@@ -543,7 +556,8 @@ Thank you for your interest in shipping your vehicle with Nationwide Auto Transp
                                         <td style="color: #484848; font-size: 16px; font-weight: normal; font-family: Helvetica, Arial, sans-serif;">
 
 Notes:
-<p style="font-size:small">{!!$data["notes"]!!}</p>
+<br>
+{!!$data["notes"]!!}
 
                                         </td>
                                     </tr>
@@ -628,9 +642,17 @@ motorcycles and freight shipments. We are able to ship all size vehicle to and f
 </tr>
 <!-- end section 2 -->
 <tr>
+    <td style="color: #939393; font-size: 11px; font-weight: normal; font-family: Helvetica, Arial, sans-serif;" class="prefooter-header" align="center">
+
+
+    </td>
+</tr>
+
+
+<tr>
     <td  style="color: #939393; font-size: 11px; font-weight: normal; font-family: Helvetica, Arial, sans-serif;" class="prefooter-subheader" align="center">
 
-        <span style="color: #7087A3">Nationwide Auto Transportation llc &nbsp;&nbsp;&nbsp;</span><a href="mailto:nationwidecarrier@gmail.com">Email</a>
+        <span style="color: #7087A3">Nationwide Auto Transportation llc &nbsp;&nbsp;&nbsp;<span style="color: #7087A3"></span><a href="mailto:nationwidecarrier@gmail.com">Email</a>
 
 
     </td>

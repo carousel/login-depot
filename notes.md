@@ -43,11 +43,8 @@
         -order (order controller)
 
 #TODO
-    -clone
-        -make
-        -model
-        -condition
-        -quantity
+    -email template
+    -compare prices ?
     -create quote
     -on customer link, create form
     -store form data

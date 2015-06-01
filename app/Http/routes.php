@@ -34,34 +34,21 @@ Route::get('/companies/{company}/quotes/pickup-city', 'QuotesController@getPicku
 Route::post('/companies/{company}/quotes/pickup-zip-state', 'QuotesController@getPickupZipState');
 Route::post('/companies/{company}/quotes/delivery-zip-state', 'QuotesController@getDeliveryZipState');
 
-Route::get("/query",function()
+
+
+Route::get("/test",function()
 {
-        $state = App\LoginDepot\ZipCode::select("state")
-            ->where("primary_city","Dallas")
-            ->groupBy("state")
-            ->get();
-
-        $zip = App\LoginDepot\ZipCode::select("zip")
-            ->where("primary_city","New York")
-            //->groupBy("state")
-            ->get();
-        $zip_state = [$state];
-
-        return $zip_state;
-        
+    return view("emails.test");
 });
-
-
 Route::get("/original",function()
 {
     return view("emails.original");
 });
 
 
+//link from email
+//Route::get('/companies/{company}/order-form/{quote_id}', 'OrdersController@getOrderForm');
 Route::get('/companies/{company}/order-form/{quote_id}', 'OrdersController@getOrderForm');
-
-
-
 
 Route::get('/companies/{company}/customers/{customer}/update/{order}',["as" => "get-update-customer", "uses" => 'CompaniesController@getUpdateCustomer']);
 Route::post('/companies/{company}/customers/{customer}/update',["as" => "post-update-customer", "uses" => 'CompaniesController@postUpdateCustomer']);

@@ -178,3 +178,8 @@ $(".uship").on("click",function(){
     });
 });
 
+$(".timestamp").click(function(){
+    var timestamp = "Update: " + new Date($.now());
+    $(".customer-notes-textarea").text(timestamp);
+});
+
