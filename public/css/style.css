@@ -6339,4 +6339,10 @@ div.labels>span{
     margin-right:3px;
     margin-left:5px;
 }
+.order-input{
+    margin-bottom:15px!important;
+    width:100%;
+    /*text-align:center;*/
+    margin-left:17%;
+}
 
