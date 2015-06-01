@@ -184,4 +184,12 @@ $(".timestamp").click(function(){
     var timestamp = "Update: " + new Date($.now());
     $(".customer-notes-textarea").val(timestamp);
 });
+$("body").on("mouseover",".tt-selectable",function(e){
+    $(this).css("color","#000");
+    $(this).css("background","#fff");
+});
+$("body").on("mouseout",".tt-selectable",function(e){
+    $(this).css("color","#fff");
+    $(this).css("background","#000");
+});
 
