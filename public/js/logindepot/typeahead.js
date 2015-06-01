@@ -182,3 +182,14 @@ $("input[name='delivery_city']").on("keydown",function(e){
     
         });
 
+var year_1 = _.range(1995,2015);
+$("input[name='year_1']").typeahead(
+{
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'year_1',
+  source: substringMatcher(year_1)
+});

@@ -36,6 +36,8 @@ $("i.fa-plus-circle").on("click",function(e){
     type_1.val($(original).find("select[name='type_1']").val());
     var condition_1 = $(clone).find("select[name='condition_1']");
     condition_1.val($(original).find("select[name='condition_1']").val());
+    var quantity_1 = $(clone).find("select[name='quantity_1']");
+    quantity_1.val($(original).find("select[name='quantity_1']").val());
 
     $(original).find("input[name='year_1']").val("");
     $(original).find("input[name='make_1']").val("");
@@ -180,6 +182,6 @@ $(".uship").on("click",function(){
 
 $(".timestamp").click(function(){
     var timestamp = "Update: " + new Date($.now());
-    $(".customer-notes-textarea").text(timestamp);
+    $(".customer-notes-textarea").val(timestamp);
 });
 
