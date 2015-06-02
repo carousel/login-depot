@@ -6342,7 +6342,28 @@ div.labels>span{
 .order-input{
     margin-bottom:15px!important;
     width:100%;
-    /*text-align:center;*/
-    margin-left:17%;
+    margin-left:5%;
+    float:left;
 }
+.terms-conditions{
+    width:100%;
+    height:200px;
+    background:#f0f0f0;
+    border:1px solid #000;
+    padding:10px;
+    overflow:scroll;
+    margin-bottom:20px;
+}
+.order-form-nav{
+    margin-top:50px;
+    margin-bottom:20px;
+    text-align:center;
+    color:#fff!important;
+    background:#487894;
+    padding-top:5px;
+    padding-bottom:5px;
+    width:100%;
+};
+
+
 

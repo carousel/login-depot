@@ -49,6 +49,7 @@ Route::get("/original",function()
 //link from email
 //Route::get('/companies/{company}/order-form/{quote_id}', 'OrdersController@getOrderForm');
 Route::get('/companies/{company}/order-form/{quote_id}', 'OrdersController@getOrderForm');
+Route::post('/companies/{company}/order-form/{quote_id}', 'OrdersController@postOrder');
 
 Route::get('/companies/{company}/customers/{customer}/update/{order}',["as" => "get-update-customer", "uses" => 'CompaniesController@getUpdateCustomer']);
 Route::post('/companies/{company}/customers/{customer}/update',["as" => "post-update-customer", "uses" => 'CompaniesController@postUpdateCustomer']);
