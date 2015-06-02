@@ -47,7 +47,7 @@ $("i.fa-plus-circle").on("click",function(e){
 
     $(clone).find("i").remove();
     var len = $(".input-wrap").children().length;
-    $(clone).children()[1].name = "year_" + (len + 1);
+    $(clone).children()[1].children[1].name = "year_" + (len + 1);
     $(clone).children()[3].children[1].name = "make_" + (len + 1);
     $(clone).children()[5].children[1].name = "model_" + (len + 1);
     $(clone).children()[7].name = "type_" + (len + 1);
