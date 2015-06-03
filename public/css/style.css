@@ -6364,6 +6364,9 @@ div.labels>span{
     padding-bottom:5px;
     width:100%;
 };
+span.final-vehicles{
+    font-size:30px!important;
+}
 
 
 

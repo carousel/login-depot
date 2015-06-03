@@ -20,4 +20,9 @@ class Quote extends Model {
         return $this->belongsTo("App\LoginDepot\Customer");
     }
 
+    public function order()
+    {
+        return $this->belongsTo("App\LoginDepot\Order");
+    }
+
 }
