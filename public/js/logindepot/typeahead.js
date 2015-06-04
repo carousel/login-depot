@@ -97,10 +97,10 @@ $("input[name='model_1']").typeahead(
 
 var pickup_city = [];
 
-$("input[name='pickup_city']").on("keydown",function(e){
+//$("input[name='pickup_city']").on("keydown",function(e){
 var pickupCity = $("input[name='pickup_city']").val();
 var pickupState = $("select[name='pickup_state']").val();
-    if(pickupCity.length > 0){
+    //if(pickupCity.length > 0){
         if(pickupState !== ""){
             var data = {pickupCity,pickupState};
         }else{
@@ -110,29 +110,42 @@ var pickupState = $("select[name='pickup_state']").val();
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            cache: false
+            //cache: false
         });
         $.ajax({
             "url": "/companies/" + company + "/quotes/pickup-city",
             "type": "POST",
             "data": {"data":data},
-            "cache": false,
+            //"cache": false,
             "success": function(data){
                 for(i in data){
                     pickup_city[i] = data[i]["primary_city"] + ", " + data[i]["state"] + ", " + data[i]["zip"];
                 }
             }   
         });
-    }
+    //}
 
-});
-$("body").on("click",".tt-dataset-pickup_city",function(e){
-    var text = $(this).text();
-    var result = text.split(",");
-    $("input[name='pickup_city']").val(result[0]);
-    var a = $("select[name='pickup_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
+//});
+$("input[name='pickup_city']").typeahead(null,
+{
+  name: 'pickup_city',
+  limit: 30,
+  source: substringMatcher(pickup_city)
+}).on("typeahead:selected",function(event,selection){
+    var result = selection.split(",");
+    //console.log(result[0]);
+    //$("input[name='pickup_city']").val("");
+    $("input[name='pickup_city']").typeahead('val',result[0]);
+    $("select[name='pickup_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
     $("input[name='pickup_zipcode']").val(result[2]);
+    //$("input[name='pickup_city']").typeahead('destroy');
 });
+
+
+//$("body").on("click",".tt-suggestion",function(e){
+    //$("input[name='pickup_city']").typeahead('destroy');
+    //$(this).empty();
+//});
 //$("body").on("click",".tt-dataset-pickup_zipcode",function(e){
     //var text = $(this).text();
     //var result = text.split(",");
@@ -140,35 +153,29 @@ $("body").on("click",".tt-dataset-pickup_city",function(e){
     //var a = $("select[name='pickup_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
     //$("input[name='pickup_city']").val(result[2]);
 //});
+//$(".refresh").on("click",function(e){
+    //window.location.reload(false);
+//});
 
-$("input[name='pickup_city']").on("click",function(e){
-    if($(this).val() !== ""){
-        window.location.reload(true);
-    }
-});
-$("input[name='pickup_zipcode']").on("click",function(e){
-    if($(this).val() !== ""){
-        window.location.reload(true);
-    }
-});
-$("input[name='delivery_city']").on("click",function(e){
-    if($(this).val() !== ""){
-        window.location.reload(true);
-    }
-});
-$("input[name='delivery_zipcode']").on("click",function(e){
-    if($(this).val() !== ""){
-        window.location.reload(true);
-    }
-});
+//$("input[name='pickup_city']").on("click",function(e){
+    //$(this).val("");
+//});
+//$("input[name='pickup_zipcode']").on("click",function(e){
+    //if($(this).val() !== ""){
+        //window.location.reload(true);
+    //}
+//});
+//$("input[name='delivery_city']").on("click",function(e){
+    //if($(this).val() !== ""){
+        //window.location.reload(true);
+    //}
+//});
+//$("input[name='delivery_zipcode']").on("click",function(e){
+    //if($(this).val() !== ""){
+        //window.location.reload(true);
+    //}
+//});
 
-
-$("input[name='pickup_city']").typeahead(null,
-{
-  name: 'pickup_city',
-  limit: 30,
-  source: substringMatcher(pickup_city)
-});
 
 
 
@@ -182,6 +189,7 @@ $("input[name='delivery_city']").typeahead(
   name: 'delivery_city',
   source: substringMatcher(delivery_city)
 });
+
 
 $("input[name='delivery_city']").on("keydown",function(e){
     if(e.keyCode == 9){

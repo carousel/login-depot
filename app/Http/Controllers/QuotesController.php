@@ -443,7 +443,8 @@ class QuotesController extends Controller {
         if(count($input["data"]) == 1){
             $address = ZipCode::select("primary_city","state","zip")
                 ->where("primary_city","LIKE",$input["data"] . '%')
-                //->groupBy("primary_city")
+                ->orWhere("zip","LIKE",$input["data"] . '%')
+                ->orderBy("zip")
                 //->take(5)
                 //->skip(100)
                 ->get();
