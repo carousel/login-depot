@@ -30,7 +30,7 @@
                     {!!Form::label("pickup date")!!}
                     {!!Form::text("pickup date","2015-05-30",["class" => "form-control datepicker","placeholder" => "choose a date"])!!}
                     </div>
-                    <div class="form-group col-md-6"><span class="btn btn-primary pull-right refresh">Refresh</span>
+                    <div class="form-group col-md-6">
 
                         <p class="lead quote-header">Pickup Address</p>                        
                         
