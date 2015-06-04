@@ -42,10 +42,14 @@
         -quote,customer (quote controller)
         -order (order controller)
 
+#LOGIC FLOW
+    -create quote for new customer (save in db)
+    -send info to customer with link to new created quote (by email)
+    -invite customer to enhance quote and place order
+    -see notification with status, view customer order
 #TODO
-    -email template
     -compare prices ?
-    -create quote
-    -on customer link, create form
     -store form data
+        - orders table migrations
+    -view/modify order (with status)
 

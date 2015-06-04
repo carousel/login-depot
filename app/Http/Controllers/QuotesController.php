@@ -242,7 +242,7 @@ class QuotesController extends Controller {
 
         $customer = new Customer;
         $quote = new Quote;
-        //dd($request->all());
+        dd($request->all());
 
         $date = $request["pickup_date"];
         $date = explode("-",$date);
@@ -403,10 +403,12 @@ class QuotesController extends Controller {
     
     }
 
-    public function getMake()
+    public function postMake()
     {
-        $make = Vehicle::select("make")->groupBy("make")->get();
-        return $make;
+        $input = \Input::all();
+        return $input;
+        //$make = Vehicle::select("make")->groupBy("make")->get();
+        //return $make;
     }
 
     public function getModel()
@@ -433,18 +435,35 @@ class QuotesController extends Controller {
         return $address;
     }
 
-    public function getPickupCity()
+    public function postPickupCity()
     {
-        //$input = \Input::all();
+        $input = \Input::all();
 
-        $primary_city = ZipCode::select("primary_city")
-            //->where("primary_city",$input["primary_city"])
-            ->groupBy("primary_city")
-            //->take(5)
-            //->skip(100)
-            ->get();
+        //no state search
+        if(count($input["data"]) == 1){
+            $address = ZipCode::select("primary_city","state","zip")
+                ->where("primary_city","LIKE",$input["data"] . '%')
+                //->groupBy("primary_city")
+                //->take(5)
+                //->skip(100)
+                ->get();
+        
+        }
 
-        return $primary_city;
+        //we have state
+        if(count($input["data"]) == 2){
+            $address = ZipCode::select("primary_city","state","zip")
+                ->where("state",$input["data"]["pickupState"])
+                ->where("primary_city",$input["data"]["pickupCity"])
+                //->groupBy("primary_city")
+                //->take(5)
+                //->skip(100)
+                ->get();
+        
+        }
+
+        //return $input;
+        return $address;
     }
     public function getPickupZipState()
     {

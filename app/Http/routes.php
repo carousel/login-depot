@@ -23,14 +23,14 @@ Route::get('/companies/{company}/quotes/{id}/edit', 'QuotesController@getEdit');
 Route::post('/companies/{company}/quotes/uship', 'QuotesController@getUshipPrice');
 
 //ajax for vehicle make
-Route::get('/companies/{company}/quotes/make', 'QuotesController@getMake');
+Route::post('/companies/{company}/quotes/make', 'QuotesController@postMake');
 
 //ajax for vehicle model based on make
 Route::post('/companies/{company}/quotes/model', 'QuotesController@getModel');
 
 //ajax for vehicle model based on make
 Route::post('/companies/{company}/quotes/address', 'QuotesController@getAddress');
-Route::get('/companies/{company}/quotes/pickup-city', 'QuotesController@getPickupCity');
+Route::post('/companies/{company}/quotes/pickup-city', 'QuotesController@postPickupCity');
 Route::post('/companies/{company}/quotes/pickup-zip-state', 'QuotesController@getPickupZipState');
 Route::post('/companies/{company}/quotes/delivery-zip-state', 'QuotesController@getDeliveryZipState');
 

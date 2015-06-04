@@ -30,16 +30,18 @@
                     {!!Form::label("pickup date")!!}
                     {!!Form::text("pickup date","2015-05-30",["class" => "form-control datepicker","placeholder" => "choose a date"])!!}
                     </div>
-                    <div class="form-group col-md-6">
-                        <p class="lead quote-header">Pickup Address</p>
+                    <div class="form-group col-md-6"><span class="btn btn-primary pull-right refresh">Refresh</span>
+
+                        <p class="lead quote-header">Pickup Address</p>                        
+                        
                         {!!Form::label("pickup_city")!!}
 <br>
                         {!!Form::text("pickup_city","",["class" => "form-control pickup-city","placeholder" => "Enter City Name"])!!}
 <br>
                         {!!Form::label("pickup_state")!!}
-                        {!!Form::select("pickup_state",[],"",["class" => "form-control","placeholder" => "Enter State"])!!}
+                        {!!Form::select("pickup_state",$states,"",["class" => "form-control","placeholder" => "Enter State"])!!}
                         {!!Form::label("pickup_zipcode")!!}
-                        {!!Form::select("pickup_zipcode",[],"",["class" => "form-control pickup-zipcode","placeholder" => "Enter Zip Code"])!!}
+                        {!!Form::text("pickup_zipcode","",["class" => "form-control pickup-zipcode","placeholder" => "Enter Zip Code"])!!}
                     </div>
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Delivery Address</p>
@@ -48,7 +50,7 @@
                         {!!Form::text("delivery_city","",["class" => "form-control delivery-city","placeholder" => "Enter City Name"])!!}
 <br>
                         {!!Form::label("delivery_state")!!}
-                        {!!Form::select("delivery_state",[],"",["class" => "form-control","placeholder" => "Select State"])!!}
+                        {!!Form::select("delivery_state",$states,"",["class" => "form-control","placeholder" => "Select State"])!!}
                         {!!Form::label("delivery_zipcode")!!}
                         {!!Form::select("delivery_zipcode",[],"",["class" => "form-control delivery-zipcode","placeholder" => "Enter Zip Code"])!!}
 <br>
