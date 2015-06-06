@@ -40,9 +40,11 @@
                         {!!Form::text("pickup_city","",["class" => "form-control pickup-city","placeholder" => "Enter City Name"])!!}
 <br>
                         {!!Form::label("pickup_state")!!}
-                        {!!Form::select("pickup_state",$states,"",["class" => "form-control","placeholder" => "Enter State"])!!}
+                        {!!Form::select("pickup_state",$states,"",["class" => "form-control pickup-state","placeholder" => "Enter State"])!!}
                         {!!Form::label("pickup_zipcode")!!}
+<br>
                         {!!Form::text("pickup_zipcode","",["class" => "form-control pickup-zipcode","placeholder" => "Enter Zip Code"])!!}
+<br>
                     </div>
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Delivery Address</p>
@@ -51,9 +53,9 @@
                         {!!Form::text("delivery_city","",["class" => "form-control delivery-city","placeholder" => "Enter City Name"])!!}
 <br>
                         {!!Form::label("delivery_state")!!}
-                        {!!Form::select("delivery_state",$states,"",["class" => "form-control","placeholder" => "Select State"])!!}
+                        {!!Form::select("delivery_state",$states,"",["class" => "form-control delivery-state","placeholder" => "Select State"])!!}
                         {!!Form::label("delivery_zipcode")!!}
-                        {!!Form::select("delivery_zipcode",[],"",["class" => "form-control delivery-zipcode","placeholder" => "Enter Zip Code"])!!}
+                        {!!Form::text("delivery_zipcode","",["class" => "form-control delivery-zipcode","placeholder" => "Enter Zip Code"])!!}
 <br>
                     </div>
                     <a href="#" class="btn btn-info show-google-maps">Show in google maps</a>
@@ -105,13 +107,13 @@
 <br>
                     <div class="form-inline">
                         <p class="lead quote-header">Price</p>
-                        {!!Form::label("price")!!}
-                        <span class="uship-price">$</span>{!!Form::text("price","",["class" => "form-control price","placeholder" => "Enter Price"])!!}
+                        {!!Form::label("post price")!!}
+                        {!!Form::text("post price","",["class" => "form-control price","placeholder" => "Post Price"])!!}
                         &nbsp;
                         <a class="btn btn-success uship">Calculate</a>
                         &nbsp;
-                        {!!Form::label("post price")!!}
-                        {!!Form::text("post price","",["class" => "form-control","placeholder" => "enter post price"])!!}
+                        {!!Form::label("price")!!}
+                        {!!Form::text("price","",["class" => "form-control","placeholder" => "Price"])!!}
                     </div>
 <hr>
 <div class="form-group form-inline">

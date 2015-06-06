@@ -145,8 +145,15 @@ $("body").on("click","i.fa-minus-circle",function(e){
 });
 
 
+$(".uship").click(function() {
+    $(this).html('<img src="http://www.bba-reman.com/images/fbloader.gif" />').css({
+        "background":"red",
+        "width": "84px"
+    });
+});
 
 $(".uship").on("click",function(){
+
 
     $(".price").val("");
 
@@ -174,7 +181,10 @@ $(".uship").on("click",function(){
             "carrierType": carrier_type,
         },
         "success": function(result){
-            $(".price").val(result);
+            var price = "$" + result;
+            $(".price").val(price);
+            $(".uship").text("Calculate").css("background","#78CD51");
+
         }
     
     });
@@ -185,11 +195,11 @@ $(".timestamp").click(function(){
     $(".customer-notes-textarea").val(timestamp);
 });
 $("body").on("mouseover",".tt-selectable",function(e){
-    $(this).css("color","#000");
+    $(this).css("color","#292626");
     $(this).css("background","#fff");
 });
 $("body").on("mouseout",".tt-selectable",function(e){
     $(this).css("color","#fff");
-    $(this).css("background","#000");
+    $(this).css("background","#292626");
 });
 

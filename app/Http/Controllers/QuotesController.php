@@ -124,7 +124,7 @@ class QuotesController extends Controller {
 
     $priceValueF = $price_q->value;
     $priceValue = floor($priceValueF);
-    echo $price_q->value;
+    echo round($price_q->value);
     //$final;
     //$sql = 'SELECT * FROM onlineQuoteData';
     //$result = $db->query($sql);
@@ -435,12 +435,20 @@ class QuotesController extends Controller {
         return $address;
     }
 
-    public function postPickupCity()
+    public function prefetchZipcode(){
+
+            $zip = ZipCode::select("primary_city","state","zip")->get();
+            return $zip;
+    
+    }
+
+    public function postPickup()
     {
         $input = \Input::all();
+        return $input;
 
         //no state search
-        if(count($input["data"]) == 1){
+        if(count($input["data"]) == 2){
             $address = ZipCode::select("primary_city","state","zip")
                 ->where("primary_city","LIKE",$input["data"] . '%')
                 ->orWhere("zip","LIKE",$input["data"] . '%')
@@ -452,7 +460,7 @@ class QuotesController extends Controller {
         }
 
         //we have state
-        if(count($input["data"]) == 2){
+        if(count($input["data"]) == 3){
             $address = ZipCode::select("primary_city","state","zip")
                 ->where("state",$input["data"]["pickupState"])
                 ->where("primary_city",$input["data"]["pickupCity"])

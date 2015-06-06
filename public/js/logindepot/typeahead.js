@@ -95,129 +95,118 @@ $("input[name='model_1']").typeahead(
   source: substringMatcher(model_1)
 });
 
-var pickup_city = [];
 
-//$("input[name='pickup_city']").on("keydown",function(e){
-var pickupCity = $("input[name='pickup_city']").val();
-var pickupState = $("select[name='pickup_state']").val();
-    //if(pickupCity.length > 0){
-        if(pickupState !== ""){
-            var data = {pickupCity,pickupState};
-        }else{
-            var data = pickupCity;
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+});
+
+
+var zip = [];
+
+$.get("/companies/" + company + "/quotes/prefetch-zipcode",function(data){
+        for(i in data){
+            zip[i] = data[i]["primary_city"] + ", " + data[i]["state"] + ", " + data[i]["zip"];
         }
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            //cache: false
-        });
-        $.ajax({
-            "url": "/companies/" + company + "/quotes/pickup-city",
-            "type": "POST",
-            "data": {"data":data},
-            //"cache": false,
-            "success": function(data){
-                for(i in data){
-                    pickup_city[i] = data[i]["primary_city"] + ", " + data[i]["state"] + ", " + data[i]["zip"];
-                }
-            }   
-        });
-    //}
+});
 
-//});
+
+
 $("input[name='pickup_city']").typeahead(null,
 {
-  name: 'pickup_city',
+  name: 'zip',
   limit: 30,
-  source: substringMatcher(pickup_city)
+  source: substringMatcher(zip)
 }).on("typeahead:selected",function(event,selection){
+
+
     var result = selection.split(",");
-    //console.log(result[0]);
-    //$("input[name='pickup_city']").val("");
     $("input[name='pickup_city']").typeahead('val',result[0]);
     $("select[name='pickup_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
     $("input[name='pickup_zipcode']").val(result[2]);
-    //$("input[name='pickup_city']").typeahead('destroy');
+
+
+        $.ajax({
+            "url": "/companies/" + company + "/quotes/post-pickup",
+            "type": "POST",
+            "data": {"data":result}
+        });
+
 });
 
 
-//$("body").on("click",".tt-suggestion",function(e){
-    //$("input[name='pickup_city']").typeahead('destroy');
-    //$(this).empty();
-//});
-//$("body").on("click",".tt-dataset-pickup_zipcode",function(e){
-    //var text = $(this).text();
-    //var result = text.split(",");
-    //$("input[name='zipcode_city']").val(result[0]);
-    //var a = $("select[name='pickup_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
-    //$("input[name='pickup_city']").val(result[2]);
-//});
-//$(".refresh").on("click",function(e){
-    //window.location.reload(false);
-//});
-
-//$("input[name='pickup_city']").on("click",function(e){
-    //$(this).val("");
-//});
-//$("input[name='pickup_zipcode']").on("click",function(e){
-    //if($(this).val() !== ""){
-        //window.location.reload(true);
-    //}
-//});
-//$("input[name='delivery_city']").on("click",function(e){
-    //if($(this).val() !== ""){
-        //window.location.reload(true);
-    //}
-//});
-//$("input[name='delivery_zipcode']").on("click",function(e){
-    //if($(this).val() !== ""){
-        //window.location.reload(true);
-    //}
-//});
-
-
-
-
-$("input[name='delivery_city']").typeahead(
+$("input[name='pickup_zipcode']").typeahead(null,
 {
-  hint: true,
-  highlight: true,
-  minLength: 1
-},
+  name: 'zip',
+  limit: 30,
+  source: substringMatcher(zip)
+}).on("typeahead:selected",function(event,selection){
+
+
+    var result = selection.split(",");
+    $("input[name='pickup_city']").val(result[0]);
+    $("select[name='pickup_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
+    $("input[name='pickup_zipcode']").typeahead('val',result[2]);
+
+
+        $.ajax({
+            "url": "/companies/" + company + "/quotes/post-pickup",
+            "type": "POST",
+            "data": {"data":result}
+        });
+
+});
+
+$("input[name='delivery_zipcode']").typeahead(null,
 {
-  name: 'delivery_city',
-  source: substringMatcher(delivery_city)
+  name: 'zip',
+  limit: 30,
+  source: substringMatcher(zip)
+}).on("typeahead:selected",function(event,selection){
+
+
+    var result = selection.split(",");
+    $("input[name='delivery_city']").val(result[0]);
+    $("select[name='delivery_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
+    $("input[name='delivery_zipcode']").typeahead('val',result[2]);
+
+
+        $.ajax({
+            "url": "/companies/" + company + "/quotes/post-pickup",
+            "type": "POST",
+            "data": {"data":result}
+        });
+
+});
+$("input[name='delivery_city']").typeahead(null,
+{
+  name: 'zip',
+  limit: 30,
+  source: substringMatcher(zip)
+}).on("typeahead:selected",function(event,selection){
+
+
+    var result = selection.split(",");
+    $("input[name='delivery_city']").val(result[0]);
+    $("select[name='delivery_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
+    $("input[name='delivery_zipcode']").typeahead('val',result[2]);
+
+
+        $.ajax({
+            "url": "/companies/" + company + "/quotes/post-pickup",
+            "type": "POST",
+            "data": {"data":result}
+        });
+
 });
 
 
-$("input[name='delivery_city']").on("keydown",function(e){
-    if(e.keyCode == 9){
-    $("select[name='delivery_zipcode']").empty();
-    $("select[name='delivery_state']").empty();
-        var delivery_city = $("input[name='delivery_city']").val();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
 
-            $.ajax({
-                "url": "/companies/" + company + "/quotes/delivery-zip-state",
-                "type": "POST",
-                "data": {"delivery_city":delivery_city},
-                "success": function(data){
-                        for(i in data[0]){
-                            $("select[name='delivery_zipcode']").append("<option>" + data[0][i].zip + "</option>");
-                        }
-                        for(i in data[1]){
-                            $("select[name='delivery_state']").append("<option>" + data[1][i].state + "</option>");
-                        }
-                    }
-                })
-            }
-    
-        });
+
+
+
 
 var year_1 = _.range(1995,2015);
 $("input[name='year_1']").typeahead(

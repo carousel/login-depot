@@ -30,9 +30,13 @@ Route::post('/companies/{company}/quotes/model', 'QuotesController@getModel');
 
 //ajax for vehicle model based on make
 Route::post('/companies/{company}/quotes/address', 'QuotesController@getAddress');
-Route::post('/companies/{company}/quotes/pickup-city', 'QuotesController@postPickupCity');
 Route::post('/companies/{company}/quotes/pickup-zip-state', 'QuotesController@getPickupZipState');
 Route::post('/companies/{company}/quotes/delivery-zip-state', 'QuotesController@getDeliveryZipState');
+
+Route::get('/companies/{company}/quotes/prefetch-zipcode', 'QuotesController@prefetchZipcode');
+Route::post('/companies/{company}/quotes/post-pickup', 'QuotesController@postPickup');
+
+Route::post('/companies/{company}/quotes/post-delivery', 'QuotesController@postDelivery');
 
 
 

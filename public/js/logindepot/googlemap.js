@@ -1,5 +1,6 @@
 var geocoder;
 var map;
+var markers;
 
 function initialize() {
   geocoder = new google.maps.Geocoder();
@@ -11,8 +12,8 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
 }
 function codeAddress() {
-  var pickupCity = $(".pickup-city").next().text();
-  var deliveryCity = $(".delivery-city").next().text();
+  var pickupCity = $(".pickup-city").next().val();
+  var deliveryCity = $(".delivery-city").next().val();
   geocoder.geocode( { 'address': pickupCity}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);
@@ -20,6 +21,7 @@ function codeAddress() {
                 map: map,
                 position: results[0].geometry.location
             });
+            markers.push(marker);
             var infoWindow = new google.maps.InfoWindow({
                 content: "Pickup City: " + pickupCity
             });
@@ -27,7 +29,6 @@ function codeAddress() {
           } else {
             alert('There was a problem with your input. Please try again');
         }
-      marker = null;
     });
   geocoder.geocode( { 'address': deliveryCity}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
@@ -36,6 +37,7 @@ function codeAddress() {
                 map: map,
                 position: results[0].geometry.location
             });
+            markers.push(marker);
             var infoWindow = new google.maps.InfoWindow({
                 content: "Delivery City: " + deliveryCity
             });
@@ -43,14 +45,13 @@ function codeAddress() {
           } else {
             alert('There was a problem with your input. Please try again');
         }
-      marker = null;
     });
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $(".show-google-maps").on("click",function(e){
-    var pickupZipcode = $(".pickup-zipcode").val();
-    var deliveryZipcode = $(".delivery-zipcode").val();
+    var pickupZipcode = $(".pickup-zipcode").next().val();
+    var deliveryZipcode = $(".delivery-zipcode").next().val();
     if(pickupZipcode == "" || deliveryZipcode == ""){
         alert("Please enter pickup and delivery cities");
         return false;
@@ -61,5 +62,11 @@ $(".show-google-maps").on("click",function(e){
 $("#googleMapsModal").on("shown.bs.modal",function(e){
   google.maps.event.trigger(map, 'resize');
   codeAddress();
+});
+
+$("body").on("click",".google-map-close",function(){
+    
+    markers = [];
+
 });
 

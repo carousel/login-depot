@@ -6248,7 +6248,7 @@ select{
     width: 100%;
     margin-top: 4px;
     padding: 4px 0;
-    background-color: #000;
+    background-color: #292626;
     color:#fff;
     cursor:pointer;
     border: 1px solid #ccc;
@@ -6326,10 +6326,22 @@ div.labels>span{
 .tt-input{
     vertical-align:inherit!important;
 }
+.pickup-state{
+    width:490px;
+}
+.delivery-state{
+    width:490px;
+}
 .pickup-city{
     width:490px;
 }
+.pickup-zipcode{
+    width:490px;
+}
 .delivery-city{
+    width:490px;
+}
+.delivery-zipcode{
     width:490px;
 }
 .uship-price{
