@@ -552,7 +552,8 @@
     <script src="/js/common-scripts.js"></script>
     <script src="/js/logindepot/calendar.js"></script>
     <script src="/js/typeahead.js"></script>
-    <script src="/js/logindepot/typeahead.js"></script>
+    <script src="/js/logindepot/pickup-typeahead.js"></script>
+    <script src="/js/logindepot/delivery-typeahead.js"></script>
 
     <!--script for this page-->
     <script src="/js/sparkline-chart.js"></script>

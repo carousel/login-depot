@@ -442,10 +442,22 @@ class QuotesController extends Controller {
     
     }
 
+    public function prefetchState(){
+
+        $input = \Input::all();
+        //return $input["state"];
+        $zip_by_state = ZipCode::select("primary_city","state","zip")
+            ->where("state","=",$input["state"]) 
+            ->get();
+
+        return $zip_by_state;
+    
+    }
+
     public function postPickup()
     {
         $input = \Input::all();
-        return $input;
+        //return $input);
 
         //no state search
         if(count($input["data"]) == 2){

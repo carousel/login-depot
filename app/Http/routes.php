@@ -34,6 +34,7 @@ Route::post('/companies/{company}/quotes/pickup-zip-state', 'QuotesController@ge
 Route::post('/companies/{company}/quotes/delivery-zip-state', 'QuotesController@getDeliveryZipState');
 
 Route::get('/companies/{company}/quotes/prefetch-zipcode', 'QuotesController@prefetchZipcode');
+Route::post('/companies/{company}/quotes/prefetch-state', 'QuotesController@prefetchState');
 Route::post('/companies/{company}/quotes/post-pickup', 'QuotesController@postPickup');
 
 Route::post('/companies/{company}/quotes/post-delivery', 'QuotesController@postDelivery');
