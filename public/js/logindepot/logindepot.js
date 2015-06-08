@@ -157,8 +157,8 @@ $(".uship").on("click",function(){
 
     $(".price").val("");
 
-    var pickup_zipcode = $(".pickup-zipcode").next().val();
-    var delivery_zipcode = $(".delivery-zipcode").next().val();
+    var pickup_zipcode = $(".pickup-zipcode").val();
+    var delivery_zipcode = $(".delivery-zipcode").val();
     var vehicle_type = $(".vehicle_type").val();
     var vehicle_condition = $(".condition").val();
     var carrier_type = $(".select_carrier_type").val();

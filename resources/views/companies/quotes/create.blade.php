@@ -37,25 +37,25 @@
                         
                         {!!Form::label("pickup_city")!!}
 <br>
-                        {!!Form::text("pickup_city","",["class" => "form-control pickup-city","placeholder" => "Enter City Name"])!!}
+                        {!!Form::text("pickup_city","",["class" => "form-control pickup-city","placeholder" => "Enter City Name","autocomplete" => "off"])!!}
 <br>
                         {!!Form::label("pickup_state")!!}
                         {!!Form::select("pickup_state",$states,"",["class" => "form-control pickup-state","placeholder" => "Enter State"])!!}
                         {!!Form::label("pickup_zipcode")!!}
 <br>
-                        {!!Form::text("pickup_zipcode","",["class" => "form-control pickup-zipcode","placeholder" => "Enter Zip Code"])!!}
+                        {!!Form::text("pickup_zipcode","",["class" => "form-control pickup-zipcode","placeholder" => "Enter Zip Code","autocomplete" => "off"])!!}
 <br>
                     </div>
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Delivery Address</p>
                         {!!Form::label("delivery_city")!!}
 <br>
-                        {!!Form::text("delivery_city","",["class" => "form-control delivery-city","placeholder" => "Enter City Name"])!!}
+                        {!!Form::text("delivery_city","",["class" => "form-control delivery-city","placeholder" => "Enter City Name","autocomplete" => "off"])!!}
 <br>
                         {!!Form::label("delivery_state")!!}
                         {!!Form::select("delivery_state",$states,"",["class" => "form-control delivery-state","placeholder" => "Select State"])!!}
                         {!!Form::label("delivery_zipcode")!!}
-                        {!!Form::text("delivery_zipcode","",["class" => "form-control delivery-zipcode","placeholder" => "Enter Zip Code"])!!}
+                        {!!Form::text("delivery_zipcode","",["class" => "form-control delivery-zipcode","placeholder" => "Enter Zip Code","autocomplete" => "off"])!!}
 <br>
                     </div>
                     <a href="#" class="btn btn-info show-google-maps">Show in google maps</a>

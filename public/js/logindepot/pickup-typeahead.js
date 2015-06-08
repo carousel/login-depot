@@ -21,6 +21,7 @@ var substringMatcher = function(pickup) {
     // an array that will be populated with substring matches
     matches = [];
     prematch = [];
+    submatch = [];
 
     // regex used to determine if a string contains the substring `q`
     substrRegex = new RegExp(q, 'i');
@@ -29,8 +30,9 @@ var substringMatcher = function(pickup) {
     if(state.length == 0){
         $.each(pickup, function(i, str) {
             if (substrRegex.test(str)) {
-                matches.push(str);
+                prematch.push(str);
             }
+            matches[0] = prematch[0];
         });
     }else if(state.length > 0){
         $.each(pickup, function(i, str) {
@@ -40,8 +42,9 @@ var substringMatcher = function(pickup) {
         });
         $.each(prematch, function(key, val) {
             if (stateRegex.test(val)) {
-                matches.push(val);
+                submatch.push(val);
             }
+            matches[0] = submatch[0];
         });
         
         
@@ -53,7 +56,10 @@ var substringMatcher = function(pickup) {
   };
 };
 
-$("input[name='pickup_city']").typeahead(null,
+$("input[name='pickup_city']").typeahead(
+{
+    hint: false
+},
 {
   name: 'pickup',
   limit: 30,
@@ -75,7 +81,10 @@ $("input[name='pickup_city']").typeahead(null,
 
 });
 
-$("input[name='pickup_zipcode']").typeahead(null,
+$("input[name='pickup_zipcode']").typeahead(
+{
+    hint: false
+},
 {
   name: 'pickup',
   limit: 30,

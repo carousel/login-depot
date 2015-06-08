@@ -215,10 +215,6 @@ class QuotesController extends Controller {
             ->with("customers",$customers);
 	}
 
-	public function getVehicles()
-	{
-        return Vehicle::select("year","make")->get();
-	}
 	public function pickupCity()
 	{
         return ZipCode::select("primary_city")->limit(100)->get();
@@ -410,30 +406,12 @@ class QuotesController extends Controller {
         //$make = Vehicle::select("make")->groupBy("make")->get();
         //return $make;
     }
-
-    public function getModel()
-    {
-        $input = \Input::all();
-        //return $input;
-        $model = Vehicle::select("name")
-            ->where("make",$input)
-            ->groupBy("name")
+	public function getVehicles()
+	{
+        $vehicles = Vehicle::select("year","make","name")
             ->get();
-            //->groupBy("name")->get();
-        return $model;
-        
-    }
-    public function getAddress()
-    {
-        $input = \Input::all();
-
-        $address = ZipCode::select("zip","primary_city","state")
-            ->where("primary_city",$input["pickup_city"])
-            //->groupBy("primary_city")
-            ->get();
-
-        return $address;
-    }
+        dd($vehicles);
+	}
 
     public function prefetchZipcode(){
 
@@ -454,76 +432,6 @@ class QuotesController extends Controller {
     
     }
 
-    public function postPickup()
-    {
-        $input = \Input::all();
-        //return $input);
-
-        //no state search
-        if(count($input["data"]) == 2){
-            $address = ZipCode::select("primary_city","state","zip")
-                ->where("primary_city","LIKE",$input["data"] . '%')
-                ->orWhere("zip","LIKE",$input["data"] . '%')
-                ->orderBy("zip")
-                //->take(5)
-                //->skip(100)
-                ->get();
-        
-        }
-
-        //we have state
-        if(count($input["data"]) == 3){
-            $address = ZipCode::select("primary_city","state","zip")
-                ->where("state",$input["data"]["pickupState"])
-                ->where("primary_city",$input["data"]["pickupCity"])
-                //->groupBy("primary_city")
-                //->take(5)
-                //->skip(100)
-                ->get();
-        
-        }
-
-        //return $input;
-        return $address;
-    }
-    public function getPickupZipState()
-    {
-
-        $input = \Input::all();
-
-        $state = ZipCode::select("state")
-            ->where("primary_city",$input["pickup_city"])
-            ->groupBy("state")
-            ->get();
-
-        $zip = ZipCode::select("zip")
-            ->where("primary_city",$input["pickup_city"])
-            //->groupBy("state")
-            ->get();
-
-        $zip_state = [$zip,$state];
-
-        return $zip_state;
-    }
-    public function getDeliveryZipState()
-    {
-
-        $input = \Input::all();
-
-        $state = ZipCode::select("state")
-            ->where("primary_city",$input["delivery_city"])
-            ->groupBy("state")
-            ->get();
-
-        $zip = ZipCode::select("zip")
-            ->where("primary_city",$input["delivery_city"])
-            //->groupBy("state")
-            ->get();
-
-        $zip_state = [$zip,$state];
-
-        return $zip_state;
-    }
 
 
 }

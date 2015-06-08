@@ -1,9 +1,9 @@
-var zip = [];
+var delivery = [];
 
 var company = $("span.username").text();
 $.get("/companies/" + company + "/quotes/prefetch-zipcode",function(data){
     for(i in data){
-        zip[i] = data[i]["primary_city"] + ", " + data[i]["state"] + ", " + data[i]["zip"];
+        delivery[i] = data[i]["primary_city"] + ", " + data[i]["state"] + ", " + data[i]["zip"];
     }
 });
 
@@ -21,27 +21,30 @@ var substringMatcher = function(zip) {
     // an array that will be populated with substring matches
     matches = [];
     prematch = [];
+    submatch = [];
 
     // regex used to determine if a string contains the substring `q`
     substrRegex = new RegExp(q, 'i');
     stateRegex = new RegExp(state);
 
     if(state.length == 0){
-        $.each(zip, function(i, str) {
+        $.each(delivery, function(i, str) {
             if (substrRegex.test(str)) {
-                matches.push(str);
+                prematch.push(str);
             }
+            matches[0] = prematch[0];
         });
     }else if(state.length > 0){
-        $.each(zip, function(i, str) {
+        $.each(delivery, function(i, str) {
             if (substrRegex.test(str)) {
                 prematch.push(str);
             }
         });
         $.each(prematch, function(key, val) {
             if (stateRegex.test(val)) {
-                matches.push(val);
+                submatch.push(val);
             }
+            matches[0] = submatch[0];
         });
         
         
@@ -53,11 +56,14 @@ var substringMatcher = function(zip) {
   };
 };
 
-$("input[name='delivery_city']").typeahead(null,
+$("input[name='delivery_city']").typeahead(
 {
-  name: 'zip',
+    hint: false
+},
+{
+  name: 'delivery',
   limit: 30,
-  source: substringMatcher(zip)
+  source: substringMatcher(delivery)
 }).on("typeahead:selected",function(event,selection){
 
 
@@ -75,11 +81,14 @@ $("input[name='delivery_city']").typeahead(null,
 
 });
 
-$("input[name='delivery_zipcode']").typeahead(null,
+$("input[name='delivery_zipcode']").typeahead(
 {
-  name: 'zip',
+    hint: false
+},
+{
+  name: 'delivery',
   limit: 30,
-  source: substringMatcher(zip)
+  source: substringMatcher(delivery)
 }).on("typeahead:selected",function(event,selection){
 
 
@@ -97,11 +106,14 @@ $("input[name='delivery_zipcode']").typeahead(null,
 
 });
 
-$("input[name='delivery_city']").typeahead(null,
+$("input[name='delivery_city']").typeahead(
 {
-  name: 'zip',
+    hint: false        
+},
+{
+  name: 'delivery',
   limit: 30,
-  source: substringMatcher(zip)
+  source: substringMatcher(delivery)
 }).on("typeahead:selected",function(event,selection){
 
 
@@ -118,28 +130,3 @@ $("input[name='delivery_city']").typeahead(null,
         //});
 
 });
-$("input[name='delivery_zipcode']").typeahead(null,
-{
-  name: 'zip',
-  limit: 30,
-  source: substringMatcher(zip)
-}).on("typeahead:selected",function(event,selection){
-
-
-    var result = selection.split(",");
-    $("input[name='delivery_city']").val(result[0]);
-    $("select[name='delivery_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
-    $("input[name='delivery_zipcode']").typeahead('val',result[2]);
-
-
-        //$.ajax({
-            //"url": "/companies/" + company + "/quotes/post-delivery",
-            //"type": "POST",
-            //"data": {"data":result}
-        //});
-
-});
-
-
-
-

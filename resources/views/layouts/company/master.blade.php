@@ -554,6 +554,7 @@
     <script src="/js/typeahead.js"></script>
     <script src="/js/logindepot/pickup-typeahead.js"></script>
     <script src="/js/logindepot/delivery-typeahead.js"></script>
+    <script src="/js/logindepot/vehicles.js"></script>
 
     <!--script for this page-->
     <script src="/js/sparkline-chart.js"></script>

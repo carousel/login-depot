@@ -25,6 +25,8 @@ Route::post('/companies/{company}/quotes/uship', 'QuotesController@getUshipPrice
 //ajax for vehicle make
 Route::post('/companies/{company}/quotes/make', 'QuotesController@postMake');
 
+Route::get('/companies/{company}/quotes/vehicles', 'QuotesController@getVehicles');
+
 //ajax for vehicle model based on make
 Route::post('/companies/{company}/quotes/model', 'QuotesController@getModel');
 
