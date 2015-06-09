@@ -145,15 +145,7 @@ $("body").on("click","i.fa-minus-circle",function(e){
 });
 
 
-$(".uship").click(function() {
-    $(this).html('<img src="http://www.bba-reman.com/images/fbloader.gif" />').css({
-        "background":"red",
-        "width": "84px"
-    });
-});
-
 $(".uship").on("click",function(){
-
 
     $(".price").val("");
 
@@ -162,8 +154,19 @@ $(".uship").on("click",function(){
     var vehicle_type = $(".vehicle_type").val();
     var vehicle_condition = $(".condition").val();
     var carrier_type = $(".select_carrier_type").val();
-    //alert(pickup_zipcode);
-    //alert(delivery_zipcode);
+
+    if(pickup_zipcode == ""){
+        alert("Please enter pickup information");
+        return false;
+    }
+    if(delivery_zipcode == ""){
+        alert("Please enter delivery information");
+        return false;
+    }
+    $(this).html('<img src="http://www.bba-reman.com/images/fbloader.gif" />').css({
+        "background":"red",
+        "width": "84px"
+    });
 
     var username = $("span.username").text();
     $.ajaxSetup({
@@ -203,5 +206,17 @@ $("body").on("mouseover",".tt-selectable",function(e){
 $("body").on("mouseout",".tt-selectable",function(e){
     $(this).css("color","#fff");
     $(this).css("background","#292626");
+});
+
+$(".pickup-refresh").on("click",function(){
+    $(".pickup-city").val("");
+    $(".pickup-state").val("");
+    $(".pickup-zipcode").val("");
+});
+
+$(".delivery-refresh").on("click",function(){
+    $(".delivery-city").val("");
+    $(".delivery-state").val("");
+    $(".delivery-zipcode").val("");
 });
 
