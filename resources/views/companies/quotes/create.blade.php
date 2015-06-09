@@ -67,9 +67,9 @@
 <span></span>
                         {!!Form::text("year_1","",["class" => "form-control add-vehicle year","id" => "year","placeholder" => "Enter year"])!!}
 <span></span>
-                        {!!Form::text("make_1","",["class" => "form-control add-vehicle make","placeholder" => "Enter vehicle make"])!!}
+                        {!!Form::text("make_1","",["class" => "form-control add-vehicle make","placeholder" => "Enter vehicle make","autocomplete" => "off"])!!}
 <span></span>
-                        {!!Form::text("model_1","",["class" => "form-control add-vehicle model","placeholder" => "Enter vehicle model"])!!}
+                        {!!Form::text("model_1","",["class" => "form-control add-vehicle model","placeholder" => "Enter vehicle model","autocomplete" => "off"])!!}
 <span></span>
                         {!!Form::select("type_1",$vehicle_type,"Car",["class" => "form-control vehicle_type","placeholder" => "Select vehicle type"])!!}
 <span></span>

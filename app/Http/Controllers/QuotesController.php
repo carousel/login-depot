@@ -406,11 +406,19 @@ class QuotesController extends Controller {
         //$make = Vehicle::select("make")->groupBy("make")->get();
         //return $make;
     }
-	public function getVehicles()
+	public function getVehicleMake()
 	{
-        $vehicles = Vehicle::select("year","make","name")
+        $vehicles = Vehicle::select("make")
+            ->groupBy("make")
             ->get();
-        dd($vehicles);
+        return $vehicles;
+	}
+	public function getVehicleName()
+	{
+        $vehicles = Vehicle::select("make","name")
+            ->groupBy("name")
+            ->get();
+        return $vehicles;
 	}
 
     public function prefetchZipcode(){

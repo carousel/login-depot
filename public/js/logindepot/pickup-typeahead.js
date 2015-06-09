@@ -30,9 +30,9 @@ var substringMatcher = function(pickup) {
     if(state.length == 0){
         $.each(pickup, function(i, str) {
             if (substrRegex.test(str)) {
-                prematch.push(str);
+                matches.push(str);
             }
-            matches[0] = prematch[0];
+            //matches[0] = prematch[0];
         });
     }else if(state.length > 0){
         $.each(pickup, function(i, str) {
@@ -42,9 +42,9 @@ var substringMatcher = function(pickup) {
         });
         $.each(prematch, function(key, val) {
             if (stateRegex.test(val)) {
-                submatch.push(val);
+                matches.push(val);
             }
-            matches[0] = submatch[0];
+            //matches[0] = submatch[0];
         });
         
         

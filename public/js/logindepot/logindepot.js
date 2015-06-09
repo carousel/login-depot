@@ -27,7 +27,7 @@ $("i.fa-plus-circle").on("click",function(e){
         return false;
     }
     if(model_1 == ""){
-        alert("Please select vehicle make");
+        alert("Please select vehicle model");
         return false;
     }
     var clone = $("body").find(".add-vehicles:first").clone(true,true);
@@ -47,9 +47,9 @@ $("i.fa-plus-circle").on("click",function(e){
 
     $(clone).find("i").remove();
     var len = $(".input-wrap").children().length;
-    $(clone).children()[1].children[1].name = "year_" + (len + 1);
-    $(clone).children()[3].children[1].name = "make_" + (len + 1);
-    $(clone).children()[5].children[1].name = "model_" + (len + 1);
+    $(clone).children()[1].name = "year_" + (len + 1);
+    $(clone).children()[3].name = "make_" + (len + 1);
+    $(clone).children()[5].name = "model_" + (len + 1);
     $(clone).children()[7].name = "type_" + (len + 1);
     $(clone).children()[9].name = "condition_" + (len + 1);
     $(clone).children()[12].name = "quantity_" + (len + 1);
