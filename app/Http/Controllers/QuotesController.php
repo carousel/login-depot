@@ -238,7 +238,7 @@ class QuotesController extends Controller {
 
         $customer = new Customer;
         $quote = new Quote;
-        dd($request->all());
+        //dd($request->all());
 
         $date = $request["pickup_date"];
         $date = explode("-",$date);

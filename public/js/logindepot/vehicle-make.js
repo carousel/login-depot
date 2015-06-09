@@ -41,7 +41,10 @@ var substringMatcher = function(vehicle_make) {
   };
 };
 
-$("input[name='make_1']").typeahead(null,
+$("input[name='make_1']").typeahead(
+{
+    hint: false
+},
 {
   name: 'vehicle_make',
   limit: 30,
