@@ -30,7 +30,7 @@ $("i.fa-plus-circle").on("click",function(e){
         alert("Please select vehicle model");
         return false;
     }
-    var clone = $("body").find(".add-vehicles:first").clone(true,true);
+    var clone = $("body").find(".add-vehicles:first").clone(false,false);
 
     var type_1 = $(clone).find("select[name='type_1']");
     type_1.val($(original).find("select[name='type_1']").val());
@@ -48,8 +48,8 @@ $("i.fa-plus-circle").on("click",function(e){
     $(clone).find("i").remove();
     var len = $(".input-wrap").children().length;
     $(clone).children()[1].name = "year_" + (len + 1);
-    $(clone).children()[3].name = "make_" + (len + 1);
-    $(clone).children()[5].name = "model_" + (len + 1);
+    $(clone).children()[3].children[0].name = "make_" + (len + 1);
+    $(clone).children()[5].children[0].name = "model_" + (len + 1);
     $(clone).children()[7].name = "type_" + (len + 1);
     $(clone).children()[9].name = "condition_" + (len + 1);
     $(clone).children()[12].name = "quantity_" + (len + 1);

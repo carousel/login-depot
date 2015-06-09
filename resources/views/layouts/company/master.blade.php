@@ -542,6 +542,7 @@
     <script src="/js/owl.carousel.js" ></script>
     <script src="/js/jquery.customSelect.min.js" ></script>
     <script src="/js/respond.min.js" ></script>
+    <script src="/js/typeahead.js"></script>
     <script src="/js/logindepot/logindepot.js" ></script>
     <script src="/assets/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js"></script>
 
@@ -551,7 +552,6 @@
     <!--common script for all pages-->
     <script src="/js/common-scripts.js"></script>
     <script src="/js/logindepot/calendar.js"></script>
-    <script src="/js/typeahead.js"></script>
     <script src="/js/logindepot/pickup-typeahead.js"></script>
     <script src="/js/logindepot/delivery-typeahead.js"></script>
     <script src="/js/logindepot/vehicle-make.js"></script>
