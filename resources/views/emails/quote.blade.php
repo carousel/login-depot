@@ -505,7 +505,7 @@ Thank you for your interest in shipping your vehicle with Nationwide Auto Transp
            </table>
 <table style="color:#717171;font:normal 11px Helvetica,Arial,sans-serif;margin:0;padding:0;width:374px;min-height:150px;margin-left:90px;font-weight:bold"><tbody><tr><td>Order ID</td><td>{!!$data["quote_id"]!!}</td></tr><tr><td>Pickup Location</td><td>{!!$data["pickup_location"]!!}</td></tr><tr><td>Dropoff Location</td><td>{!!$data["dropoff_location"]!!}</td></tr><tr><td>Vehicles</td><td>{!!$data["vehicles"]!!}</td></tr><tr><td>Carrier type</td><td>{!!$data["carrier_type"]!!}</td></tr><tr><td>Vehicle condition</td><td>{!!$data["vehicle_condition"]!!}</td></tr></tbody></table>
 <br>
-<p style="text-align:center;text-align:center;margin-top:15px;color:orange;font-weight:bold;font-size:30px">{!!"$" . $data["post_price"]!!}</p>
+<p style="text-align:center;text-align:center;margin-top:15px;color:orange;font-weight:bold;font-size:30px">{!!$data["post_price"]!!}</p>
 
 <a href="http://larabal.com/companies/{!!$data["company_name"]!!}/order-form/{!!$data["quote_id"]!!}" style="background-color:cadetblue;padding:7px 7px 7px 7px;font-size:15px;text-decoration:none;color:white;font-weight:bolder;border-radius:4px;float:right;margin-top:16px;margin-right:160px" target="_blank">Click Here To Start Your Booking</a>
 </td>

@@ -13,7 +13,7 @@ $.ajaxSetup({
     },
 });
 
-var substringMatcher = function(zip) {
+var substringMatcher = function(delivery) {
   return function findMatches(q, cb) {
     var state = $("select.delivery-state").val();
     var matches, substringRegex,prematch;
@@ -106,27 +106,3 @@ $("input[name='delivery_zipcode']").typeahead(
 
 });
 
-$("input[name='delivery_city']").typeahead(
-{
-    hint: false        
-},
-{
-  name: 'delivery',
-  limit: 30,
-  source: substringMatcher(delivery)
-}).on("typeahead:selected",function(event,selection){
-
-
-    var result = selection.split(",");
-    $("input[name='delivery_city']").typeahead('val',result[0]);
-    $("select[name='delivery_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
-    $("input[name='delivery_zipcode']").val(result[2]);
-
-
-        //$.ajax({
-            //"url": "/companies/" + company + "/quotes/post-delivery",
-            //"type": "POST",
-            //"data": {"data":result}
-        //});
-
-});

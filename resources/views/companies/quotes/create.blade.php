@@ -73,7 +73,7 @@
 <span></span>
                         {!!Form::select("type_1",$vehicle_type,"Car",["class" => "form-control vehicle_type","placeholder" => "Select vehicle type"])!!}
 <span></span>
-                        {!!Form::select("condition_1",["Yes"=> "Running","No" => "Not Running"],"Running",["class" => "form-control condition","placeholder" => "Select Vehicle Condition"])!!}
+                        {!!Form::select("condition_1",["Running"=> "Running","Not Running" => "Not Running"],"Running",["class" => "form-control condition","placeholder" => "Select Vehicle Condition"])!!}
 <span></span>
                         {!!Form::label("quantity")!!}
                         {!!Form::selectRange("quantity_1",1,20,"quantity",["class" => "form-control","placeholder" => "Select Quantity"])!!}
