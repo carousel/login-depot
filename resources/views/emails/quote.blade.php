@@ -507,8 +507,7 @@ Thank you for your interest in shipping your vehicle with Nationwide Auto Transp
 <br>
 <p style="text-align:center;text-align:center;margin-top:15px;color:orange;font-weight:bold;font-size:30px">{!!$data["post_price"]!!}</p>
 
-<!--CHANGE FOR LIVE URL-->
-<a href="logindepot/companies/{!!$data["company_name"]!!}/order-form/{!!$data["quote_id"]!!}" style="background-color:cadetblue;padding:7px 7px 7px 7px;font-size:15px;text-decoration:none;color:white;font-weight:bolder;border-radius:4px;float:right;margin-top:16px;margin-right:160px" target="_blank">Click Here To Start Your Booking</a>
+<a href="http://larabal.com/companies/{!!$data["company_name"]!!}/order-form/{!!$data["quote_id"]!!}" style="background-color:cadetblue;padding:7px 7px 7px 7px;font-size:15px;text-decoration:none;color:white;font-weight:bolder;border-radius:4px;float:right;margin-top:16px;margin-right:160px" target="_blank">Click Here To Start Your Booking</a>
 </td>
 </tr>
 
