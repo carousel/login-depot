@@ -75,10 +75,6 @@
     </div>
 </div>
 &nbsp;
-<div class="form-inline">
-                        {!!Form::select("carrier type",["Open" => "Open Carrier","Open" => "Open Carrier","Enclosed" => "Enclosed Carrier"],"Open Carrier",["class" => "form-control select_carrier_type","placeholder" => "Select Carrier Type"])!!}
-&nbsp;
-                    </div>
 <br>
 @if($vehicles["vehicle_two_year"])
                     <div class="form-inline add-vehicles">
@@ -98,6 +94,10 @@
 <i class="fa fa-minus-circle"></i>
     </div>
 @endif
+<div class="form-inline">
+                        {!!Form::select("carrier type",["Open" => "Open Carrier","Open" => "Open Carrier","Enclosed" => "Enclosed Carrier"],"Open Carrier",["class" => "form-control select_carrier_type","placeholder" => "Select Carrier Type"])!!}
+&nbsp;
+                    </div>
 <!--<a href="#" class="btn btn-info compare-prices">Compare Prices</a>-->
 <br>
                     <div class="form-group">

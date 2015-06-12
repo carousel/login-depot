@@ -69,15 +69,15 @@
 &nbsp;
         </div>
         <div class="form-group order-input">
-                {!!Form::label("pickup zip code*")!!}
-                {!!Form::text("pickup_zip_code","",["class" => "form-control"])!!}
+                {!!Form::label("pickup zipcode*")!!}
+                {!!Form::text("pickup_zipcode","",["class" => "form-control"])!!}
 &nbsp;
                 <span class="lead">Pickup Address Type</span>
 &nbsp;
                 {!!Form::label("residential")!!}
-                {!!Form::radio("pickup_address_type_1","Residential",true)!!}
+                {!!Form::radio("pickup_address_type","Residential",true)!!}
                 {!!Form::label("commercial")!!}
-                {!!Form::radio("pickup_address_type_1","Commercial")!!}
+                {!!Form::radio("pickup_address_type","Commercial")!!}
 &nbsp;
         </div>
         <div class="form-group order-input">
@@ -108,15 +108,15 @@
 &nbsp;
         </div>
         <div class="form-group order-input">
-                {!!Form::label("dropoff zip code*")!!}
-                {!!Form::text("dropoff_zip_code","",["class" => "form-control"])!!}
+                {!!Form::label("dropoff zipcode*")!!}
+                {!!Form::text("dropoff_zipcode","",["class" => "form-control"])!!}
 &nbsp;
                 <span class="lead">Dropoff Address Type</span>
 &nbsp;
                 {!!Form::label("residential")!!}
-                {!!Form::radio("dropoff_address_type_1","Residential",true)!!}
+                {!!Form::radio("dropoff_address_type","Residential",true)!!}
                 {!!Form::label("commercial")!!}
-                {!!Form::radio("dropoff_address_type_1","Commercial")!!}
+                {!!Form::radio("dropoff_address_type","Commercial")!!}
 &nbsp;
         </div>
         <hr>

@@ -518,6 +518,7 @@
           </ul>
       </div>
       <!-- Right Slidebar end -->
+        @yield("order-status")
         @yield("calendar")
         @yield("dashboard")
         @yield("customers")

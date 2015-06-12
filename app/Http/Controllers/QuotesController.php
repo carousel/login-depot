@@ -251,7 +251,7 @@ class QuotesController extends Controller {
         $customer->email = $request["email"];
         $customer->secondary_email = $request["secondary_email"];
         $customer->pickup_date = $pickup_date;
-        $customer->status = "saved";
+        $customer->status = "pending";
         $customer->modified_at = Carbon::now();
         $customer->save();
 

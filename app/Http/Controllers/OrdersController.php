@@ -114,12 +114,13 @@ class OrdersController extends Controller {
         
         $company_name = Company::where("id",$all["company_id"])->first()->company_name;
 
-        return view("companies.quotes.orders.overview")
-            ->with("final_order",$final_order)
-            ->with("company_name",$company_name)
-            ->with("vehicle_type",$vehicle_type)
-            ->with("customer",$customer)
-            ->with("quote",$quote)
-            ->with("vehicles",$vehicles);
+        return view("companies.quotes.orders.order-status");
+        //return view("companies.quotes.orders.overview")
+            //->with("final_order",$final_order)
+            //->with("company_name",$company_name)
+            //->with("vehicle_type",$vehicle_type)
+            //->with("customer",$customer)
+            //->with("quote",$quote)
+            //->with("vehicles",$vehicles);
     }
 }
