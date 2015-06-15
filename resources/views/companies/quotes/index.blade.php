@@ -27,7 +27,11 @@
                         <td>{!!$customer["quote_id"]!!}</td>
                         <td>{!!$customer["name"]!!}</td>
                         <td>{!!$customer["modified_at"]!!}</td>
-                        <td>{!!$customer["status"]!!}</td>
+                            @if($customer["status"] == "saved")
+                                <td><button class="btn btn-success btn-xs">{!!$customer["status"]!!}</button></td>
+                            @elseif($customer["status"] == "pending")
+                                <td><button class="btn btn-danger btn-xs">{!!$customer["status"]!!}</button></td>
+                            @endif
                     <td>
                         <a href="/companies/{!!$company_name!!}/orders/{!!$customer["order_id"]!!}/edit" class="btn btn-primary btn-xs">Edit</a>
                     </td>

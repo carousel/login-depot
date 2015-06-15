@@ -45,8 +45,10 @@
 #LOGIC FLOW
     -create quote for new customer (save in db)
     -send info to customer with link to new created quote (by email)
+    -quote is stored in db
     -invite customer to enhance quote and place order
-    -see notification with status, view customer order
+    -see notification with status, view/edit customer order
+
 #TODO
     -compare prices ?
     -store form data

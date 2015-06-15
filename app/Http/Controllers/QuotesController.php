@@ -209,10 +209,13 @@ class QuotesController extends Controller {
 	public function getQuotes($company_name)
 	{
         $customers = Customer::all();
-        //$orders = Order::all();
+        $saved_quotes = Quote::where("status","saved")->get();
+        $saved_quotes_count = count($saved_quotes);
         return view("companies.quotes.index")       
             ->with("company_name",$company_name)
-            ->with("customers",$customers);
+            ->with("customers",$customers)
+            ->with("saved_quotes",$saved_quotes)
+            ->with("saved_quotes_count",$saved_quotes_count);
 	}
 
 	public function pickupCity()
@@ -399,13 +402,6 @@ class QuotesController extends Controller {
     
     }
 
-    public function postMake()
-    {
-        $input = \Input::all();
-        return $input;
-        //$make = Vehicle::select("make")->groupBy("make")->get();
-        //return $make;
-    }
 	public function getVehicleMake()
 	{
         $vehicles = Vehicle::select("make")

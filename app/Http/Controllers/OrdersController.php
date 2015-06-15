@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\LoginDepot\Quote;
+use App\LoginDepot\Order;
 use App\LoginDepot\Customer;
 use App\LoginDepot\Company;
 use App\Http\Requests\CreateOrderRequest;
@@ -12,18 +13,10 @@ use Illuminate\Http\Request;
 
 class OrdersController extends Controller {
 
-    /**
-    * 
-    */
-    //public function getOrderForm($company_name,$quote_id)
-    //{
-        //$data = [];
-        //$data["company_name"] = $company_name;
-        //$data["quote_id"] = $quote_id;
-        //dd($data);
-    //}
+    //LINK FROM EMAIL
     public function getOrderForm($company,$quote_id)
     {
+        //return $quote_id;
         $states = \Config::get("lists.states");
         $quote = Quote::where("quote_id",$quote_id)->first();
         $customer = Customer::where("quote_id",$quote_id)->first();
@@ -38,8 +31,10 @@ class OrdersController extends Controller {
 
     public function postOrder(CreateOrderRequest $request)
     {
+        $order = new Order;
         $customer = Customer::where("email",$request->all()["customer_email"])->first();
         $quote = Quote::where("quote_id",$request->quote_id)->first()->toArray();
+        $real_quote = Quote::where("quote_id",$request->quote_id)->first();
         $all = array_merge($quote,$request->all());
         $final_order = array_filter($all);
         $vehicles = [];
@@ -106,13 +101,35 @@ class OrdersController extends Controller {
         if(!empty($final_order["vehicle_ten_type"])){$vehicles["vehicle_ten_type"] = $final_order["vehicle_ten_type"];}
         if(!empty($final_order["vehicle_ten_condition"])){$vehicles["vehicle_ten_condition"] = $final_order["vehicle_ten_condition"];}
         if(!empty($final_order["vehicle_ten_quantity"])){$vehicles["vehicle_ten_quantity"] = $final_order["vehicle_ten_quantity"];}
+        $order->quote_id = $quote["quote_id"];
+        $order->pickup_city = $final_order["pickup_city"];
+        $order->pickup_contact_name = $final_order["pickup_contact_name"];
+        $order->pickup_contact_phone = $final_order["pickup_contact_phone"];
+        $order->pickup_contact_secondary_phone = $final_order["pickup_contact_secondary_phone"];
+        $order->pickup_state = $final_order["pickup_state"];
+        $order->pickup_zipcode = $final_order["pickup_zipcode"];
+        $order->pickup_address = $final_order["pickup_address"];
+        $order->pickup_address_type = $final_order["pickup_address_type"];
+        $order->dropoff_city = $final_order["dropoff_city"];
+        $order->dropoff_contact_name = $final_order["dropoff_contact_name"];
+        $order->dropoff_contact_phone = $final_order["dropoff_contact_phone"];
+        $order->dropoff_contact_secondary_phone = $final_order["dropoff_contact_secondary_phone"];
+        $order->dropoff_state = $final_order["dropoff_state"];
+        $order->dropoff_zipcode = $final_order["dropoff_zipcode"];
+        $order->dropoff_address = $final_order["dropoff_address"];
+        $order->dropoff_address_type = $final_order["dropoff_address_type"];
+        $real_quote->status = "saved";
+        $real_quote->save();
+        $order->save();
+        
+        //$order->pickup_contact_name = $request;
 
         //return $vehicles;
-        $vehicle_type = \Config::get("lists.vehicle_type");
+        //$vehicle_type = \Config::get("lists.vehicle_type");
         //return $final_order;
         //return $quote;
         
-        $company_name = Company::where("id",$all["company_id"])->first()->company_name;
+        //$company_name = Company::where("id",$all["company_id"])->first()->company_name;
 
         return view("companies.quotes.orders.order-status");
         //return view("companies.quotes.orders.overview")

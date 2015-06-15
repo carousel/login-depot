@@ -25,53 +25,10 @@
                                 <a href="#">
                                     <div class="task-info">
                                         <div class="desc">Customer 1 accepted</div>
-                                        <!--<div class="percent">40%</div>-->
-                                    </div>
-                                    <!--<div class="progress progress-striped">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>-->
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="task-info">
-                                        <div class="desc">Customer 2 accepted</div>
-                                        <!--<div class="percent">40%</div>-->
-                                    </div>
-                                    <!--<div class="progress progress-striped">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Complete (warning)</span>
-                                        </div>
-                                    </div>-->
-                                </a>
-                            </li>
-                            <!--<li>
-                                <a href="#">
-                                    <div class="task-info">
-                                        <div class="desc">Iphone Development</div>
-                                        <div class="percent">87%</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 87%">
-                                            <span class="sr-only">87% Complete</span>
-                                        </div>
                                     </div>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <div class="task-info">
-                                        <div class="desc">Mobile App</div>
-                                        <div class="percent">33%</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 33%">
-                                            <span class="sr-only">33% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </a>
                             </li>
                             <li>
                                 <a href="#">

@@ -11,7 +11,8 @@ use App\Http\Requests\UpdateCustomerBasicProfileRequest;
 use App\Http\Requests\CreateCompanyProfileRequest;
 use App\Http\Requests\CalendarEventShareRequest;
 use App\Http\Requests\UpdateWorkerRequest;
-use App\Http\LoginDepot\Order;
+use App\LoginDepot\Order;
+use App\LoginDepot\Quote;
 
 class CompaniesController extends Controller {
 
@@ -52,8 +53,12 @@ class CompaniesController extends Controller {
 	 */
 	public function getIndex($company_name)
 	{
+        $saved_quotes = Quote::where("status","saved")->get();
+        $saved_quotes_count = count($saved_quotes);
         return view('companies.dashboard')
-            ->with("company_name",$company_name);
+            ->with("company_name",$company_name)
+            ->with("saved_quotes",$saved_quotes)
+            ->with("saved_quotes_count",$saved_quotes_count);
 	}
 	public function getCalendar($company_name)
 	{
@@ -74,9 +79,10 @@ class CompaniesController extends Controller {
         if(\Request::ajax()){
             return $customers;
         };
-        return view("companies.customers.index")       
+        return view('companies.customer.index')
             ->with("company_name",$company_name)
-            ->with("customers",$customers);
+            ->with("saved_quotes",$saved_quotes)
+            ->with("saved_quotes_count",$saved_quotes_count);
     }
 
     public function getShowCustomer($company_name,$customer)
@@ -265,9 +271,5 @@ public function postCreateCustomer($company_name,CreateCustomerBasicProfileReque
         $calendar->save();
         return \Redirect::to("/companies/" . $company->company_name . "/calendar")
             ->with("calendar_event_status","New event for {$worker->first_name} has been created");
-    }
-    public function viewCalendar(){
-        $input = \Input::all();
-        return $input;
     }
 }
