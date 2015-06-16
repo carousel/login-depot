@@ -118,7 +118,7 @@ class OrdersController extends Controller {
         $order->dropoff_zipcode = $final_order["dropoff_zipcode"];
         $order->dropoff_address = $final_order["dropoff_address"];
         $order->dropoff_address_type = $final_order["dropoff_address_type"];
-        $real_quote->status = "saved";
+        $real_quote->status = "accepted";
         $real_quote->save();
         $order->save();
         

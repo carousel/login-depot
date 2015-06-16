@@ -21,6 +21,7 @@
     <link href="/assets/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
     <link href="/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
     <link rel="stylesheet" href="/css/owl.carousel.css" type="text/css">
+    <link href="/css/jquery.dataTables.css" rel="stylesheet"/>
 
       <!--right slidebar-->
       <link href="/css/slidebars.css" rel="stylesheet">
@@ -506,6 +507,7 @@
     <script src="/js/logindepot/delivery-typeahead.js"></script>
     <script src="/js/logindepot/vehicle-make.js"></script>
     <script src="/js/logindepot/vehicle-name.js"></script>
+    <script src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 
     <!--script for this page-->
     <script src="/js/sparkline-chart.js"></script>
@@ -537,8 +539,16 @@
 
         $(".colorpicker").colorpicker();
         $(".datepicker").datepicker({
-            format: 'yyyy-mm-dd'
-        
+            format: 'yyyy-mm-dd'        
+        });
+        $("document").ready(function() {
+            $("table.datatable").DataTable({
+                "language": { 
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search quotes" 
+                } 
+            
+            });
         });
   </script>
 

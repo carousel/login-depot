@@ -55,3 +55,11 @@
         - orders table migrations
     -view/modify order (with status)
 
+#STATUS
+    -"Saved"-> quote is saved in the system but no email has been sent to the customer.
+    -"Pending"-> quote has been sent to customer and waits for his approval 
+    -"Accepted"-> customer has accepted the terms and conditions and filled out the form
+    -"Posted"-> the vehicles are posted on centralDispatch or uShip
+    -"Closed"-> the job is now done and closed 
+    -"Canceled"-> the carrier canceled the job manually
+

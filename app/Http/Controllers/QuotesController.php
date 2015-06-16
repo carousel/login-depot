@@ -196,6 +196,8 @@ class QuotesController extends Controller {
 	 */
 	public function getCreate($company_name)
 	{
+        $saved_quotes = Quote::where("status","accepted")->get();
+        $saved_quotes_count = count($saved_quotes);
         $states = \Config::get("lists.states");
         $vehicle_type = \Config::get("lists.vehicle_type");
         $quote_id = str_random(10);
@@ -203,7 +205,9 @@ class QuotesController extends Controller {
             ->with("company_name",$company_name)
             ->with("states",$states)
             ->with("vehicle_type",$vehicle_type)
-            ->with("quote_id",$quote_id);
+            ->with("quote_id",$quote_id)
+            ->with("saved_quotes",$saved_quotes)
+            ->with("saved_quotes_count",$saved_quotes_count);
 
 	}
 	public function getQuotes($company_name)
@@ -241,7 +245,6 @@ class QuotesController extends Controller {
 
         $customer = new Customer;
         $quote = new Quote;
-        //dd($request->all());
 
         $date = $request["pickup_date"];
         $date = explode("-",$date);
@@ -254,9 +257,11 @@ class QuotesController extends Controller {
         $customer->email = $request["email"];
         $customer->secondary_email = $request["secondary_email"];
         $customer->pickup_date = $pickup_date;
-        $customer->status = "pending";
+        $customer->status = "saved";
         $customer->modified_at = Carbon::now();
         $customer->save();
+
+
 
         $quote->pickup_city = $request["pickup_city"];
         $quote->pickup_state = $request["pickup_state"];
@@ -357,6 +362,7 @@ class QuotesController extends Controller {
         };
         $quote->customer_id = $customer->id;
         $quote->company_id = $company->id;
+        $quote->status = "saved";
         
         $quote->save();
 
@@ -374,12 +380,17 @@ class QuotesController extends Controller {
             $data["post_price"] = $request["post_price"];
             $data["email"] = $request["email"];
             $data["notes"] = $request["notes_for_customer"];
+            $customer->status = "pending";
+            $customer->save();
+            $quote->status = "pending";
+            $quote->save();
             \Event::fire($subscriber->onQuoteCreate($data));
 
             return \Redirect::back()
                 ->with("quote_create_status","New quote has been created and sent to customer");
        
         }
+
 
 
         return \Redirect::back()

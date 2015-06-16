@@ -1,39 +1,62 @@
 @extends("layouts.company.master")
 @section("customers")
+    @include("_partials.messages")
     <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-    @include("_partials.messages")
               <!--state overview start-->
-                <span class="lead customers-panel-heading">Customers</span>
-                <form class="form-inline" style="float:right;margin-right:15px;margin-top:-10px">
-                    <input type="text" name="search" class="form-control" placeholder="fuzzy search"></input>
-                </form>
               <div class="row state-overview">
-            <section class="panel">
-                <table class="table table-hover">
+            <section>
+                <table class="datatable" class="table table-hover display" callspacing="0" width="100%">
                     <thead>
-                    <tr>
-                        <th>Quote Id</th>
-                        <th>Name</th>
-                        <th>Modified At</th>
-                        <th>Status</th>
-                        <th>Edit/View</th>
-                    </tr>
+                        <tr>
+                            <th>Quote Id</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Modified At</th>
+                            <th>Status</th>
+                            <th>Edit/View</th>
+                        </tr>
                     </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </tfoot>
                     <tbody>
                 @foreach($customers as $customer)
                     <tr>
                         <td>{!!$customer["quote_id"]!!}</td>
                         <td>{!!$customer["name"]!!}</td>
+                        <td>{!!$customer["phone"]!!}</td>
+                        <td>{!!$customer["email"]!!}</td>
                         <td>{!!$customer["modified_at"]!!}</td>
                             @if($customer["status"] == "saved")
+                                <td><button class="btn btn-primary btn-xs">{!!$customer["status"]!!}</button></td>
+                            @endif
+                            @if($customer["status"] == "pending")
+                                <td><button class="btn btn-info btn-xs">{!!$customer["status"]!!}</button></td>
+                            @endif
+                            @if($customer["status"] == "accepted")
                                 <td><button class="btn btn-success btn-xs">{!!$customer["status"]!!}</button></td>
-                            @elseif($customer["status"] == "pending")
+                            @endif
+                            @if($customer["status"] == "posted")
+                                <td><button class="btn btn-default btn-xs">{!!$customer["status"]!!}</button></td>
+                            @endif
+                            @if($customer["status"] == "closed")
+                                <td><button class="btn btn-warning btn-xs">{!!$customer["status"]!!}</button></td>
+                            @endif
+                            @if($customer["status"] == "canceled")
                                 <td><button class="btn btn-danger btn-xs">{!!$customer["status"]!!}</button></td>
                             @endif
                     <td>
-                        <a href="/companies/{!!$company_name!!}/orders/{!!$customer["order_id"]!!}/edit" class="btn btn-primary btn-xs">Edit</a>
+                        <a href="/companies/{!!$company_name!!}/orders/{!!$customer["order_id"]!!}/edit">Edit</a>
                     </td>
                     </tr>
                 @endforeach
