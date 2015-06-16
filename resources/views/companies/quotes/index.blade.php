@@ -21,12 +21,13 @@
                     </thead>
                     <tfoot>
                         <tr>
+                            <th>Quote Id</th>
                             <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Modified At</th>
+                            <th>Status</th>
+                            <th>Edit/View</th>
                         </tr>
                     </tfoot>
                     <tbody>
