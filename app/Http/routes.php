@@ -41,6 +41,9 @@ Route::post('/companies/{company}/quotes/create', 'QuotesController@postCreate')
 Route::get('/companies/{company}/quotes/{id}/edit', 'QuotesController@getEdit');
 Route::post('/companies/{company}/quotes/uship', 'QuotesController@getUshipPrice');
 
+//final
+Route::get('/companies/{company}/quotes/{quote}/final','QuotesController@finalQuote');
+
 //AJAX 
 Route::get('/companies/{company}/quotes/vehicle-make', 'QuotesController@getVehicleMake');
 Route::get('/companies/{company}/quotes/vehicle-name', 'QuotesController@getVehicleName');

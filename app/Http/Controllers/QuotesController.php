@@ -8,6 +8,7 @@ use App\LoginDepot\ZipCode;
 use App\LoginDepot\Customer;
 use App\LoginDepot\Company;
 use App\LoginDepot\Quote;
+use App\LoginDepot\Order;
 use Carbon\Carbon;
 use App\Handlers\Events\QuoteCreateHandler;
 use GuzzleHttp\Client;
@@ -445,6 +446,14 @@ class QuotesController extends Controller {
 
         return $zip_by_state;
     
+    }
+
+    public function finalQuote($company,$quote_id){
+        $quote = Quote:: where('quote_id',$quote_id)->first();  
+        $order = Order:: where('quote_id',$quote_id)->first();  
+        $final = [$quote,$order];
+        
+        dd($final);
     }
 
 

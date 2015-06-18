@@ -57,7 +57,7 @@
                                 <td><button class="btn btn-danger btn-xs">{!!$customer["status"]!!}</button></td>
                             @endif
                     <td>
-                        <a href="/companies/{!!$company_name!!}/orders/{!!$customer["order_id"]!!}/edit">Edit</a>
+                        <a href="/companies/{!!$company_name!!}/quotes/{!!$customer['quote_id']!!}/final">View</a>
                     </td>
                     </tr>
                 @endforeach
