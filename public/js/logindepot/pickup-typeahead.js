@@ -66,18 +66,10 @@ $("input[name='pickup_city']").typeahead(
   source: substringMatcher(pickup)
 }).on("typeahead:selected",function(event,selection){
 
-
     var result = selection.split(",");
     $("input[name='pickup_city']").typeahead('val',result[0]);
     $("select[name='pickup_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
     $("input[name='pickup_zipcode']").val(result[2]);
-
-
-        //$.ajax({
-            //"url": "/companies/" + company + "/quotes/post-pickup",
-            //"type": "POST",
-            //"data": {"data":result}
-        //});
 
 });
 
@@ -91,18 +83,10 @@ $("input[name='pickup_zipcode']").typeahead(
   source: substringMatcher(pickup)
 }).on("typeahead:selected",function(event,selection){
 
-
     var result = selection.split(",");
     $("input[name='pickup_city']").val(result[0]);
     $("select[name='pickup_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
     $("input[name='pickup_zipcode']").typeahead('val',result[2]);
-
-
-        //$.ajax({
-            //"url": "/companies/" + company + "/quotes/post-pickup",
-            //"type": "POST",
-            //"data": {"data":result}
-        //});
 
 });
 

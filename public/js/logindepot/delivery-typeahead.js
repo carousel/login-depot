@@ -46,8 +46,7 @@ var substringMatcher = function(delivery) {
             }
             //matches[0] = submatch[0];
         });
-        
-        
+            
     }
     // iterate through the pool of strings and for any string that
     // contains the substring `q`, add it to the `matches` array
@@ -66,18 +65,10 @@ $("input[name='delivery_city']").typeahead(
   source: substringMatcher(delivery)
 }).on("typeahead:selected",function(event,selection){
 
-
     var result = selection.split(",");
     $("input[name='delivery_city']").typeahead('val',result[0]);
     $("select[name='delivery_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
     $("input[name='delivery_zipcode']").val(result[2]);
-
-
-        //$.ajax({
-            //"url": "/companies/" + company + "/quotes/post-delivery",
-            //"type": "POST",
-            //"data": {"data":result}
-        //});
 
 });
 
@@ -91,18 +82,10 @@ $("input[name='delivery_zipcode']").typeahead(
   source: substringMatcher(delivery)
 }).on("typeahead:selected",function(event,selection){
 
-
     var result = selection.split(",");
     $("input[name='delivery_city']").val(result[0]);
     $("select[name='delivery_state']").find($("option[value="  + result[1] + "]")).attr("selected",result[1]);
     $("input[name='delivery_zipcode']").typeahead('val',result[2]);
-
-
-        //$.ajax({
-            //"url": "/companies/" + company + "/quotes/post-delivery",
-            //"type": "POST",
-            //"data": {"data":result}
-        //});
 
 });
 

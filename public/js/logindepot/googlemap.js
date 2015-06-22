@@ -2,6 +2,7 @@ var geocoder;
 var map;
 var markers;
 
+//initialize google map
 function initialize() {
   geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng(-34.397, 150.644);
@@ -11,6 +12,9 @@ function initialize() {
     }
   map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
 }
+google.maps.event.addDomListener(window, 'load', initialize);
+
+//transfer city names from db into lon/lat
 function codeAddress() {
   var pickupCity = $(".pickup-city").val();
   var deliveryCity = $(".delivery-city").val();
@@ -30,6 +34,7 @@ function codeAddress() {
             alert('There was a problem with your input. Please try again');
         }
     });
+
   geocoder.geocode( { 'address': deliveryCity}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
             //map.setCenter(results[0].geometry.location);
@@ -47,8 +52,9 @@ function codeAddress() {
         }
     });
 }
-google.maps.event.addDomListener(window, 'load', initialize);
 
+
+//load map in bootstrap modal
 $(".show-google-maps").on("click",function(e){
     var pickupZipcode = $(".pickup-zipcode").val();
     var deliveryZipcode = $(".delivery-zipcode").val();
@@ -61,14 +67,10 @@ $(".show-google-maps").on("click",function(e){
     $("#googleMapsModal").modal();
 });
 
+//resize map hack
 $("#googleMapsModal").on("shown.bs.modal",function(e){
   google.maps.event.trigger(map, 'resize');
   codeAddress();
 });
 
-$("body").on("click",".google-map-close",function(){
-    
-    markers = [];
-
-});
 
