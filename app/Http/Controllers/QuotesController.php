@@ -450,10 +450,23 @@ class QuotesController extends Controller {
 
     public function finalQuote($company,$quote_id){
         $quote = Quote:: where('quote_id',$quote_id)->first();  
+        $customer  = Customer::where('id',$quote->customer_id)->first();
         $order = Order:: where('quote_id',$quote_id)->first();  
         $final = [$quote,$order];
         
-        dd($final);
+        $saved_quotes = Quote::where("status","accepted")->get();
+        $saved_quotes_count = count($saved_quotes);
+        $states = \Config::get("lists.states");
+        $vehicle_type = \Config::get("lists.vehicle_type");
+        //dd($saved_quotes);
+
+        return view("companies.quotes.final")
+            ->with("company_name",$company)
+            ->with("states",$states)
+            ->with("vehicle_type",$vehicle_type)
+            ->with("saved_quotes",$saved_quotes)
+            ->with("saved_quotes_count",$saved_quotes_count)
+            ->with("customer",$customer);
     }
 
 

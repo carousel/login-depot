@@ -220,3 +220,8 @@ $(".delivery-refresh").on("click",function(){
     $(".delivery-zipcode").val("");
 });
 
+//FINAL ORDER MODAL
+$('a.final-order-modal').on('click',function(e){
+    e.preventDefault();
+    $("#finalOrderModal").modal();
+});
