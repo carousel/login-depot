@@ -43,7 +43,7 @@ $("i.fa-plus-circle").on("click",function(e){
     $(original).find("input[name='make_1']").val("");
     $(original).find("input[name='model_1']").val("");
     $(original).find("select[name='type_1']").val("Car");
-    $(original).find("select[name='condition_1']").val("Yes");
+    $(original).find("select[name='condition_1']").val("Running");
 
     $(clone).find("i").remove();
     var len = $(".input-wrap").children().length;

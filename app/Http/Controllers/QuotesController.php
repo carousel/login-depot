@@ -280,6 +280,7 @@ class QuotesController extends Controller {
             $quote->vehicle_two_type = $request["type_2"];        
             $quote->vehicle_two_condition = $request["condition_2"];        
             $quote->vehicle_two_quantity = $request["quantity_2"];        
+            $quote->carrier_type = $request["carrier_type"];
         };
         if(!empty($request["year_3"])){
             $quote->vehicle_three_year = $request["year_3"];        
@@ -288,6 +289,7 @@ class QuotesController extends Controller {
             $quote->vehicle_three_type = $request["type_3"];        
             $quote->vehicle_three_condition = $request["condition_3"];        
             $quote->vehicle_three_quantity = $request["quantity_3"];        
+            $quote->carrier_type = $request["carrier_type"];
         };
         if(!empty($request["year_4"])){
             $quote->vehicle_four_year = $request["year_4"];        
@@ -296,6 +298,7 @@ class QuotesController extends Controller {
             $quote->vehicle_four_type = $request["type_4"];        
             $quote->vehicle_four_condition = $request["condition_4"];        
             $quote->vehicle_four_quantity = $request["quantity_4"];        
+            $quote->carrier_type = $request["carrier_type"];
         };
         if(!empty($request["year_5"])){
             $quote->vehicle_five_year = $request["year_5"];        
@@ -304,6 +307,7 @@ class QuotesController extends Controller {
             $quote->vehicle_five_type = $request["type_5"];        
             $quote->vehicle_five_condition = $request["condition_5"];        
             $quote->vehicle_five_quantity = $request["quantity_5"];        
+            $quote->carrier_type = $request["carrier_type"];
         };
         if(!empty($request["year_6"])){
             $quote->vehicle_six_year = $request["year_6"];        
@@ -312,6 +316,7 @@ class QuotesController extends Controller {
             $quote->vehicle_six_type = $request["type_6"];        
             $quote->vehicle_six_condition = $request["condition_6"];        
             $quote->vehicle_six_quantity = $request["quantity_6"];        
+            $quote->carrier_type = $request["carrier_type"];
         };
         if(!empty($request["year_7"])){
             $quote->vehicle_seven_year = $request["year_7"];        
@@ -320,6 +325,7 @@ class QuotesController extends Controller {
             $quote->vehicle_seven_type = $request["type_7"];        
             $quote->vehicle_seven_condition = $request["condition_7"];        
             $quote->vehicle_seven_quantity = $request["quantity_7"];        
+            $quote->carrier_type = $request["carrier_type"];
         };
         if(!empty($request["year_8"])){
             $quote->vehicle_eight_year = $request["year_8"];        
@@ -328,6 +334,7 @@ class QuotesController extends Controller {
             $quote->vehicle_eight_type = $request["type_8"];        
             $quote->vehicle_eight_condition = $request["condition_8"];        
             $quote->vehicle_eight_quantity = $request["quantity_8"];        
+            $quote->carrier_type = $request["carrier_type"];
         };
         if(!empty($request["year_9"])){
             $quote->vehicle_nine_year = $request["year_9"];        
@@ -336,6 +343,7 @@ class QuotesController extends Controller {
             $quote->vehicle_nine_type = $request["type_9"];        
             $quote->vehicle_nine_condition = $request["condition_9"];        
             $quote->vehicle_nine_quantity = $request["quantity_9"];        
+            $quote->carrier_type = $request["carrier_type"];
         };
         if(!empty($request["year_10"])){
             $quote->vehicle_ten_year = $request["year_10"];        
@@ -344,6 +352,7 @@ class QuotesController extends Controller {
             $quote->vehicle_ten_type = $request["type_10"];        
             $quote->vehicle_ten_condition = $request["condition_10"];        
             $quote->vehicle_ten_quantity = $request["quantity_10"];        
+            $quote->carrier_type = $request["carrier_type"];
         };
 
         if(!empty($request["vehicle_notes"])){
