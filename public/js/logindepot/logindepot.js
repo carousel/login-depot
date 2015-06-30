@@ -225,3 +225,71 @@ $('a.final-order-modal').on('click',function(e){
     e.preventDefault();
     $("#finalOrderModal").modal();
 });
+
+$('.submit-quote').on('click',function(e){
+
+    if($("input[name='year_2']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Year');
+    }
+    if($("input[name='make_2']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Make');
+    }
+    if($("input[name='model_2']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Model');
+    }
+
+    if($("input[name='year_3']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Year');
+    }
+    if($("input[name='make_3']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Make');
+    }
+    if($("input[name='model_3']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Model');
+    }
+
+    if($("input[name='year_4']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Year');
+    }
+    if($("input[name='make_4']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Make');
+    }
+    if($("input[name='model_4']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Model');
+    }
+
+    if($("input[name='year_8']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Year');
+    }
+    if($("input[name='make_8']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Make');
+    }
+    if($("input[name='model_8']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Model');
+    }
+    if($("input[name='year_10']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Year');
+    }
+    if($("input[name='make_10']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Make');
+    }
+    if($("input[name='model_10']").val() == ""){
+        e.preventDefault();
+        alert('Please Enter Model');
+    }
+});
+
