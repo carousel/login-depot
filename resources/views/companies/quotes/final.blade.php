@@ -14,8 +14,8 @@
             <section class="panel col-md-12 ">
 <br>
                 {!!Form::open(["url" => '',"class" => "quote-form"])!!}
-                    <p>Order id:<span id="customer-id">{!!$saved_quotes[0]->quote_id!!}</span></p>
-                    {!!Form::hidden("quote_id",$saved_quotes[0]->quote_id)!!}
+                    <p>Order id:<span id="customer-id">{!!$quote->quote_id!!}</span></p>
+                    {!!Form::hidden("quote_id",$quote->quote_id)!!}
                     <div class="form-group col-md-6">
                         <p class="lead quote-header">Customer Information</p>
                     {!!Form::label("name")!!}
@@ -38,13 +38,13 @@
                         
                         {!!Form::label("pickup_city")!!}
 <br>
-                        {!!Form::text("pickup_city",$saved_quotes[0]->pickup_city,["class" => "form-control pickup-city","placeholder" => "Enter City Name","autocomplete" => "off"])!!}
+                        {!!Form::text("pickup_city",$quote->pickup_city,["class" => "form-control pickup-city","placeholder" => "Enter City Name","autocomplete" => "off"])!!}
 <br>
                         {!!Form::label("pickup_state")!!}
-                        {!!Form::select("pickup_state",$states,$saved_quotes[0]->pickup_state,["class" => "form-control pickup-state","placeholder" => "Enter State"])!!}
+                        {!!Form::select("pickup_state",$states,$quote->pickup_state,["class" => "form-control pickup-state","placeholder" => "Enter State"])!!}
                         {!!Form::label("pickup_zipcode")!!}
 <br>
-                        {!!Form::text("pickup_zipcode",$saved_quotes[0]->pickup_zipcode,["class" => "form-control pickup-zipcode","placeholder" => "Enter Zip Code","autocomplete" => "off"])!!}
+                        {!!Form::text("pickup_zipcode",$quote->pickup_zipcode,["class" => "form-control pickup-zipcode","placeholder" => "Enter Zip Code","autocomplete" => "off"])!!}
 <br>
                     </div>
                     <div class="form-group col-md-6">
@@ -52,12 +52,12 @@
                         <p class="lead quote-header">Delivery Address</p>
                         {!!Form::label("delivery_city")!!}
 <br>
-                        {!!Form::text("delivery_city",$saved_quotes[0]->delivery_city,["class" => "form-control delivery-city","placeholder" => "Enter City Name","autocomplete" => "off"])!!}
+                        {!!Form::text("delivery_city",$quote->delivery_city,["class" => "form-control delivery-city","placeholder" => "Enter City Name","autocomplete" => "off"])!!}
 <br>
                         {!!Form::label("delivery_state")!!}
-                        {!!Form::select("delivery_state",$states,$saved_quotes[0]->delivery_state,["class" => "form-control delivery-state","placeholder" => "Select State"])!!}
+                        {!!Form::select("delivery_state",$states,$quote->delivery_state,["class" => "form-control delivery-state","placeholder" => "Select State"])!!}
                         {!!Form::label("delivery_zipcode")!!}
-                        {!!Form::text("delivery_zipcode",$saved_quotes[0]->delivery_zipcode,["class" => "form-control delivery-zipcode","placeholder" => "Enter Zip Code","autocomplete" => "off"])!!}
+                        {!!Form::text("delivery_zipcode",$quote->delivery_zipcode,["class" => "form-control delivery-zipcode","placeholder" => "Enter Zip Code","autocomplete" => "off"])!!}
 <br>
                     </div>
                     <a href="#" class="btn btn-info show-google-maps">Show in google maps</a>
@@ -83,7 +83,7 @@
 </div>
 &nbsp;
 <div class="form-inline">
-                        {!!Form::select("carrier type",[$saved_quotes[0]->carrier_type,"Open" => "Open Carrier","Enclosed" => "Enclosed Carrier"],"Open Carrier",["class" => "form-control select_carrier_type","placeholder" => "Select Carrier Type"])!!}
+                        {!!Form::select("carrier type",[$quote->carrier_type,"Open" => "Open Carrier","Enclosed" => "Enclosed Carrier"],"Open Carrier",["class" => "form-control select_carrier_type","placeholder" => "Select Carrier Type"])!!}
 &nbsp;
                     </div>
 <!--<a href="#" class="btn btn-info compare-prices">Compare Prices</a>-->
